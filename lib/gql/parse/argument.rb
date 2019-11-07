@@ -4,7 +4,7 @@ module Gql
     # @param data [Hash<Symbol>]
     # @return [Argument]
     def self.argument(data)
-      arg = Argument.new()
+      arg = Gql::Models::Argument.new()
       arg.name        = data[:name]
       arg.description = data[:description]
       arg.default     = data[:defaultValue]

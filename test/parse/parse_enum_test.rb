@@ -3,7 +3,7 @@ require "test_helper"
 class ParseEnumTest < Minitest::Test
 
   def test_enum1
-    want = Gql::Enum.new(
+    want = Gql::Models::Enum.new(
       name: "PriceRuleTarget",
       description: "The type of lines (line_item or shipping_line) to which the price rule applies.",
       values: [
@@ -23,7 +23,7 @@ class ParseEnumTest < Minitest::Test
   end
 
   def test_enum2
-    want = Gql::Enum.new(
+    want = Gql::Models::Enum.new(
       name: "DisputeType",
       description: "The possible types for a dispute.",
       values: [
@@ -43,7 +43,7 @@ class ParseEnumTest < Minitest::Test
   end
 
   def test_enum3
-    want = Gql::Enum.new(
+    want = Gql::Models::Enum.new(
       name: "ProductSortKeys",
       description: "The set of valid sort keys for the products query.",
       values: [

@@ -3,7 +3,7 @@ module Gql
     # @param data [Hash<Symbol>]
     # @return [Enum]
     def self.enum(data)
-      enum = Enum.new()
+      enum = Gql::Models::Enum.new()
       enum.name        = data[:name]
       enum.description = data[:description]
       data[:enumValues].each do |v|

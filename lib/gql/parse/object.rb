@@ -3,7 +3,7 @@ module Gql
     # @param data [Hash<Symbol>]
     # @return [Object]
     def self.object(data)
-      object = Object.new()
+      object = Gql::Models::Object.new()
       object.name        = data[:name]
       object.description = data[:description]
       object.fields      = data[:fields].map { |f| field(f) }

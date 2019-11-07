@@ -2,7 +2,7 @@ require "test_helper"
 
 class GenerateEnumTest < Minitest::Test
   def test_simple_generation
-    data = Gql::Enum.new(
+    data = Gql::Models::Enum.new(
       name: "Size",
       description: "Options for T-Shirt size.",
       values: [

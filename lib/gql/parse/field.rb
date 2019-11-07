@@ -4,7 +4,7 @@ module Gql
     # @return [Field]
     def self.field(data)
 
-      field = Field.new()
+      field = Gql::Models::Field.new()
       field.name        = data[:name]
       field.description = data[:description]
       # if data&.[](:args)&.length&.positive?

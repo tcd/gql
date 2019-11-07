@@ -3,10 +3,10 @@ require "test_helper"
 class ParseObjectTest < Minitest::Test
 
   def test_object1
-    want = Gql::Object.new(
+    want = Gql::Models::Object.new(
       name: "PublishedTranslation",
       description: "Published translation of a field of a resource.",
-      fields: Gql::Field.from_array([
+      fields: Gql::Models::Field.from_array([
         {
           name: "key",
           description: "Translation key.",
@@ -32,10 +32,10 @@ class ParseObjectTest < Minitest::Test
   end
 
   def test_object2
-    want = Gql::Object.new(
+    want = Gql::Models::Object.new(
       name: "SEO",
       description: "SEO information.",
-      fields: Gql::Field.from_array([
+      fields: Gql::Models::Field.from_array([
         {
           name: "description",
           description: "SEO Description.",
@@ -54,10 +54,10 @@ class ParseObjectTest < Minitest::Test
   end
 
   def test_object3
-    want = Gql::Object.new(
+    want = Gql::Models::Object.new(
       name: "UserError",
       description: "Represents an error in the input of a mutation.",
-      fields: Gql::Field.from_array([
+      fields: Gql::Models::Field.from_array([
         {
           name: "field",
           description: "Path to the input field which caused the error.",

@@ -3,7 +3,7 @@ require "test_helper"
 class ParseUnionTest < Minitest::Test
 
   def test_union1
-    want = Gql::Union.new(
+    want = Gql::Models::Union.new(
       name: "DiscountCode",
       description: "A code discount.",
       types: [
@@ -18,7 +18,7 @@ class ParseUnionTest < Minitest::Test
   end
 
   def test_union2
-    want = Gql::Union.new(
+    want = Gql::Models::Union.new(
       name: "DiscountEffect",
       description: "The type of discount that will be applied. Currently, only percentage off is supported.",
       types: ["DiscountPercentage"],
@@ -29,7 +29,7 @@ class ParseUnionTest < Minitest::Test
   end
 
   def test_union3
-    want = Gql::Union.new(
+    want = Gql::Models::Union.new(
       name: "CommentEventEmbed",
       description: "The main embed of a comment event.",
       types: [

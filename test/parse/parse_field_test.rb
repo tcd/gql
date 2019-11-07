@@ -3,7 +3,7 @@ require "test_helper"
 class ParseFieldTest < Minitest::Test
 
   def test_optional_value
-    want = Gql::Field.new(
+    want = Gql::Models::Field.new(
       name: "handle",
       description: "Handle of the app.",
       type: "String",
@@ -14,7 +14,7 @@ class ParseFieldTest < Minitest::Test
   end
 
   def test_required_value
-    want = Gql::Field.new(
+    want = Gql::Models::Field.new(
       name: "apiKey",
       description: "A unique application API identifier.",
       required: true,
@@ -26,7 +26,7 @@ class ParseFieldTest < Minitest::Test
   end
 
   def test_required_list_of_required_values
-    want = Gql::Field.new(
+    want = Gql::Models::Field.new(
       name: "features",
       description: "List of app features.",
       required: true,
@@ -40,7 +40,7 @@ class ParseFieldTest < Minitest::Test
   end
 
   def test_optional_list_of_required_values
-    want = Gql::Field.new(
+    want = Gql::Models::Field.new(
       name: "field",
       description: "Path to the input field which caused the error.",
       type: "String",
@@ -54,7 +54,7 @@ class ParseFieldTest < Minitest::Test
   end
 
   def test_required_list_of_optional_values
-    want = Gql::Field.new(
+    want = Gql::Models::Field.new(
       name: "not real",
       description: "This is just to cover a possible edge case.",
       type: "String",
@@ -69,18 +69,18 @@ class ParseFieldTest < Minitest::Test
 
   def test_optional_list_of_optional_values
     skip()
-    # want = Gql::Field.new()
+    # want = Gql::Models::Field.new()
     # data = Gql.parse_json(file_fixture("introspection-json/field?.json"))
     # have = Gql::Parse.field(data)
     # assert_equal(want, have)
   end
 
   def test_arguments
-    want = Gql::Field.new(
+    want = Gql::Models::Field.new(
       name: "metafield",
       description: "The metafield associated with the resource.",
       type: "Metafield",
-      args: Gql::Argument.from_array([
+      args: Gql::Models::Argument.from_array([
         {
           name: "namespace",
           description: "Container for a set of metafields (maximum of 20 characters).",
