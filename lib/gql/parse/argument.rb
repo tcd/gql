@@ -8,7 +8,10 @@ module Gql
       arg.name        = data[:name]
       arg.description = data[:description]
       arg.default     = data[:defaultValue]
-      if data[:type][:kind] == "NON_NULL"
+      arg.default     = data[:default] if data[:default]
+      if data[:type].is_a?(String)
+        arg.type = data[:type]
+      elsif data[:type][:kind] == "NON_NULL"
         arg.required = true
         arg.type = data[:type][:ofType][:name]
       else
