@@ -59,8 +59,17 @@ Style/RedundantReturn:
 Style/RedundantSelf:
   Enabled: false
 
+Style/WordArray:
+  EnforcedStyle: brackets
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+# TODO: File issue to ignore enums when using `EnforcedStyle: assign_inside_condition`.
 Style/ConditionalAssignment:
-  EnforcedStyle: assign_inside_condition
+  # EnforcedStyle: assign_inside_condition
+  # EnforcedStyle: assign_to_condition
+  Enabled: false
 
 ## Links
 # [1]: https://medium.com/@nikgraf/why-you-should-enforce-dangling-commas-for-multiline-statements-d034c98e36f8
