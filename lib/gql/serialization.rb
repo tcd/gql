@@ -14,9 +14,9 @@ module Gql
     alias to_hash to_h
     # @param _opts [Hash] For compatibility with `JSON.generate`. See: [ruby-doc.org](https://ruby-doc.org/stdlib-2.6.4/libdoc/json/rdoc/JSON.html#method-i-generate) and [rubydoc.info](https://www.rubydoc.info/gems/rubocop/RuboCop/Cop/Lint/ToJSON)
     # @return [String<JSON>]
-    def to_json(_opts = {})
+    def to_json(opts = {})
       # return self.to_h.reject! { |k, v| v.nil? }.to_json
-      return self.to_h.to_json
+      return self.to_h.to_json(opts)
     end
   end
 end

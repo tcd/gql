@@ -2,7 +2,7 @@ require "test_helper"
 
 class ParseEnumTest < Minitest::Test
 
-  def test_parse_enum1
+  def test_enum1
     want = Gql::Enum.new(
       name: "PriceRuleTarget",
       description: "The type of lines (line_item or shipping_line) to which the price rule applies.",
@@ -18,11 +18,11 @@ class ParseEnumTest < Minitest::Test
       ],
     )
     data = Gql.parse_json(file_fixture("introspection-json/enum1.json"))
-    have = Gql::Parse.parse_enum(data)
+    have = Gql::Parse.enum(data)
     assert_equal(want, have)
   end
 
-  def test_parse_enum2
+  def test_enum2
     want = Gql::Enum.new(
       name: "DisputeType",
       description: "The possible types for a dispute.",
@@ -38,11 +38,11 @@ class ParseEnumTest < Minitest::Test
       ],
     )
     data = Gql.parse_json(file_fixture("introspection-json/enum2.json"))
-    have = Gql::Parse.parse_enum(data)
+    have = Gql::Parse.enum(data)
     assert_equal(want, have)
   end
 
-  def test_parse_enum3
+  def test_enum3
     want = Gql::Enum.new(
       name: "ProductSortKeys",
       description: "The set of valid sort keys for the products query.",
@@ -86,7 +86,7 @@ class ParseEnumTest < Minitest::Test
       ],
     )
     data = Gql.parse_json(file_fixture("introspection-json/enum3.json"))
-    have = Gql::Parse.parse_enum(data)
+    have = Gql::Parse.enum(data)
     assert_equal(want, have)
   end
 

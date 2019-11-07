@@ -2,7 +2,7 @@ module Gql
   module Parse
     # @param data [Hash<Symbol>]
     # @return [Union]
-    def self.parse_union(data)
+    def self.union(data)
       union = Union.new()
       union.name        = data[:name]
       union.description = data[:description]

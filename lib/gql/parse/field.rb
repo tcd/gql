@@ -2,14 +2,14 @@ module Gql
   module Parse
     # @param data [Hash<Symbol>]
     # @return [Field]
-    def self.parse_field(data)
+    def self.field(data)
 
       field = Field.new()
       field.name        = data[:name]
       field.description = data[:description]
       # if data&.[](:args)&.length&.positive?
       if data[:args] && data[:args].length.positive?
-        field.args = data[:args].map { |arg| parse_argument(arg) }
+        field.args = data[:args].map { |arg| Gql::Parse.argument(arg) }
       end
 
       if data[:type][:kind] == "LIST"

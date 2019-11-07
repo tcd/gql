@@ -29,13 +29,6 @@ module Gql
       return @data[11][:possible_types].collect { |n| n[:name] }
     end
 
-    # - Product - 56
-    # - ProductVariant - 73
-    # - Customer - 171
-    # - Order - 181
-    # - MailingAddress - 186
-    # - LineItem - 209
-    #
     # @return [Array<String>]
     def types()
       types = []

@@ -2,7 +2,7 @@ require "test_helper"
 
 class ParseObjectTest < Minitest::Test
 
-  def test_parse_object1
+  def test_object1
     want = Gql::Object.new(
       name: "PublishedTranslation",
       description: "Published translation of a field of a resource.",
@@ -27,11 +27,11 @@ class ParseObjectTest < Minitest::Test
       ]),
     )
     data = Gql.parse_json(file_fixture("introspection-json/object1.json"))
-    have = Gql::Parse.parse_object(data)
+    have = Gql::Parse.object(data)
     assert_equal(want, have)
   end
 
-  def test_parse_object2
+  def test_object2
     want = Gql::Object.new(
       name: "SEO",
       description: "SEO information.",
@@ -49,11 +49,11 @@ class ParseObjectTest < Minitest::Test
       ]),
     )
     data = Gql.parse_json(file_fixture("introspection-json/object2.json"))
-    have = Gql::Parse.parse_object(data)
+    have = Gql::Parse.object(data)
     assert_equal(want, have)
   end
 
-  def test_parse_object3
+  def test_object3
     want = Gql::Object.new(
       name: "UserError",
       description: "Represents an error in the input of a mutation.",
@@ -75,7 +75,7 @@ class ParseObjectTest < Minitest::Test
       interfaces: ["DisplayableError"],
     )
     data = Gql.parse_json(file_fixture("introspection-json/object3.json"))
-    have = Gql::Parse.parse_object(data)
+    have = Gql::Parse.object(data)
     assert_equal(want, have)
   end
 

@@ -2,7 +2,7 @@ module Gql
   module Parse
     # @param data [Hash<Symbol>]
     # @return [Enum]
-    def self.parse_enum(data)
+    def self.enum(data)
       enum = Enum.new()
       enum.name        = data[:name]
       enum.description = data[:description]

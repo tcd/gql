@@ -1,6 +1,5 @@
 module Gql
   module Parse
-    # TODO: Handle `LIST -> NON_NULL` kinds.
     class Parser
 
       # Shopify GraphQL [Types](https://graphql.org/learn/schema/#type-system).
@@ -19,7 +18,7 @@ module Gql
       def parse()
         res = []
         @data.each do |d|
-          dat = parse_type(d)
+          dat = self.parse_type(d)
           res.append(dat) if dat
         end
         return res
@@ -32,13 +31,13 @@ module Gql
         when "SCALAR"
           return nil
         when "OBJECT"
-          return parse_object(type)
+          return Gql::Parse.object(type)
         when "ENUM"
-          return parse_enum(type)
+          return Gql::Parse.enum(type)
         when "UNION"
-          return parse_union(type)
+          return Gql::Parse.union(type)
         when "INTERFACE"
-          return parse_interface(type)
+          return Gql::Parse.interface(type)
         else
           return nil
         end

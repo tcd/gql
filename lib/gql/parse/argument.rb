@@ -3,7 +3,7 @@ module Gql
     # TODO: Handle List args?
     # @param data [Hash<Symbol>]
     # @return [Argument]
-    def self.parse_argument(data)
+    def self.argument(data)
       arg = Argument.new()
       arg.name        = data[:name]
       arg.description = data[:description]
