@@ -1,10 +1,10 @@
 module Gql
   module Generate
-    # @param field [Hash]
+    # @param field [Gql::Models::Field]
     # @return [String]
-    def self.generate_field(f)
-      bang = f[:required] ? "!" : ""
-      return "#{f[:name]}#{self.generate_args(f[:args])}: #{f[:type]}#{bang}"
+    def self.field(field)
+      bang = field.required ? "!" : ""
+      return "#{field.name}#{self.arguments(field.args)}: #{field.type}#{bang}"
     end
   end
 end

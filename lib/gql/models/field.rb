@@ -36,7 +36,7 @@ module Gql
       attr_accessor :members_required
 
       # @!attribute [rw] args
-      #   @return [Array<Argument>]
+      #   @return [Array<Gql::Models::Argument>]
       attr_accessor :args
 
       # @param name [String]
@@ -45,7 +45,7 @@ module Gql
       # @param required [Boolean]
       # @param list [Boolean]
       # @param members_required [Boolean]
-      # @param args [Array<Argument>]
+      # @param args [Array<Gql::Models::Argument>]
       # @return [void]
       def initialize(
         name: nil,

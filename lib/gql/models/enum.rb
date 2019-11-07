@@ -14,7 +14,7 @@ module Gql
       attr_accessor :description
 
       # @!attribute [rw] values
-      #   @return [Array<EnumValue>]
+      #   @return [Array<Hash<:name, :description>>]
       attr_accessor :values
 
       # @param name [String]

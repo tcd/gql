@@ -1,11 +1,11 @@
 module Gql
   module Generate
-    # @param data [Hash]
+    # @param enum [Gql::Models::Enum]
     # @return [String]
-    def self.generate_enum(data)
+    def self.enum(enum)
       return <<~END
-        """#{u_data[:description]}"""
-        union #{u_data[:name]} = #{u_data[:types].join(' | ')}
+        """#{enum.description}"""
+        union #{enum.name} = #{enum.types.join(' | ')}
       END
     end
   end

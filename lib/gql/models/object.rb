@@ -14,7 +14,7 @@ module Gql
       attr_accessor :description
 
       # @!attribute [rw] fields
-      #   @return [Array<Field>]
+      #   @return [Array<Gql::Models::Field>]
       attr_accessor :fields
 
       # @!attribute [rw] interfaces
@@ -22,6 +22,10 @@ module Gql
       #   @return [Array<String>]
       attr_accessor :interfaces
 
+      # @param name [String]
+      # @param description [String]
+      # @param fields [Array<Gql::Models::Field>]
+      # @param interfaces [Array<String>]
       # @return [void]
       def initialize(name: nil, description: nil, fields: [], interfaces: [])
         self.name        = name

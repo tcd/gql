@@ -1,11 +1,11 @@
 module Gql
   module Generate
-    # @param data [Hash]
+    # @param union [Gql::Models::Union]
     # @return [String]
-    def self.generate_union(data)
+    def self.union(union)
       return <<~END
-        """#{u_data[:description]}"""
-        union #{u_data[:name]} = #{u_data[:types].join(' | ')}
+        """#{union.description}"""
+        union #{union.name} = #{union.types.join(' | ')}
       END
     end
   end
