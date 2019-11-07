@@ -1,0 +1,8 @@
+{
+  "name": "Pirate Catchphrase",
+  "description": "The catchphrase a pirate should use when making scallywags walk the plank.",
+  "type": "String",
+  "required": false,
+  "default": "Yaarrrghhhh"
+}
+

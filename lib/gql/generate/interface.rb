@@ -3,14 +3,15 @@ module Gql
     # @param iface [Gql::Models::Interface]
     # @return [String]
     def self.interface(iface)
+      description = iface.description ? "" : `"""#{iface.description}"""\n`
       fields = iface.fields.map { |f| self.field(f) }.join("\n  ")
-      return %(
-"#{iface.description}"
-interface #{iface.name} {
-  #{fields}
-}
-
-)
+      result = <<~END
+        #{description}
+        interface #{iface.name} {
+          #{fields}
+        }
+      END
+      return description + result
     end
 
     # def self.save_interfaces(is)

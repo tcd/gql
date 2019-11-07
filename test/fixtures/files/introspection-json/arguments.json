@@ -1,0 +1,84 @@
+{
+  "arguments": [
+    {
+      "name": "first",
+      "description": "Returns up to the first `n` elements from the list.",
+      "type": "Int",
+      "required": false,
+      "default": null
+    },
+    {
+      "name": "subjectTypes",
+      "description": "List of subject types to filter by.",
+      "type": {
+        "kind": "LIST",
+        "name": null,
+        "ofType": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "ENUM",
+            "name": "DeletionEventSubjectType",
+            "ofType": null
+          }
+        }
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "query",
+      "description": "Supported filter parameters:\n - `status`\n - `type`\n\nSee the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).\n",
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "handle",
+      "description": "Handle of the App.",
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "includeLegacy",
+      "description": "If true, also include the legacy locations of fulfillment services.",
+      "type": {
+        "kind": "SCALAR",
+        "name": "Boolean",
+        "ofType": null
+      },
+      "defaultValue": "false"
+    },
+    {
+      "name": "scale",
+      "description": "Image size multiplier for high-resolution retina displays. Must be between 1 and 3.",
+      "type": {
+        "kind": "SCALAR",
+        "name": "Int",
+        "ofType": null
+      },
+      "defaultValue": "1"
+    },
+    {
+      "name": "sortKey",
+      "description": "Sort the underlying list by the given key.",
+      "type": {
+        "kind": "ENUM",
+        "name": "AppSubscriptionSortKeys",
+        "ofType": null
+      },
+      "defaultValue": "CREATED_AT"
+    }
+  ]
+}
+

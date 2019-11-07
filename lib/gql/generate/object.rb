@@ -3,13 +3,14 @@ module Gql
     # @param object [Gql::Models::Object]
     # @return [String]
     def self.object(object)
-      desc = object.description ? "" : `"""#{object.description}"""`
-      return <<~END
+      description = object.description ? "" : `"""#{object.description}"""\n`
+      result = <<~END
         #{description}
         type #{object.name} {
 
         }
       END
+      return description + result
     end
   end
 end

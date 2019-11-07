@@ -3,10 +3,11 @@ module Gql
     # @param union [Gql::Models::Union]
     # @return [String]
     def self.union(union)
-      return <<~END
-        """#{union.description}"""
+      description = union.description ? "" : `"""#{union.description}"""\n`
+      result = <<~END
         union #{union.name} = #{union.types.join(' | ')}
       END
+      return description + result
     end
   end
 end
