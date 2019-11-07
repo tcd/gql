@@ -3,6 +3,12 @@ require "simplecov"
 SimpleCov.start do
   add_filter "/bin/"
   add_filter "/test/"
+
+  add_group "Generate", "lib/gql/generate"
+  add_group "Models", "lib/gql/models"
+  add_group "Parse", "lib/gql/parse"
+
+  track_files "lib/**/*.rb"
 end
 # if ENV["CI"] == "true"
 #   require "codecov"
@@ -13,6 +19,7 @@ $LOAD_PATH.unshift File.expand_path("../lib", __dir__)
 require "gql"
 
 require "minitest/autorun"
+require "pry"
 
 # Return Pathname for a file used in tests.
 #

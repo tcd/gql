@@ -6,11 +6,7 @@ class ParseUnionTest < Minitest::Test
     want = Gql::Models::Union.new(
       name: "DiscountCode",
       description: "A code discount.",
-      types: [
-        "DiscountCodeBasic",
-        "DiscountCodeBxgy",
-        "DiscountCodeFreeShipping",
-      ],
+      types: ["DiscountCodeBasic", "DiscountCodeBxgy", "DiscountCodeFreeShipping"],
     )
     data = Gql.parse_json(file_fixture("introspection-json/union1.json"))
     have = Gql::Parse.union(data)

@@ -69,10 +69,10 @@ class ParseFieldTest < Minitest::Test
 
   def test_optional_list_of_optional_values
     skip()
-    # want = Gql::Models::Field.new()
-    # data = Gql.parse_json(file_fixture("introspection-json/field?.json"))
-    # have = Gql::Parse.field(data)
-    # assert_equal(want, have)
+    want = Gql::Models::Field.new()
+    data = Gql.parse_json(file_fixture("introspection-json/field?.json"))
+    have = Gql::Parse.field(data)
+    assert_equal(want, have)
   end
 
   def test_arguments
