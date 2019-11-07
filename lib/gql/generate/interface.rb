@@ -3,7 +3,7 @@ module Gql
     # @param iface [Gql::Models::Interface]
     # @return [String]
     def self.interface(iface)
-      description = iface.description ? "" : `"""#{iface.description}"""\n`
+      description = iface.description ? %("""#{iface.description}"""\n) : ""
       fields = iface.fields.map { |f| self.field(f) }.join("\n  ")
       result = <<~END
         #{description}
