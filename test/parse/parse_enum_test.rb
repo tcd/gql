@@ -17,7 +17,7 @@ class ParseEnumTest < Minitest::Test
         },
       ],
     )
-    data = Gql.parse_json(file_fixture("introspection-json/enum1.json"))
+    data = Gql.parse_json(file_fixture("introspection-json/enum/enum1.json"))
     have = Gql::Parse.enum(data)
     assert_equal(want, have)
   end
@@ -37,7 +37,7 @@ class ParseEnumTest < Minitest::Test
         },
       ],
     )
-    data = Gql.parse_json(file_fixture("introspection-json/enum2.json"))
+    data = Gql.parse_json(file_fixture("introspection-json/enum/enum2.json"))
     have = Gql::Parse.enum(data)
     assert_equal(want, have)
   end
@@ -85,7 +85,7 @@ class ParseEnumTest < Minitest::Test
         },
       ],
     )
-    data = Gql.parse_json(file_fixture("introspection-json/enum3.json"))
+    data = Gql.parse_json(file_fixture("introspection-json/enum/enum3.json"))
     have = Gql::Parse.enum(data)
     assert_equal(want, have)
   end

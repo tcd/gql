@@ -45,6 +45,38 @@ module Gql
         end
       end
 
+      # @return [Array<Hash>]
+      def scalars()
+        res = []
+        @data.each do |d|
+          dat = self.parse_type(d)
+          if d[:kind] == "SCALAR"
+          res.append(dat)
+          end
+        end
+        return res
+      end
+
+      # @return [Array<Object>]
+      def objects()
+        @data.map { |d| d[:kind] == "OBJECT" ? Gql::Parse.object(d) : nil}
+      end
+
+      # @return [Array<Enum>]
+      def enums()
+        @data.map { |d| d[:kind] == "ENUM" ? Gql::Parse.enum(d) : nil}
+      end
+
+      # @return [Array<Union>]
+      def unions()
+        @data.map { |d| d[:kind] == "UNION" ? Gql::Parse.union(d) : nil}
+      end
+
+      # @return [Array<Interface>]
+      def interfaces()
+        @data.map { |d| d[:kind] == "INTERFACE" ? Gql::Parse.interface(d) : nil}
+      end
+
     end
   end
 end

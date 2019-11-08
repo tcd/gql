@@ -26,7 +26,7 @@ class ParseObjectTest < Minitest::Test
         },
       ]),
     )
-    data = Gql.parse_json(file_fixture("introspection-json/object1.json"))
+    data = Gql.parse_json(file_fixture("introspection-json/object/object1.json"))
     have = Gql::Parse.object(data)
     assert_equal(want, have)
   end
@@ -48,7 +48,7 @@ class ParseObjectTest < Minitest::Test
         },
       ]),
     )
-    data = Gql.parse_json(file_fixture("introspection-json/object2.json"))
+    data = Gql.parse_json(file_fixture("introspection-json/object/object2.json"))
     have = Gql::Parse.object(data)
     assert_equal(want, have)
   end
@@ -74,7 +74,7 @@ class ParseObjectTest < Minitest::Test
       ]),
       interfaces: ["DisplayableError"],
     )
-    data = Gql.parse_json(file_fixture("introspection-json/object3.json"))
+    data = Gql.parse_json(file_fixture("introspection-json/object/object3.json"))
     have = Gql::Parse.object(data)
     assert_equal(want, have)
   end

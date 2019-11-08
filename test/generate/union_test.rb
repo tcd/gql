@@ -2,17 +2,16 @@ require "test_helper"
 
 class GenerateUnionTest < Minitest::Test
 
-  def test_simple_generation
+  def test_with_description
     want = <<~GQL
       """Colors!"""
       union Color = Red | Green | Blue
     GQL
-    data = Gql::Models::Union.new(
+    have = Gql::Generate.union(Gql::Models::Union.new(
       name: "Color",
       description: "Colors!",
       types: ["Red", "Green", "Blue"],
-    )
-    have = Gql::Generate.union(data)
+    ))
     assert_equal(want, have)
   end
 
@@ -20,11 +19,10 @@ class GenerateUnionTest < Minitest::Test
     want = <<~GQL
       union Color = Red | Green | Blue
     GQL
-    data = Gql::Models::Union.new(
+    have = Gql::Generate.union(Gql::Models::Union.new(
       name: "Color",
       types: ["Red", "Green", "Blue"],
-    )
-    have = Gql::Generate.union(data)
+    ))
     assert_equal(want, have)
   end
 

@@ -9,7 +9,7 @@ class ParseArgumentTest < Minitest::Test
       type: "String",
       default: "Yaarrrghhhh",
     )
-    data = Gql.parse_json(file_fixture("introspection-json/argument1.json"))
+    data = Gql.parse_json(file_fixture("introspection-json/argument/argument1.json"))
     have = Gql::Parse.argument(data)
     assert_equal(want, have)
   end
