@@ -3,9 +3,12 @@
     {
       "name": "first",
       "description": "Returns up to the first `n` elements from the list.",
-      "type": "Int",
-      "required": false,
-      "default": null
+      "type": {
+        "kind": "SCALAR",
+        "name": "Int",
+        "ofType": null
+      },
+      "defaultValue": null
     },
     {
       "name": "subjectTypes",

@@ -12,6 +12,8 @@ module Gql
         field.args = data[:args].map { |arg| Gql::Parse.argument(arg) }
       end
 
+      # if data[:type][:kind].nil?
+      #   field.type = data[:type][:name]
       if data[:type][:kind] == "LIST"
         field.list = true
         if data[:type][:ofType][:kind] == "NON_NULL"

@@ -1,10 +1,8 @@
 {
   "name": "pirate_catchphrase",
   "description": "The catchphrase a pirate should use when making scallywags walk the plank.",
-  "type": {
-    "kind": "SCALAR",
-    "name": "String",
-    "ofType": null
-  },
-  "defaultValue": "Yaarrrghhhh"
+  "type": "String",
+  "required": false,
+  "default": "Yaarrrghhhh"
 }
+

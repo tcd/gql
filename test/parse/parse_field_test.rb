@@ -55,7 +55,7 @@ class ParseFieldTest < Minitest::Test
 
   def test_required_list_of_optional_values
     want = Gql::Models::Field.new(
-      name: "not real",
+      name: "not_real",
       description: "This is just to cover a possible edge case.",
       type: "String",
       required: true,

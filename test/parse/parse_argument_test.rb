@@ -4,7 +4,7 @@ class ParseArgumentTest < Minitest::Test
 
   def test_parse_arg1
     want = Gql::Models::Argument.new(
-      name: "Pirate Catchphrase",
+      name: "pirate_catchphrase",
       description: "The catchphrase a pirate should use when making scallywags walk the plank.",
       type: "String",
       default: "Yaarrrghhhh",

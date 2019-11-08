@@ -3,9 +3,13 @@ AllCops:
 
 Style/Documentation:
   Enabled: true
+  Exclude:
+    - 'test/**/*.rb'
 
 Style/DocumentationMethod:
   Enabled: true
+  Exclude:
+    - 'test/**/*.rb'
 
 # Don't leave calls to pry lying around.
 Lint/Debugger:
@@ -17,7 +21,6 @@ Metrics/LineLength:
 Style/StringLiterals:
   EnforcedStyle: double_quotes
 
-# See link [2]
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -71,20 +74,11 @@ Style/ConditionalAssignment:
   # EnforcedStyle: assign_to_condition
   Enabled: false
 
-## Links
-# [1]: https://medium.com/@nikgraf/why-you-should-enforce-dangling-commas-for-multiline-statements-d034c98e36f8
-# [2]: https://www.wyeworks.com/blog/2015/12/01/immutable-strings-in-ruby-2-dot-3/
-
-
-# ==============================================================================
-# These should be enabled, but are not.
-# ==============================================================================
-
 Lint/HandleExceptions:
   AllowComments: true
 
-Lint/UnneededCopDisableDirective:
-  Enabled: false
+# Lint/UnneededCopDisableDirective:
+#   Enabled: false
 
 Metrics/BlockLength:
   Enabled: false
@@ -109,3 +103,12 @@ Metrics/PerceivedComplexity:
 
 Layout/EmptyLinesAroundBlockBody:
   Enabled: false
+
+# Seriously?
+Style/CommentedKeyword:
+  Enabled: False
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+# [1]: https://medium.com/@nikgraf/why-you-should-enforce-dangling-commas-for-multiline-statements-d034c98e36f8

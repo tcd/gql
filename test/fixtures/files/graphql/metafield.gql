@@ -1,0 +1,7 @@
+"""This is just to cover a possible edge case."""
+metafield(
+  "Container for a set of metafields (maximum of 20 characters)."
+  namespace: String!,
+  "Identifier for the metafield (maximum of 30 characters)."
+  key: String!
+): Metafield

@@ -13,13 +13,13 @@ class ModelTest < Minitest::Test
   #
   # def test_argument_constructor
   #   data = Gql::Models::Argument.new(
-  #     name: "Pirate Catchphrase",
+  #     name: "pirate_catchphrase",
   #     description: "The catchphrase a pirate should use when making scallywags walk the plank.",
   #     type: "String",
   #     required: true,
   #     default: "Yaarrrghhhh",
   #   )
-  #   assert_equal("Pirate Catchphrase", data.name)
+  #   assert_equal("pirate_catchphrase", data.name)
   #   assert_equal("The catchphrase a pirate should use when making scallywags walk the plank.", data.description)
   #   assert_equal("String", data.type)
   #   assert(data.required)

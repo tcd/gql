@@ -1,6 +1,6 @@
 {
   "name": "pirate_catchphrase",
-  "description": "The catchphrase a pirate should use when making scallywags walk the plank.",
+  "description": null,
   "type": {
     "kind": "SCALAR",
     "name": "String",

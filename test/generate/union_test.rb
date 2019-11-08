@@ -3,10 +3,10 @@ require "test_helper"
 class GenerateUnionTest < Minitest::Test
 
   def test_simple_generation
-    want = <<~END
+    want = <<~GQL
       """Colors!"""
       union Color = Red | Green | Blue
-    END
+    GQL
     data = Gql::Models::Union.new(
       name: "Color",
       description: "Colors!",
@@ -17,9 +17,9 @@ class GenerateUnionTest < Minitest::Test
   end
 
   def test_without_description
-    want = <<~END
+    want = <<~GQL
       union Color = Red | Green | Blue
-    END
+    GQL
     data = Gql::Models::Union.new(
       name: "Color",
       types: ["Red", "Green", "Blue"],

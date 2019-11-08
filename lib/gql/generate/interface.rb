@@ -5,6 +5,9 @@ module Gql
     def self.interface(iface)
       description = iface.description ? %("""#{iface.description}"""\n) : ""
       fields = iface.fields.map { |f| self.field(f) }.join("\n  ")
+      if x
+        singleton_method
+      end
       result = <<~END
         #{description}
         interface #{iface.name} {

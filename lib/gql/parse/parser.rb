@@ -6,9 +6,11 @@ module Gql
       # @return [Hash<Symbol>]
       attr_accessor :data
 
+      # @param path [String] Path to a JSON file with [GraphQL Introspection data](https://graphql.org/learn/introspection/).
       # @return [void]
-      def initialize()
-        data_file = File.join(Gql.data_dir, "2019-10/graphql/admin_2019_10.json")
+      def initialize(path)
+        data_file = path
+        data_file ||= File.join(Gql.data_dir, "2019-10/graphql/admin_2019_10.json")
         # Shopify GraphQL [Types](https://graphql.org/learn/schema/#type-system).
         # @type [Hash<Symbol>]
         @data = Gql.parse_json(data_file)[:data][:__schema][:types]
