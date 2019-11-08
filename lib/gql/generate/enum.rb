@@ -15,7 +15,7 @@ module Gql
     # @param value [Hash<:name, :description>]
     # @return [String]
     def self.enum_value(value)
-      description = value[:description] ? %("""#{value[:description]}"""\n) : ""
+      description = value[:description] ? %("""#{value[:description]}"""\n  ) : ""
       return description + value[:name]
     end
   end

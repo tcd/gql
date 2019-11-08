@@ -42,4 +42,25 @@ class GenerateEnumTest < Minitest::Test
     assert_equal(want, have)
   end
 
+  def test_with_individual_discriptions
+    want = <<~GQL
+      enum Size {
+        """Super duper tiny."""
+        Small
+        Medium
+        """Absolutely humongous."""
+        Large
+      }
+    GQL
+    have = Gql::Generate.enum(Gql::Models::Enum.new(
+      name: "Size",
+      values: [
+        {name: "Small",  description: "Super duper tiny."},
+        {name: "Medium", description: nil},
+        {name: "Large",  description: "Absolutely humongous."},
+      ],
+    ))
+    assert_equal(want, have)
+  end
+
 end
