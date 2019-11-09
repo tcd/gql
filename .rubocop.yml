@@ -33,6 +33,10 @@ Style/BracesAroundHashParameters:
 Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
 
+Layout/IndentFirstArrayElement:
+  EnforcedStyle: consistent
+
+# https://unix.stackexchange.com/a/18789
 Layout/TrailingBlankLines:
   EnforcedStyle: final_newline
 
@@ -104,7 +108,18 @@ Metrics/PerceivedComplexity:
 Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 
-# Seriously?
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/ZeroLengthPredicate:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
 Style/CommentedKeyword:
   Enabled: False
 
