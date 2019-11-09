@@ -1,0 +1,126 @@
+{
+  "kind": "INTERFACE",
+  "name": "LegacyInteroperability",
+  "description": "Interoperability metadata for types which directly correspond to a REST Admin API resource.\n",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": [
+    {
+      "name": "legacyResourceId",
+      "description": "The ID of the corresponding resource in the REST Admin API.",
+      "args": [
+
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "UnsignedInt64",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    }
+  ],
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": null,
+  "possibleTypes": [
+    {
+      "kind": "OBJECT",
+      "name": "Customer",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "DraftOrder",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "Fulfillment",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "InventoryItem",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "Location",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "MarketingEvent",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "Metafield",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "MetafieldStorefrontVisibility",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "Order",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "PriceRule",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "Product",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "ProductVariant",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "Refund",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "SavedSearch",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "ScriptTag",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "ShopifyPaymentsDispute",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "ShopifyPaymentsPayout",
+      "ofType": null
+    },
+    {
+      "kind": "OBJECT",
+      "name": "WebhookSubscription",
+      "ofType": null
+    }
+  ],
+  "requiredAccess": null
+}

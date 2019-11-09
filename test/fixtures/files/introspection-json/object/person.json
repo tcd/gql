@@ -1,0 +1,29 @@
+{
+  "kind": "OBJECT",
+  "name": "Person",
+  "description": null,
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": [
+    {
+      "name": "name",
+      "description": null,
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    }
+  ],
+  "inputFields": null,
+  "interfaces": [],
+  "enumValues": null,
+  "possibleTypes": null,
+  "requiredAccess": null
+}

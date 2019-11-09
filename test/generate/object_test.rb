@@ -1,46 +1,15 @@
-require "json"
 require "test_helper"
 require "pry"
 
 class GenerateObjectTest < Minitest::Test
 
-  def test_basic_object
-    null = nil
-    json = {
-        "kind": "OBJECT",
-        "name": "Person",
-        "description": null,
-        "accessRestricted": false,
-        "accessRestrictedReason": null,
-        "fields": [
-          {
-            "name": "name",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "isDeprecated": false,
-            "deprecationReason": null,
-            "accessRestricted": false,
-            "accessRestrictedReason": null,
-            "requiredAccess": null
-          }
-        ],
-        "inputFields": null,
-        "interfaces": [],
-        "enumValues": null,
-        "possibleTypes": null,
-        "requiredAccess": null,
-      }.to_json
+  def test_objet_with_no_descriptions
     want = <<~GQL.strip()
       type Person {
         name: String
       }
     GQL
-    object = Gql::Parse.object(JSON.parse(json, symbolize_names: true))
+    object = Gql::Parse.object(json_file_fixture("introspection-json/object/person.json"))
     have = Gql::Generate.object(object)
     assert_equal_and_print(want, have)
   end
@@ -55,7 +24,7 @@ class GenerateObjectTest < Minitest::Test
         title: String
       }
     GQL
-    object = Gql::Parse.object(Gql.parse_json(file_fixture("introspection-json/object/object2.json")))
+    object = Gql::Parse.object(json_file_fixture("introspection-json/object/seo.json"))
     have = Gql::Generate.object(object)
     assert_equal(want, have)
   end
@@ -70,7 +39,7 @@ class GenerateObjectTest < Minitest::Test
         message: String!
       }
     GQL
-    object = Gql::Parse.object(Gql.parse_json(file_fixture("introspection-json/object/object3.json")))
+    object = Gql::Parse.object(json_file_fixture("introspection-json/object/user_error.json"))
     have = Gql::Generate.object(object)
     assert_equal(want, have)
   end
