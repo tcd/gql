@@ -1,7 +1,7 @@
 module Gql
   module Parse
     # @param data [Hash<Symbol>]
-    # @return [Interface]
+    # @return [Gql::Models::Interface]
     def self.interface(data)
       interface = Gql::Models::Interface.new()
       interface.name        = data[:name]

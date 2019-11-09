@@ -2,7 +2,7 @@ module Gql
   module Parse
     # TODO: Handle List args?
     # @param data [Hash<Symbol>]
-    # @return [Argument]
+    # @return [Gql::Models::Argument]
     def self.argument(data)
       arg = Gql::Models::Argument.new()
       arg.name        = data[:name]

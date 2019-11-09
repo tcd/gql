@@ -1,7 +1,7 @@
 module Gql
   module Parse
     # @param data [Hash<Symbol>]
-    # @return [Enum]
+    # @return [Gql::Models::Enum]
     def self.enum(data)
       enum = Gql::Models::Enum.new()
       enum.name        = data[:name]

@@ -1,7 +1,7 @@
 module Gql
   module Parse
     # @param data [Hash<Symbol>]
-    # @return [Object]
+    # @return [Gql::Models::Object]
     def self.object(data)
       object = Gql::Models::Object.new()
       object.name         = data[:name]

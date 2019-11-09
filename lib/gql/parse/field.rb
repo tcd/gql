@@ -1,19 +1,16 @@
 module Gql
   module Parse
     # @param data [Hash<Symbol>]
-    # @return [Field]
+    # @return [Gql::Models::Field]
     def self.field(data)
 
       field = Gql::Models::Field.new()
       field.name        = data[:name]
       field.description = data[:description]
-      # if data&.[](:args)&.length&.positive?
       if data[:args] && data[:args].length.positive?
         field.args = data[:args].map { |arg| Gql::Parse.argument(arg) }
       end
 
-      # if data[:type][:kind].nil?
-      #   field.type = data[:type][:name]
       if data[:type][:kind] == "LIST"
         field.list = true
         if data[:type][:ofType][:kind] == "NON_NULL"
