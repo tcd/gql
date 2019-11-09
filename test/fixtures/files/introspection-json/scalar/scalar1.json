@@ -1,0 +1,13 @@
+{
+  "kind": "SCALAR",
+  "name": "URL",
+  "description": "An RFC 3986 and RFC 3987 compliant URI string.\n\nExample value: `\"https://johns-apparel.myshopify.com\"`.\n",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": null,
+  "possibleTypes": null,
+  "requiredAccess": null
+}
