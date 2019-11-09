@@ -10,7 +10,7 @@ module Gql
       # @return [void]
       def initialize(path)
         data_file = path
-        data_file ||= File.join(Gql.data_dir, "2019-10/graphql/admin_2019_10.json")
+        data_file ||= File.join(Gql.data_dir, "shopify/admin_2019_10.json")
         # Shopify GraphQL [Types](https://graphql.org/learn/schema/#type-system).
         # @type [Hash<Symbol>]
         @data = Gql.parse_json(data_file)[:data][:__schema][:types]
@@ -31,7 +31,7 @@ module Gql
       def parse_type(type)
         case type[:kind]
         when "SCALAR"
-          return nil
+          return Gql::Parse.scalar(type)
         when "OBJECT"
           return Gql::Parse.object(type)
         when "ENUM"
@@ -45,36 +45,29 @@ module Gql
         end
       end
 
-      # @return [Array<Hash>]
+      # @return [Array<Scalar>]
       def scalars()
-        res = []
-        @data.each do |d|
-          dat = self.parse_type(d)
-          if d[:kind] == "SCALAR"
-          res.append(dat)
-          end
-        end
-        return res
+        return @data.map { |d| d[:kind] == "SCALAR" ? Gql::Parse.scalar(d) : nil }.compact
       end
 
       # @return [Array<Object>]
       def objects()
-        @data.map { |d| d[:kind] == "OBJECT" ? Gql::Parse.object(d) : nil}
+        return @data.map { |d| d[:kind] == "OBJECT" ? Gql::Parse.object(d) : nil }.compact
       end
 
       # @return [Array<Enum>]
       def enums()
-        @data.map { |d| d[:kind] == "ENUM" ? Gql::Parse.enum(d) : nil}
+        return @data.map { |d| d[:kind] == "ENUM" ? Gql::Parse.enum(d) : nil }.compact
       end
 
       # @return [Array<Union>]
       def unions()
-        @data.map { |d| d[:kind] == "UNION" ? Gql::Parse.union(d) : nil}
+        return @data.map { |d| d[:kind] == "UNION" ? Gql::Parse.union(d) : nil }.compact
       end
 
       # @return [Array<Interface>]
       def interfaces()
-        @data.map { |d| d[:kind] == "INTERFACE" ? Gql::Parse.interface(d) : nil}
+        return @data.map { |d| d[:kind] == "INTERFACE" ? Gql::Parse.interface(d) : nil }.compact
       end
 
     end
