@@ -1,6 +1,7 @@
 require "test_helper"
 
 class GqlTest < Minitest::Test
+
   def test_that_it_has_a_version_number
     refute_nil ::Gql::VERSION
   end
@@ -36,4 +37,5 @@ class GqlTest < Minitest::Test
     have = Gql::Models::Argument.new({ name: "Clay", description: "Wishes this was easier", type: "Programmer", required: true }).to_json
     assert_equal(want, have)
   end
+
 end

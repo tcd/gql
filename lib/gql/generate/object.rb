@@ -4,13 +4,12 @@ module Gql
     # @return [String]
     def self.object(object)
       description = object.description ? %("""#{object.description}"""\n) : ""
-      result = <<~END
-        #{description}
-        type #{object.name} {
+      interfaces  = object.interfaces.length == 0 ? "" : " implements #{object.interfaces.join(' | ')}"
 
-        }
-      END
-      return description + result
+      start  = description + "type " + object.name + interfaces + " {\n"
+      middle = object.fields.map { |f| self.field(f) }.join(",\n")
+      ending = "\n}"
+      return start + Gql.indent(middle, 2) + ending
     end
   end
 end
