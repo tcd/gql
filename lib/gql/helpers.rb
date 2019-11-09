@@ -1,4 +1,4 @@
-require 'JSON'
+require "JSON"
 
 module Gql
 
@@ -52,6 +52,18 @@ module Gql
   # @return [String]
   def self.tmp_dir
     return File.join(self.root_dir, "tmp")
+  end
+
+  # Return a copy of a string with indentation applied.
+  # See [Active Support](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/string/indent.rb) for a more complete implementation.
+  #
+  # @param string [String] The string to indent.
+  # @param count [Integer] The level of indentation to add.
+  # @param char [String] The character to use for indentation. (Defaults to `" "`)
+  # @return [String]
+  def self.indent(string, count, char = " ")
+    indent = (char * count)
+    return indent << string.split("\n").join("\n" + indent)
   end
 
 end
