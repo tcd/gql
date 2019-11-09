@@ -1,0 +1,455 @@
+{
+  "kind": "OBJECT",
+  "name": "Fulfillment",
+  "description": "Represents a fulfillment. In Shopify, a fulfillment represents a shipment of one or more items in an order. When an order has been completely fulfilled, it means that all the items that are included in the order have been sent to the customer. There can be more than one fulfillment for an order.\n",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": [
+    {
+      "name": "createdAt",
+      "description": "The date and time when the fulfillment was created.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "DateTime",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "deliveredAt",
+      "description": "The date that this fulfillment was delivered.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "DateTime",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "displayStatus",
+      "description": "Human readable display status for this fulfillment.",
+      "args": [],
+      "type": {
+        "kind": "ENUM",
+        "name": "FulfillmentDisplayStatus",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "estimatedDeliveryAt",
+      "description": "The estimated date that this fulfillment will arrive.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "DateTime",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "events",
+      "description": "The history of events associated with this fulfillment.",
+      "args": [
+        {
+          "name": "first",
+          "description": "Returns up to the first `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "after",
+          "description": "Returns the elements that come after the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "last",
+          "description": "Returns up to the last `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "before",
+          "description": "Returns the elements that come before the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "reverse",
+          "description": "Reverse the order of the underlying list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "sortKey",
+          "description": "Sort the underlying list by the given key.",
+          "type": {
+            "kind": "ENUM",
+            "name": "FulfillmentEventSortKeys",
+            "ofType": null
+          },
+          "defaultValue": "HAPPENED_AT"
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "OBJECT",
+          "name": "FulfillmentEventConnection",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "fulfillmentLineItems",
+      "description": "List of the fulfillment's line items.",
+      "args": [
+        {
+          "name": "first",
+          "description": "Returns up to the first `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "after",
+          "description": "Returns the elements that come after the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "last",
+          "description": "Returns up to the last `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "before",
+          "description": "Returns the elements that come before the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "reverse",
+          "description": "Reverse the order of the underlying list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          },
+          "defaultValue": "false"
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "OBJECT",
+          "name": "FulfillmentLineItemConnection",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "id",
+      "description": "Globally unique identifier.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "ID",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "inTransitAt",
+      "description": "The date and time when the fulfillment went into transit.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "DateTime",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "legacyResourceId",
+      "description": "The ID of the corresponding resource in the REST Admin API.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "UnsignedInt64",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "location",
+      "description": "The location that the fulfillment was processed at.",
+      "args": [],
+      "type": {
+        "kind": "OBJECT",
+        "name": "Location",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "name",
+      "description": "Human readable reference identifier for this fulfillment.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "requiresShipping",
+      "description": "Whether any of the line items in the fulfillment require shipping.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "service",
+      "description": "Fulfillment service associated with the fulfillment.",
+      "args": [],
+      "type": {
+        "kind": "OBJECT",
+        "name": "FulfillmentService",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "status",
+      "description": "The status of the fulfillment.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "ENUM",
+          "name": "FulfillmentStatus",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "totalQuantity",
+      "description": "Sum of all line item quantities for the fulfillment.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "trackingInfo",
+      "description": "Tracking information associated with the fulfillment,\nsuch as the tracking company, tracking number, and tracking URL.\n",
+      "args": [
+        {
+          "name": "first",
+          "description": "Truncate the array result to this size.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "LIST",
+          "name": null,
+          "ofType": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "OBJECT",
+              "name": "FulfillmentTrackingInfo",
+              "ofType": null
+            }
+          }
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "updatedAt",
+      "description": "The date and time when the fulfillment was last modified.\n",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "DateTime",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    }
+  ],
+  "inputFields": null,
+  "interfaces": [
+    {
+      "kind": "INTERFACE",
+      "name": "LegacyInteroperability",
+      "ofType": null
+    },
+    {
+      "kind": "INTERFACE",
+      "name": "Node",
+      "ofType": null
+    }
+  ],
+  "enumValues": null,
+  "possibleTypes": null,
+  "requiredAccess": "`read_orders` access scope"
+}

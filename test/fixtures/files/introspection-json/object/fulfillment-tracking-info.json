@@ -1,0 +1,59 @@
+{
+  "kind": "OBJECT",
+  "name": "FulfillmentTrackingInfo",
+  "description": "Represents the tracking information for a fulfillment.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": [
+    {
+      "name": "company",
+      "description": "The name of the tracking company.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "number",
+      "description": "The tracking number of the fulfillment.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "url",
+      "description": "The URLs to track the fulfillment.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "URL",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    }
+  ],
+  "inputFields": null,
+  "interfaces": [],
+  "enumValues": null,
+  "possibleTypes": null,
+  "requiredAccess": "`read_orders` access scope"
+}

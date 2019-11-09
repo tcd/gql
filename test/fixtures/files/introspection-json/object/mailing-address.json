@@ -1,0 +1,342 @@
+{
+  "kind": "OBJECT",
+  "name": "MailingAddress",
+  "description": "Represents a customer mailing address.\n\nFor example, a customer's default address and an order's billing address are both mailling addresses.\n",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": [
+    {
+      "name": "address1",
+      "description": "The first line of the address. Typically the street address or PO Box number.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "address2",
+      "description": "The second line of the address. Typically the number of the apartment, suite, or unit.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "city",
+      "description": "The name of the city, district, village, or town.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "company",
+      "description": "The name of the customer's company or organization.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "country",
+      "description": "The name of the country.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "countryCode",
+      "description": "The two-letter code for the country of the address.\n\nFor example, US.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": true,
+      "deprecationReason": "Use `countryCodeV2` instead",
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "countryCodeV2",
+      "description": "The two-letter code for the country of the address.\n\nFor example, US.\n",
+      "args": [],
+      "type": {
+        "kind": "ENUM",
+        "name": "CountryCode",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "firstName",
+      "description": "The first name of the customer.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "formatted",
+      "description": "A formatted version of the address, customized by the provided arguments.",
+      "args": [
+        {
+          "name": "withName",
+          "description": "Whether to include the customer's name in the formatted address.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          },
+          "defaultValue": "false"
+        },
+        {
+          "name": "withCompany",
+          "description": "Whether to include the customer's company in the formatted address.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          },
+          "defaultValue": "true"
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "LIST",
+          "name": null,
+          "ofType": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          }
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "formattedArea",
+      "description": "A comma-separated list of the values for city, province, and country.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "id",
+      "description": "Globally unique identifier.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "ID",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "lastName",
+      "description": "The last name of the customer.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "latitude",
+      "description": "The latitude coordinate of the customer address.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "Float",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "longitude",
+      "description": "The longitude coordinate of the customer address.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "Float",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "name",
+      "description": "The full name of the customer, based on firstName and lastName.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "phone",
+      "description": "A unique phone number for the customer.\n\nFormatted using E.164 standard. For example, _+16135551111_.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "province",
+      "description": "The region of the address, such as the province, state, or district.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "provinceCode",
+      "description": "The two-letter code for the region.\n\nFor example, ON.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "zip",
+      "description": "The zip or postal code of the address.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    }
+  ],
+  "inputFields": null,
+  "interfaces": [
+    {
+      "kind": "INTERFACE",
+      "name": "Node",
+      "ofType": null
+    }
+  ],
+  "enumValues": null,
+  "possibleTypes": null,
+  "requiredAccess": null
+}

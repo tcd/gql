@@ -1,0 +1,1075 @@
+{
+  "kind": "OBJECT",
+  "name": "ProductVariant",
+  "description": "Represents a product variant.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": [
+    {
+      "name": "availableForSale",
+      "description": "Whether the product variant is available for sale.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "barcode",
+      "description": "The value of the barcode associated with the product.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "compareAtPrice",
+      "description": "The compare-at price of the variant in the default shop currency.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "Money",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "createdAt",
+      "description": "The date and time when the variant was created.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "DateTime",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "defaultCursor",
+      "description": "A default cursor for use in pagination.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "deliveryProfile",
+      "description": "The delivery profile for the variant.",
+      "args": [],
+      "type": {
+        "kind": "OBJECT",
+        "name": "DeliveryProfile",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "displayName",
+      "description": "Display name of the variant, based on product's title + variant's title.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "fulfillmentService",
+      "description": "The fulfillment service associated with the product.",
+      "args": [],
+      "type": {
+        "kind": "OBJECT",
+        "name": "FulfillmentService",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "fulfillmentServiceEditable",
+      "description": "Whether changes to the fulfillment service for the product variant are allowed.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "OBJECT",
+          "name": "EditableProperty",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "harmonizedSystemCode",
+      "description": "The Harmonized System Code (or HS Tariff Code) for the variant.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": true,
+      "deprecationReason": "Use `InventoryItem.harmonized_system_code` instead.",
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "id",
+      "description": "Globally unique identifier.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "ID",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "image",
+      "description": "The featured image for the variant.",
+      "args": [
+        {
+          "name": "maxWidth",
+          "description": "Image width in pixels between 1 and 2048. This argument is deprecated: Use `maxWidth` on `Image.transformedSrc` instead.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "maxHeight",
+          "description": "Image height in pixels between 1 and 2048. This argument is deprecated: Use `maxHeight` on `Image.transformedSrc` instead.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "crop",
+          "description": "Crops the image according to the specified region. This argument is deprecated: Use `crop` on `Image.transformedSrc` instead.",
+          "type": {
+            "kind": "ENUM",
+            "name": "CropRegion",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "scale",
+          "description": "Image size multiplier for high-resolution retina displays. Must be between 1 and 3. This argument is deprecated: Use `scale` on `Image.transformedSrc` instead.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": "1"
+        }
+      ],
+      "type": {
+        "kind": "OBJECT",
+        "name": "Image",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "images",
+      "description": "The featured image for the variant.",
+      "args": [
+        {
+          "name": "first",
+          "description": "Truncate the array result to this size.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "maxWidth",
+          "description": "Image width in pixels between 1 and 2048. This argument is deprecated: Use `maxWidth` on `Image.transformedSrc` instead.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "maxHeight",
+          "description": "Image height in pixels between 1 and 2048. This argument is deprecated: Use `maxHeight` on `Image.transformedSrc` instead.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "crop",
+          "description": "Crops the image according to the specified region. This argument is deprecated: Use `crop` on `Image.transformedSrc` instead.",
+          "type": {
+            "kind": "ENUM",
+            "name": "CropRegion",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "scale",
+          "description": "Image size multiplier for high-resolution retina displays. Must be between 1 and 3. This argument is deprecated: Use `scale` on `Image.transformedSrc` instead.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": "1"
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "LIST",
+          "name": null,
+          "ofType": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "OBJECT",
+              "name": "Image",
+              "ofType": null
+            }
+          }
+        }
+      },
+      "isDeprecated": true,
+      "deprecationReason": "Use the singular `image` field instead. There may never be more than one variant image.",
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "inventoryItem",
+      "description": "The ID for the inventory item, which is used to query for inventory information.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "OBJECT",
+          "name": "InventoryItem",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "inventoryManagement",
+      "description": "The fulfillment service that tracks the number of items in stock for the product variant.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "ENUM",
+          "name": "ProductVariantInventoryManagement",
+          "ofType": null
+        }
+      },
+      "isDeprecated": true,
+      "deprecationReason": "Use tracked attribute on `inventoryItem` instead.",
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "inventoryPolicy",
+      "description": "Whether customers are allowed to place an order for the product variant when it's out of stock.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "ENUM",
+          "name": "ProductVariantInventoryPolicy",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "inventoryQuantity",
+      "description": "The total sellable quantity of the variant.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "Int",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "legacyResourceId",
+      "description": "The ID of the corresponding resource in the REST Admin API.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "UnsignedInt64",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "metafield",
+      "description": "The metafield associated with the resource.",
+      "args": [
+        {
+          "name": "namespace",
+          "description": "Container for a set of metafields (maximum of 20 characters).",
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "key",
+          "description": "Identifier for the metafield (maximum of 30 characters).",
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "defaultValue": null
+        }
+      ],
+      "type": {
+        "kind": "OBJECT",
+        "name": "Metafield",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "metafields",
+      "description": "A paginated list of metafields associated with the resource.",
+      "args": [
+        {
+          "name": "namespace",
+          "description": "Finds all metafields with a specific namespace under the resource.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "first",
+          "description": "Returns up to the first `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "after",
+          "description": "Returns the elements that come after the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "last",
+          "description": "Returns up to the last `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "before",
+          "description": "Returns the elements that come before the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "reverse",
+          "description": "Reverse the order of the underlying list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          },
+          "defaultValue": "false"
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "OBJECT",
+          "name": "MetafieldConnection",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "position",
+      "description": "The order of the product variant in the list of product variants. The first position in the list is 1.\n",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "Int",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "presentmentPrices",
+      "description": "List of prices and compare-at prices in the presentment currencies for this shop.",
+      "args": [
+        {
+          "name": "presentmentCurrencies",
+          "description": "The presentment currencies prices should return in.",
+          "type": {
+            "kind": "LIST",
+            "name": null,
+            "ofType": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "ENUM",
+                "name": "CurrencyCode",
+                "ofType": null
+              }
+            }
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "first",
+          "description": "Returns up to the first `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "after",
+          "description": "Returns the elements that come after the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "last",
+          "description": "Returns up to the last `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "before",
+          "description": "Returns the elements that come before the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "reverse",
+          "description": "Reverse the order of the underlying list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          },
+          "defaultValue": "false"
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "OBJECT",
+          "name": "ProductVariantPricePairConnection",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "price",
+      "description": "The price of the product variant in the default shop currency.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "Money",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "privateMetafield",
+      "description": "Returns a private metafield found by namespace and key.",
+      "args": [
+        {
+          "name": "namespace",
+          "description": "The namespace for the private metafield.",
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "key",
+          "description": "The key for the private metafield.",
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "defaultValue": null
+        }
+      ],
+      "type": {
+        "kind": "OBJECT",
+        "name": "PrivateMetafield",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "privateMetafields",
+      "description": "List of private metafields.",
+      "args": [
+        {
+          "name": "namespace",
+          "description": "Filter the private metafields by namespace.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "first",
+          "description": "Returns up to the first `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "after",
+          "description": "Returns the elements that come after the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "last",
+          "description": "Returns up to the last `n` elements from the list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Int",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "before",
+          "description": "Returns the elements that come before the specified cursor.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "defaultValue": null
+        },
+        {
+          "name": "reverse",
+          "description": "Reverse the order of the underlying list.",
+          "type": {
+            "kind": "SCALAR",
+            "name": "Boolean",
+            "ofType": null
+          },
+          "defaultValue": "false"
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "OBJECT",
+          "name": "PrivateMetafieldConnection",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "product",
+      "description": "The product that this variant belongs to.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "OBJECT",
+          "name": "Product",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "requiresShipping",
+      "description": "Whether a customer needs to provide a shipping address when placing an order for the product variant.\n",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "ofType": null
+        }
+      },
+      "isDeprecated": true,
+      "deprecationReason": "Use `InventoryItem.requires_shipping` instead.",
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "selectedOptions",
+      "description": "List of product options applied to the variant.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "LIST",
+          "name": null,
+          "ofType": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "OBJECT",
+              "name": "SelectedOption",
+              "ofType": null
+            }
+          }
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "sku",
+      "description": "An identifier for the product variant in the shop. Required in order to connect to a fulfillment service.\n",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "storefrontId",
+      "description": "The storefront ID of the product variant.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "StorefrontID",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "taxCode",
+      "description": "The tax code for the product variant.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "String",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "taxable",
+      "description": "Whether a tax is charged when the product variant is sold.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "Boolean",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "title",
+      "description": "The title of the product variant.",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "translations",
+      "description": "The translations associated with the resource.",
+      "args": [
+        {
+          "name": "locale",
+          "description": "Filters translations locale.",
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "defaultValue": null
+        }
+      ],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "LIST",
+          "name": null,
+          "ofType": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "OBJECT",
+              "name": "PublishedTranslation",
+              "ofType": null
+            }
+          }
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "updatedAt",
+      "description": "The date and time (ISO 8601 format) when the product variant was last modified.\n",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "DateTime",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "weight",
+      "description": "The weight of the product variant in the unit system specified with weight_unit.",
+      "args": [],
+      "type": {
+        "kind": "SCALAR",
+        "name": "Float",
+        "ofType": null
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    },
+    {
+      "name": "weightUnit",
+      "description": "The unit of measurement that applies to the product variant's weight. If you don't specify a value for weight_unit, then the shop's default unit of measurement is applied. Valid values: `g`, `kg`, `oz`, `lb`.\n",
+      "args": [],
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "ENUM",
+          "name": "WeightUnit",
+          "ofType": null
+        }
+      },
+      "isDeprecated": false,
+      "deprecationReason": null,
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "requiredAccess": null
+    }
+  ],
+  "inputFields": null,
+  "interfaces": [
+    {
+      "kind": "INTERFACE",
+      "name": "Node",
+      "ofType": null
+    },
+    {
+      "kind": "INTERFACE",
+      "name": "HasMetafields",
+      "ofType": null
+    },
+    {
+      "kind": "INTERFACE",
+      "name": "HasPublishedTranslations",
+      "ofType": null
+    },
+    {
+      "kind": "INTERFACE",
+      "name": "Navigable",
+      "ofType": null
+    },
+    {
+      "kind": "INTERFACE",
+      "name": "LegacyInteroperability",
+      "ofType": null
+    }
+  ],
+  "enumValues": null,
+  "possibleTypes": null,
+  "requiredAccess": "`read_products` access scope"
+}

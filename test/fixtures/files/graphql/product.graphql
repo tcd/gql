@@ -1,0 +1,284 @@
+"""Represents a product, including information about related collections and product variants."""
+type Product implements Node | Navigable | HasMetafields | HasPublishedTranslations | Publishable | OnlineStorePreviewable | LegacyInteroperability {
+  """The number of publications a resource is published to without feedback errors."""
+  availablePublicationCount: Int!,
+  """The description of the product, complete with HTML formatting."""
+  bodyHtml: String,
+  """A list of the collections that include the product."""
+  collections(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false,
+    "Sort the underlying list by the given key."
+    sortKey: CollectionSortKeys = ID,
+    """
+    Supported filter parameters:
+    - `collection_type`
+    - `published_status`
+    - `title`
+    - `updated_at`
+
+    See the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).
+    """
+    query: String
+  ): CollectionConnection!,
+  """The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the product was created."""
+  createdAt: DateTime!,
+  """A default cursor for use in pagination."""
+  defaultCursor: String!,
+  """A stripped description of the product, single line with HTML tags removed."""
+  description(
+    "Truncates string after the given length."
+    truncateAt: Int
+  ): String!,
+  """The description of the product, complete with HTML formatting."""
+  descriptionHtml: HTML!,
+  """
+  Stripped description of the product, single line with HTML tags removed.
+  Truncated to 60 characters.
+  """
+  descriptionPlainSummary: String!,
+  """The featured image for the product."""
+  featuredImage: Image,
+  """Information about the product that's provided through resource feedback."""
+  feedback: ResourceFeedback,
+  """The theme template used when viewing the gift card in a store."""
+  giftCardTemplateSuffix: String,
+  """A unique human-friendly string of the product's title."""
+  handle: String!,
+  """Whether the product has only a single variant with the default option and value."""
+  hasOnlyDefaultVariant: Boolean!,
+  """Whether the product has out of stock variants."""
+  hasOutOfStockVariants: Boolean!,
+  """Globally unique identifier."""
+  id: ID!,
+  """The images associated with the product."""
+  images(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false,
+    "Sort the underlying list by the given key."
+    sortKey: ProductImageSortKeys = POSITION,
+    "Image width in pixels between 1 and 2048. This argument is deprecated: Use `maxWidth` on `Image.transformedSrc` instead."
+    maxWidth: Int,
+    "Image height in pixels between 1 and 2048. This argument is deprecated: Use `maxHeight` on `Image.transformedSrc` instead."
+    maxHeight: Int,
+    "Crops the image according to the specified region. This argument is deprecated: Use `crop` on `Image.transformedSrc` instead."
+    crop: CropRegion,
+    "Image size multiplier for high-resolution retina displays. Must be between 1 and 3. This argument is deprecated: Use `scale` on `Image.transformedSrc` instead."
+    scale: Int = 1
+  ): ImageConnection!,
+  """Whether the product is in a given collection."""
+  inCollection(
+    "The ID of the collection to check."
+    id: ID!
+  ): Boolean!,
+  """Whether the product is a gift card."""
+  isGiftCard: Boolean!,
+  """The ID of the corresponding resource in the REST Admin API."""
+  legacyResourceId: UnsignedInt64!,
+  """The metafield associated with the resource."""
+  metafield(
+    "Container for a set of metafields (maximum of 20 characters)."
+    namespace: String!,
+    "Identifier for the metafield (maximum of 30 characters)."
+    key: String!
+  ): Metafield,
+  """A paginated list of metafields associated with the resource."""
+  metafields(
+    "Finds all metafields with a specific namespace under the resource."
+    namespace: String,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): MetafieldConnection!,
+  """The online store preview URL."""
+  onlineStorePreviewUrl: URL,
+  """
+  The online store URL for the product.
+  A value of `null` indicates that the product is not published to the Online Store sales channel.
+  """
+  onlineStoreUrl: URL,
+  """A list of custom product options (maximum of 3 per product)."""
+  options(
+    "Truncate the array result to this size."
+    first: Int
+  ): [ProductOption!]!,
+  """The price range of the product."""
+  priceRange: ProductPriceRange!,
+  """Returns a private metafield found by namespace and key."""
+  privateMetafield(
+    "The namespace for the private metafield."
+    namespace: String!,
+    "The key for the private metafield."
+    key: String!
+  ): PrivateMetafield,
+  """List of private metafields."""
+  privateMetafields(
+    "Filter the private metafields by namespace."
+    namespace: String,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): PrivateMetafieldConnection!,
+  """A list of the channels where the product is published."""
+  productPublications(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): ProductPublicationConnection!,
+  """The product type specified by the merchant."""
+  productType: String!,
+  """The number of publications a resource is published on."""
+  publicationCount(
+    "Include only the resource's publications that are published. If false, then return all the resource's publications including future publications."
+    onlyPublished: Boolean = true
+  ): Int!,
+  """A list of the channels where the product is published."""
+  publications(
+    "Return only the publications that are published. If false, then return all publications."
+    onlyPublished: Boolean = true,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): ProductPublicationConnection!,
+  """The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the product was published to the Online Store."""
+  publishedAt: DateTime,
+  """Check to see whether the resource is published to a given channel."""
+  publishedOnChannel(
+    "The ID of the channel to check."
+    channelId: ID!
+  ): Boolean!,
+  """Check to see whether the resource is published to the calling app's channel."""
+  publishedOnCurrentChannel: Boolean!,
+  """Check to see whether the resource is published to the calling app's publication."""
+  publishedOnCurrentPublication: Boolean!,
+  """Check to see whether the resource is published to a given publication."""
+  publishedOnPublication(
+    "The ID of the publication to check."
+    publicationId: ID!
+  ): Boolean!,
+  """The list of resources that are published to a publication."""
+  resourcePublications(
+    "Return only the resources that are published. If false, then return all resource publications."
+    onlyPublished: Boolean = true,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): ResourcePublicationConnection!,
+  """SEO information of the product."""
+  seo: SEO!,
+  """The storefront ID of the product."""
+  storefrontId: StorefrontID!,
+  """A list of the tags that have been added to the product."""
+  tags: [String!]!,
+  """The theme template used when viewing the product in a store."""
+  templateSuffix: String,
+  """The title of the product."""
+  title: String!,
+  """The quantity of inventory in stock."""
+  totalInventory: Int!,
+  """The number of variants that are associated with the product."""
+  totalVariants: Int!,
+  """Whether inventory tracking has been enabled for the product."""
+  tracksInventory: Boolean!,
+  """The translations associated with the resource."""
+  translations(
+    "Filters translations locale."
+    locale: String!
+  ): [PublishedTranslation!]!,
+  """The list of channels that the resource is not published to."""
+  unpublishedChannels(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): ChannelConnection!,
+  """The list of publications that the resource is not published to."""
+  unpublishedPublications(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): PublicationConnection!,
+  """The date and time ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) when the product was last modified."""
+  updatedAt: DateTime!,
+  """A list of variants associated with the product."""
+  variants(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false,
+    "Sort the underlying list by the given key."
+    sortKey: ProductVariantSortKeys = POSITION
+  ): ProductVariantConnection!,
+  """The name of the product's vendor."""
+  vendor: String!
+}

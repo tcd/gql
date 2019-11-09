@@ -1,0 +1,396 @@
+
+"""An order represents an agreement to do business between a customer and a merchant."""
+type Order implements Node | CommentEventSubject | HasMetafields | LegacyInteroperability | HasEvents {
+  """Generated messages that appear at the top of an order page in the Shopify admin.
+  For example, _this is a test order_.
+  """
+  alerts: [ResourceAlert!]!,
+  """Mailing address provided by the customer.
+  Not all orders have mailing addresses.
+  """
+  billingAddress: MailingAddress,
+  """Whether the billing address matches the shipping address."""
+  billingAddressMatchesShippingAddress: Boolean!,
+  """Whether the order can be manually marked as paid."""
+  canMarkAsPaid: Boolean!,
+  """Whether notifications can be sent to the customer or not."""
+  canNotifyCustomer: Boolean!,
+  """Reason the order was canceled.
+  Returns null if the order wasn't canceled.
+  """
+  cancelReason: OrderCancelReason,
+  """Date and time when the order was canceled.
+  Returns null if the order wasn't canceled.
+  """
+  cancelledAt: DateTime,
+  """Whether payment for the order can be captured.
+  Returns true when the customer's credit card has been authorized for payment and the authorization period has not expired.
+  """
+  capturable: Boolean!,
+  """Amount of the order-level discount (does not contain any line item discounts)."""
+  cartDiscountAmount: Money,
+  """Amount of the order-level discount (does not contain any line item discounts) in shop and presentment currencies."""
+  cartDiscountAmountSet: MoneyBag,
+  """Channel that created the order."""
+  channel: Channel,
+  """The ip address of the client that is associated with this order."""
+  clientIp: String,
+  """Whether the order is closed."""
+  closed: Boolean!,
+  """Date and time when the order closed.
+  If the order is not closed, then this field is null.
+  """
+  closedAt: DateTime,
+  """Whether inventory has been reserved for the order."""
+  confirmed: Boolean!,
+  """Date and time when the order was created in Shopify."""
+  createdAt: DateTime!,
+  """The currency of the store at the time of the order.
+  If payment hasn't occurred, then this field is null.
+  """
+  currencyCode: CurrencyCode!,
+  """Custom information added to the order by your customer
+  (Also referred to as note attributes).
+  """
+  customAttributes: [Attribute!]!,
+  """Unique identifier of the customer who placed the order.
+  Not all orders have customers associated with them.
+  """
+  customer: Customer,
+  """Whether the customer agreed to receive marketing materials."""
+  customerAcceptsMarketing: Boolean!,
+  """Description of the customer's experience with the store leading up to the order.
+  """
+  customerJourney: CustomerJourney,
+  """A two-letter or three-letter language code, optionally followed by a region modifier.
+  Example values could be 'en', 'en-CA', 'en-PIRATE'.
+  """
+  customerLocale: String,
+  """Discounts that have been applied on the order."""
+  discountApplications(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): DiscountApplicationConnection!,
+  """Discount code provided by the customer."""
+  discountCode: String,
+  """Primary address of the customer, which is shown on the order."""
+  displayAddress: MailingAddress,
+  """Financial status of the order that can be shown to the merchant.
+  This field does not capture all the possible details of an order's financial state and should only be used for display summary purposes.
+  """
+  displayFinancialStatus: OrderDisplayFinancialStatus,
+  """Fulfillment status for the order that can be shown to the merchant.
+  This field does not capture all the possible details of an order's fulfillment state. It should only be used for display summary purposes.
+  """
+  displayFulfillmentStatus: OrderDisplayFulfillmentStatus!,
+  """Summary of each dispute associated with the order. Sorted in ascending (ASC) order by ID."""
+  disputes: [OrderDisputeSummary!]!,
+  """List of possible fulfilments that can be made for the order (includes line items that can be partially fulfilled).
+  """
+  draftFulfillments: [DraftFulfillment!]!,
+  """Email address provided by the customer."""
+  email: String,
+  """List of internal events associated with the order."""
+  events(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false,
+    "Sort the underlying list by the given key."
+    sortKey: EventSortKeys = ID,
+    "Supported filter parameters:
+   - `comments`
+   - `created_at`
+   - `subject_type`
+   - `verb`
+
+  See the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).
+  "
+    query: String
+  ): EventConnection!,
+  """Whether there are items that can be fulfilled.
+  After an order is completely fulfilled (or completely refunded without any fulfillments) then this field returns false.
+  """
+  fulfillable: Boolean!,
+  """List of shipments for the order."""
+  fulfillments(
+    "Truncate the array result to this size."
+    first: Int
+  ): [Fulfillment!]!,
+  """Whether the order has been paid in full."""
+  fullyPaid: Boolean!,
+  """Whether the merchant added timeline comments to the order."""
+  hasTimelineComment: Boolean!,
+  """Globally unique identifier."""
+  id: ID!,
+  """First page of the online store that the customer visited before they submitted the order, for displaying to humans."""
+  landingPageDisplayText: String,
+  """First page of the online store that the customer visited before they submitted the order."""
+  landingPageUrl: URL,
+  """The ID of the corresponding resource in the REST Admin API."""
+  legacyResourceId: UnsignedInt64!,
+  """List of the order's line items."""
+  lineItems(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): LineItemConnection!,
+  """If the order was processed using Shopify POS, then this is its location as provided by the merchant.
+  """
+  location: String,
+  """Whether the order can be edited or not."""
+  merchantEditable: Boolean!,
+  """The metafield associated with the resource."""
+  metafield(
+    "Container for a set of metafields (maximum of 20 characters)."
+    namespace: String!,
+    "Identifier for the metafield (maximum of 30 characters)."
+    key: String!
+  ): Metafield,
+  """A paginated list of metafields associated with the resource."""
+  metafields(
+    "Finds all metafields with a specific namespace under the resource."
+    namespace: String,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): MetafieldConnection!,
+  """Unique identifier for the order that appears on the order.
+  For example, _#1000_ or _Store1001.
+  This value is not unique across multiple stores.
+  """
+  name: String!,
+  """Net payment for the order, based on the total amount received - total amount refunded.
+  """
+  netPayment: Money!,
+  """Net payment for the order, based on the total amount received - total amount refunded in shop and presentment currencies."""
+  netPaymentSet: MoneyBag!,
+  """Line items that can't be fulfilled.
+  For example, because some or all of the items have been refunded, or the item is not one which can be fulfilled, such as a tip.
+  These line items would be 'lost' if you only considered the line items in draft fulfillments or fulfillments.
+  """
+  nonFulfillableLineItems(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): LineItemConnection!,
+  """Contents of the note associated with the order.
+  """
+  note: String,
+  """List of all payment gateways used for the order.
+  For example, _authorize_net_ and _Cash on Delivery (COD)_.
+  """
+  paymentGatewayNames: [String!]!,
+  """Phone number provided by the customer."""
+  phone: String,
+  """If the order was processed using Shopify POS, then this is its location as provided by the merchant.
+  """
+  physicalLocation: Location,
+  """The payment currency of the customer for this order."""
+  presentmentCurrencyCode: CurrencyCode!,
+  """Returns a private metafield found by namespace and key."""
+  privateMetafield(
+    "The namespace for the private metafield."
+    namespace: String!,
+    "The key for the private metafield."
+    key: String!
+  ): PrivateMetafield,
+  """List of private metafields."""
+  privateMetafields(
+    "Filter the private metafields by namespace."
+    namespace: String,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): PrivateMetafieldConnection!,
+  """Date and time when the order was processed.
+  When orders are imported from an app, this date and time may not match the date and time when the order was created.
+  """
+  processedAt: DateTime!,
+  """Publication that created the order."""
+  publication: Publication,
+  """Marketing referral code from the link that the customer clicked to visit your store.
+  Supports the following URL attributes: _ref_, _source_, or _r_. For example, if the URL is myshopifystore.com/products/slide?ref=j2tj1tn2, then this value is j2tj1tn2.
+  """
+  referralCode: String,
+  """Website that sent the customer to your online store.
+  """
+  referrerDisplayText: String,
+  """Webpage where the customer clicked a link that sent them to your online store.
+  For example, _Google_ or _randomblog.com/page1_.
+  """
+  referrerUrl: URL,
+  """Whether the order can be refunded.
+  """
+  refundable: Boolean!,
+  """List of refunds that have been applied to the order.
+  """
+  refunds(
+    "Truncate the array result to this size."
+    first: Int
+  ): [Refund!]!,
+  """Whether any line item in the order requires physical shipping.
+  """
+  requiresShipping: Boolean!,
+  """Whether the order can be restocked.
+  """
+  restockable: Boolean!,
+  """Fraud risk level of the order."""
+  riskLevel: OrderRiskLevel!,
+  """The order risks associated with this order."""
+  risks(
+    "Truncate the array result to this size."
+    first: Int
+  ): [OrderRisk!]!,
+  """Mailing address for shipping provided by the customer."""
+  shippingAddress: MailingAddress,
+  """Line item that contains the shipping costs."""
+  shippingLine: ShippingLine,
+  """The sum of the quantities for the line items that contribute to the order's subtotal."""
+  subtotalLineItemsQuantity: Int!,
+  """Subtotal of the line items and their discounts (does not contain shipping costs, shipping discounts, and order-level discounts).
+  """
+  subtotalPrice: Money,
+  """Subtotal of the line items and their discounts (does not contain shipping costs, shipping discounts, and order-level discounts) in shop and presentment currencies."""
+  subtotalPriceSet: MoneyBag,
+  """The details of the suggested refund. This response can be used to submit a RefundCreate mutation."""
+  suggestedRefund(
+    "The amount to refund for shipping. Overrides `refundShipping`."
+    shippingAmount: Money,
+    "Whether to refund the full shipping amount."
+    refundShipping: Boolean,
+    "The line items from the order to include in the refund."
+    refundLineItems: ,
+    # FIXME: Multiline argument definition.
+    "Whether a refund for all of the refundable line items on an order should be suggested.
+  If `true`, the suggested refund will be formed from all refundable line items and will
+  ignore any passed in `refundLineItems`.
+  "
+    suggestFullRefund: Boolean = false
+  ): SuggestedRefund,
+  """List of tags."""
+  tags: [String!]!,
+  """Taxes charged for the line item."""
+  taxLines: [TaxLine!]!,
+  """Whether taxes are included in the subtotal price of the order."""
+  taxesIncluded: Boolean!,
+  """Whether the order is a test.
+  Test orders are made using the Shopify Bogus Gateway or the Shopify Payments test mode.
+  """
+  test: Boolean!,
+  """Amount authorized for the order, that is uncaptured or undercaptured."""
+  totalCapturable: Money!,
+  """Amount authorized for the order, that is uncaptured or undercaptured in shop and presentment currencies."""
+  totalCapturableSet: MoneyBag!,
+  """Total amount discounted from the order (includes order-level and line item discounts)."""
+  totalDiscounts: Money,
+  """Total amount discounted from the order (includes order-level and line item discounts) in shop and presentment currencies."""
+  totalDiscountsSet: MoneyBag,
+  """Total amount of the order (includes taxes and discounts)."""
+  totalPrice: Money!,
+  """Total amount of the order (includes taxes and discounts) in shop and presentment currencies."""
+  totalPriceSet: MoneyBag!,
+  """Total amount received by the customer for the order."""
+  totalReceived: Money!,
+  """Total amount received by the customer for the order in shop and presentment currencies."""
+  totalReceivedSet: MoneyBag!,
+  """Total amount refunded for the order."""
+  totalRefunded: Money!,
+  """Total amount refunded for the order in shop and presentment currencies."""
+  totalRefundedSet: MoneyBag!,
+  """Total amount refunded for shipping in shop and presentment currencies."""
+  totalRefundedShippingSet: MoneyBag!,
+  """Total amount charged for shipping the order."""
+  totalShippingPrice: Money!,
+  """Total amount charged for shipping the order in shop and presentment currencies."""
+  totalShippingPriceSet: MoneyBag!,
+  """Total of all taxes applied to the order."""
+  totalTax: Money,
+  """Total of all taxes applied to the order in shop and presentment currencies."""
+  totalTaxSet: MoneyBag,
+  """Total weight (grams) of the order."""
+  totalWeight: UnsignedInt64,
+  """List of all transactions associated with the order."""
+  transactions(
+    "Truncate the array result to this size."
+    first: Int,
+    "Filter transactions by whether they are capturable.
+  If true, then returns only transactions that represent an authorized payment that can be captured.
+  If false, then returns all transactions.
+  "
+    capturable: Boolean,
+    "Filter transactions by whether they are manual payments.
+  If true, then returns only transactions that are manual payments. If false, then returns all transactions.
+  "
+    manuallyResolvable: Boolean
+  ): [OrderTransaction!]!,
+  """Whether no payments have been made for the order.
+  If no payments have been made for the order, then this returns true.
+  """
+  unpaid: Boolean!,
+  """Date and time when the order was last modified."""
+  updatedAt: DateTime!
+}
+"""Presents information or problems to merchants, with 1 or more actions that they can take.
+They can optionally have a specific icon and be dismissed by merchants.
+"""
+type ResourceAlert {
+  """Buttons in the alert that link to related information.
+  For example, _View risk assessment_.
+  """
+  actions: [ResourceAlertAction!]!,
+  """Details about the alert."""
+  content: HTML!,
+  """Unique identifier that appears when an alert is manually closed by the merchant.
+  Most alerts cannot be manually closed.
+  """
+  dismissibleHandle: String,
+  """Icon that displays with the alert."""
+  icon: ResourceAlertIcon,
+  """Indication of how important the alert is."""
+  severity: ResourceAlertSeverity!,
+  """The name of the alert."""
+  title: String!
+}

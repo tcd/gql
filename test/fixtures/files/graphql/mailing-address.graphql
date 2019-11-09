@@ -1,0 +1,67 @@
+"""Represents a customer mailing address.
+
+For example, a customer's default address and an order's billing address are both mailling addresses.
+"""
+type MailingAddress implements Node {
+  """The first line of the address. Typically the street address or PO Box number.
+  """
+  address1: String,
+  """The second line of the address. Typically the number of the apartment, suite, or unit.
+  """
+  address2: String,
+  """The name of the city, district, village, or town.
+  """
+  city: String,
+  """The name of the customer's company or organization.
+  """
+  company: String,
+  """The name of the country.
+  """
+  country: String,
+  """The two-letter code for the country of the address.
+
+  For example, US.
+  """
+  countryCode: String,
+  """The two-letter code for the country of the address.
+
+  For example, US.
+  """
+  countryCodeV2: CountryCode,
+  """The first name of the customer."""
+  firstName: String,
+  """A formatted version of the address, customized by the provided arguments."""
+  formatted(
+    "Whether to include the customer's name in the formatted address."
+    withName: Boolean = false,
+    "Whether to include the customer's company in the formatted address."
+    withCompany: Boolean = true
+  ): [String!]!,
+  """A comma-separated list of the values for city, province, and country."""
+  formattedArea: String,
+  """Globally unique identifier."""
+  id: ID!,
+  """The last name of the customer."""
+  lastName: String,
+  """The latitude coordinate of the customer address."""
+  latitude: Float,
+  """The longitude coordinate of the customer address."""
+  longitude: Float,
+  """The full name of the customer, based on firstName and lastName.
+  """
+  name: String,
+  """A unique phone number for the customer.
+
+  Formatted using E.164 standard. For example, _+16135551111_.
+  """
+  phone: String,
+  """The region of the address, such as the province, state, or district."""
+  province: String,
+  """The two-letter code for the region.
+
+  For example, ON.
+  """
+  provinceCode: String,
+  """The zip or postal code of the address."""
+  zip: String
+}

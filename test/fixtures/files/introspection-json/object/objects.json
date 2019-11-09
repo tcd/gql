@@ -1,0 +1,484 @@
+{
+  "objects": [
+    {
+      "kind": "OBJECT",
+      "name": "DeletionEvent",
+      "description": "Deletion events chronicle the destruction of resources (e.g. products and collections).\nOnce deleted, the deletion event is the only trace of the original's existence,\nas the resource itself has been removed and can no longer be accessed.\n",
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "fields": [
+        {
+          "name": "occurredAt",
+          "description": "The date and time when the deletion event for the related resource was generated.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "subjectId",
+          "description": "The id of the resource that was deleted.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "subjectType",
+          "description": "The type of resource that was deleted.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "ENUM",
+              "name": "DeletionEventSubjectType",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        }
+      ],
+      "inputFields": null,
+      "interfaces": [],
+      "enumValues": null,
+      "possibleTypes": null,
+      "requiredAccess": "`read_products` access scope"
+    },
+    {
+      "kind": "OBJECT",
+      "name": "ShopifyPaymentsBankAccount",
+      "description": "A bank account that can receive payouts.\n",
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "fields": [
+        {
+          "name": "accountNumber",
+          "description": "The account number of the bank account.\n",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": "`read_shopify_payments_bank_accounts_sensitive` access scope"
+        },
+        {
+          "name": "accountNumberLastDigits",
+          "description": "The last digits of the account number (the rest is redacted).\n",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "bankName",
+          "description": "The name of the bank.\n",
+          "args": [],
+          "type": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "country",
+          "description": "The country of the bank.\n",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "ENUM",
+              "name": "CountryCode",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "createdAt",
+          "description": "The date that the bank account was created.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "currency",
+          "description": "The currency of the bank account.\n",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "ENUM",
+              "name": "CurrencyCode",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "id",
+          "description": "Globally unique identifier.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "payouts",
+          "description": "All current and previous payouts made between the account and the bank account.",
+          "args": [
+            {
+              "name": "transactionType",
+              "description": "Filter the direction of the payout.",
+              "type": {
+                "kind": "ENUM",
+                "name": "ShopifyPaymentsPayoutTransactionType",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "first",
+              "description": "Returns up to the first `n` elements from the list.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "after",
+              "description": "Returns the elements that come after the specified cursor.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "last",
+              "description": "Returns up to the last `n` elements from the list.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "before",
+              "description": "Returns the elements that come before the specified cursor.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "defaultValue": null
+            },
+            {
+              "name": "reverse",
+              "description": "Reverse the order of the underlying list.",
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean",
+                "ofType": null
+              },
+              "defaultValue": "false"
+            }
+          ],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "OBJECT",
+              "name": "ShopifyPaymentsPayoutConnection",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "routingNumber",
+          "description": "The routing number of the bank account.\n",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": "`read_shopify_payments_bank_accounts_sensitive` access scope"
+        },
+        {
+          "name": "status",
+          "description": "The status of the bank account.\n",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "ENUM",
+              "name": "ShopifyPaymentsBankAccountStatus",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        }
+      ],
+      "inputFields": null,
+      "interfaces": [
+        {
+          "kind": "INTERFACE",
+          "name": "Node",
+          "ofType": null
+        }
+      ],
+      "enumValues": null,
+      "possibleTypes": null,
+      "requiredAccess": "`read_shopify_payments_bank_accounts` access scope"
+    },
+    {
+      "kind": "OBJECT",
+      "name": "StorefrontAccessToken",
+      "description": "Token used to delegate unauthenticated access scopes to clients that need to access the unautheticated Storefront API.\n",
+      "accessRestricted": false,
+      "accessRestrictedReason": null,
+      "fields": [
+        {
+          "name": "accessScopes",
+          "description": "List of permissions associated with the token.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "AccessScope",
+                  "ofType": null
+                }
+              }
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "accessToken",
+          "description": "The issued public access token.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "createdAt",
+          "description": "The date and time when the public access token was created.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "id",
+          "description": "Globally unique identifier.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "ID",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "title",
+          "description": "An arbitrary title for each token determined by the developer, used for reference         purposes.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        },
+        {
+          "name": "updatedAt",
+          "description": "The date and time when the storefront access token was updated.",
+          "args": [],
+          "type": {
+            "kind": "NON_NULL",
+            "name": null,
+            "ofType": {
+              "kind": "SCALAR",
+              "name": "DateTime",
+              "ofType": null
+            }
+          },
+          "isDeprecated": false,
+          "deprecationReason": null,
+          "accessRestricted": false,
+          "accessRestrictedReason": null,
+          "requiredAccess": null
+        }
+      ],
+      "inputFields": null,
+      "interfaces": [
+        {
+          "kind": "INTERFACE",
+          "name": "Node",
+          "ofType": null
+        }
+      ],
+      "enumValues": null,
+      "possibleTypes": null,
+      "requiredAccess": null
+    }
+  ]
+}
