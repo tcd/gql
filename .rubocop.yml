@@ -27,8 +27,9 @@ Style/FrozenStringLiteralComment:
 Naming/HeredocDelimiterNaming:
   Enabled: false
 
+# Only use braces if the function expects a hash argument. [different in Ruby 2.7+](https://blog.saeloun.com/2019/10/07/ruby-2-7-keyword-arguments-redesign.html)
 Style/BracesAroundHashParameters:
-  EnforcedStyle: braces
+  Enabled: false
 
 Layout/IndentFirstHashElement:
   EnforcedStyle: consistent
