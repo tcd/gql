@@ -8,8 +8,7 @@ class ParseFieldTest < Minitest::Test
       description: "Handle of the app.",
       type: "String",
     )
-    data = json_file_fixture("introspection-json/field/handle.json")
-    have = Gql::Parse.field(data)
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/handle.json"))
     assert_equal(want, have)
   end
 
@@ -20,8 +19,7 @@ class ParseFieldTest < Minitest::Test
       required: true,
       type: "String",
     )
-    data = json_file_fixture("introspection-json/field/api_key.json")
-    have = Gql::Parse.field(data)
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/api_key.json"))
     assert_equal(want, have)
   end
 
@@ -34,8 +32,7 @@ class ParseFieldTest < Minitest::Test
       members_required: true,
       type: "String",
     )
-    data = json_file_fixture("introspection-json/field/features.json")
-    have = Gql::Parse.field(data)
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/features.json"))
     assert_equal(want, have)
   end
 
@@ -48,8 +45,7 @@ class ParseFieldTest < Minitest::Test
       list: true,
       members_required: true,
     )
-    data = json_file_fixture("introspection-json/field/field.json")
-    have = Gql::Parse.field(data)
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/field.json"))
     assert_equal(want, have)
   end
 
@@ -62,16 +58,14 @@ class ParseFieldTest < Minitest::Test
       list: true,
       members_required: false,
     )
-    data = json_file_fixture("introspection-json/field/not_real.json")
-    have = Gql::Parse.field(data)
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/not_real.json"))
     assert_equal(want, have)
   end
 
   def test_optional_list_of_optional_values
     skip()
     want = Gql::Models::Field.new()
-    data = json_file_fixture("introspection-json/field/?.json")
-    have = Gql::Parse.field(data)
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/?.json"))
     assert_equal(want, have)
   end
 
@@ -95,8 +89,7 @@ class ParseFieldTest < Minitest::Test
         },
       ]),
     )
-    data = json_file_fixture("introspection-json/field/metafield.json")
-    have = Gql::Parse.field(data)
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/metafield.json"))
     assert_equal(want, have)
   end
 

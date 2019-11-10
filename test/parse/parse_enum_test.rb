@@ -11,8 +11,7 @@ class ParseEnumTest < Minitest::Test
         { name: "SHIPPING_LINE", description: "The price rule applies to shipping lines." },
       ],
     )
-    data = json_file_fixture("introspection-json/enum/price_rule_target.json")
-    have = Gql::Parse.enum(data)
+    have = Gql::Parse.enum(json_file_fixture("introspection-json/enum/price_rule_target.json"))
     assert_equal(want, have)
   end
 
@@ -25,8 +24,7 @@ class ParseEnumTest < Minitest::Test
         { name: "INQUIRY", description: nil },
       ],
     )
-    data = json_file_fixture("introspection-json/enum/dispute_type.json")
-    have = Gql::Parse.enum(data)
+    have = Gql::Parse.enum(json_file_fixture("introspection-json/enum/dispute_type.json"))
     assert_equal(want, have)
   end
 
@@ -46,8 +44,7 @@ class ParseEnumTest < Minitest::Test
         { name: "RELEVANCE", description: "During a search (i.e. when the `query` parameter has been specified on the connection) this sorts the\nresults by relevance to the search term(s). When no search query is specified, this sort key is not\ndeterministic and should not be used.\n" },
       ],
     )
-    data = json_file_fixture("introspection-json/enum/product_sort_keys.json")
-    have = Gql::Parse.enum(data)
+    have = Gql::Parse.enum(json_file_fixture("introspection-json/enum/product_sort_keys.json"))
     assert_equal(want, have)
   end
 

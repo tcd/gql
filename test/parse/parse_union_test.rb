@@ -8,8 +8,7 @@ class ParseUnionTest < Minitest::Test
       description: "A code discount.",
       types: ["DiscountCodeBasic", "DiscountCodeBxgy", "DiscountCodeFreeShipping"],
     )
-    data = Gql.parse_json(file_fixture("introspection-json/union/discount_code.json"))
-    have = Gql::Parse.union(data)
+    have = Gql::Parse.union(json_file_fixture("introspection-json/union/discount_code.json"))
     assert_equal(want, have)
   end
 
@@ -19,8 +18,7 @@ class ParseUnionTest < Minitest::Test
       description: "The type of discount that will be applied. Currently, only percentage off is supported.",
       types: ["DiscountPercentage"],
     )
-    data = Gql.parse_json(file_fixture("introspection-json/union/discount_effect.json"))
-    have = Gql::Parse.union(data)
+    have = Gql::Parse.union(json_file_fixture("introspection-json/union/discount_effect.json"))
     assert_equal(want, have)
   end
 
@@ -36,8 +34,7 @@ class ParseUnionTest < Minitest::Test
         "ProductVariant",
       ],
     )
-    data = Gql.parse_json(file_fixture("introspection-json/union/common_event_embed.json"))
-    have = Gql::Parse.union(data)
+    have = Gql::Parse.union(json_file_fixture("introspection-json/union/common_event_embed.json"))
     assert_equal(want, have)
   end
 

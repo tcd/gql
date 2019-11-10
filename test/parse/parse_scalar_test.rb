@@ -7,8 +7,7 @@ class ParseScalarTest < Minitest::Test
       name: "URL",
       description: "An RFC 3986 and RFC 3987 compliant URI string.\n\nExample value: `\"https://johns-apparel.myshopify.com\"`.\n",
     )
-    data = Gql.parse_json(file_fixture("introspection-json/scalar/url.json"))
-    have = Gql::Parse.scalar(data)
+    have = Gql::Parse.scalar(json_file_fixture("introspection-json/scalar/url.json"))
     assert_equal_and_print(want, have)
   end
 

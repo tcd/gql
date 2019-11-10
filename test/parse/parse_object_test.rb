@@ -7,27 +7,12 @@ class ParseObjectTest < Minitest::Test
       name: "PublishedTranslation",
       description: "Published translation of a field of a resource.",
       fields: Gql::Models::Field.from_array([
-        {
-          name: "key",
-          description: "Translation key.",
-          type: "String",
-          required: true,
-        },
-        {
-          name: "locale",
-          description: "Translation locale.",
-          type: "String",
-          required: true,
-        },
-        {
-          name: "value",
-          description: "Translation value.",
-          type: "String",
-        },
+        { name: "key", description: "Translation key.", type: "String", required: true },
+        { name: "locale", description: "Translation locale.", type: "String", required: true },
+        { name: "value", description: "Translation value.", type: "String" },
       ]),
     )
-    data = Gql.parse_json(file_fixture("introspection-json/object/published_translation.json"))
-    have = Gql::Parse.object(data)
+    have = Gql::Parse.object(json_file_fixture("introspection-json/object/published_translation.json"))
     assert_equal(want, have)
   end
 
@@ -36,20 +21,11 @@ class ParseObjectTest < Minitest::Test
       name: "SEO",
       description: "SEO information.",
       fields: Gql::Models::Field.from_array([
-        {
-          name: "description",
-          description: "SEO Description.",
-          type: "String",
-        },
-        {
-          name: "title",
-          description: "SEO Title.",
-          type: "String",
-        },
+        { name: "description", description: "SEO Description.", type: "String" },
+        { name: "title", description: "SEO Title.", type: "String" },
       ]),
     )
-    data = Gql.parse_json(file_fixture("introspection-json/object/seo.json"))
-    have = Gql::Parse.object(data)
+    have = Gql::Parse.object(json_file_fixture("introspection-json/object/seo.json"))
     assert_equal(want, have)
   end
 
@@ -74,8 +50,7 @@ class ParseObjectTest < Minitest::Test
       ]),
       interfaces: ["DisplayableError"],
     )
-    data = Gql.parse_json(file_fixture("introspection-json/object/user_error.json"))
-    have = Gql::Parse.object(data)
+    have = Gql::Parse.object(json_file_fixture("introspection-json/object/user_error.json"))
     assert_equal(want, have)
   end
 
