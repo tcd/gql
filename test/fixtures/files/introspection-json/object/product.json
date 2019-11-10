@@ -363,101 +363,61 @@
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         },
         {
           "name": "sortKey",
           "description": "Sort the underlying list by the given key.",
-          "type": {
-            "kind": "ENUM",
-            "name": "ProductImageSortKeys",
-            "ofType": null
-          },
+          "type": { "kind": "ENUM", "name": "ProductImageSortKeys", "ofType": null },
           "defaultValue": "POSITION"
         },
         {
           "name": "maxWidth",
           "description": "Image width in pixels between 1 and 2048. This argument is deprecated: Use `maxWidth` on `Image.transformedSrc` instead.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "maxHeight",
           "description": "Image height in pixels between 1 and 2048. This argument is deprecated: Use `maxHeight` on `Image.transformedSrc` instead.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "crop",
           "description": "Crops the image according to the specified region. This argument is deprecated: Use `crop` on `Image.transformedSrc` instead.",
-          "type": {
-            "kind": "ENUM",
-            "name": "CropRegion",
-            "ofType": null
-          },
+          "type": { "kind": "ENUM", "name": "CropRegion", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "scale",
           "description": "Image size multiplier for high-resolution retina displays. Must be between 1 and 3. This argument is deprecated: Use `scale` on `Image.transformedSrc` instead.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": "1"
         }
       ],
@@ -599,61 +559,37 @@
         {
           "name": "namespace",
           "description": "Finds all metafields with a specific namespace under the resource.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         }
       ],
@@ -810,61 +746,37 @@
         {
           "name": "namespace",
           "description": "Filter the private metafields by namespace.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         }
       ],
@@ -890,51 +802,31 @@
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         }
       ],
@@ -1009,61 +901,37 @@
         {
           "name": "onlyPublished",
           "description": "Return only the publications that are published. If false, then return all publications.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "true"
         },
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         }
       ],
@@ -1210,61 +1078,37 @@
         {
           "name": "onlyPublished",
           "description": "Return only the resources that are published. If false, then return all resource publications.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "true"
         },
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         }
       ],
@@ -1488,51 +1332,31 @@
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         }
       ],
@@ -1558,51 +1382,31 @@
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         }
       ],
@@ -1647,61 +1451,37 @@
         {
           "name": "first",
           "description": "Returns up to the first `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "after",
           "description": "Returns the elements that come after the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "last",
           "description": "Returns up to the last `n` elements from the list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Int",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Int", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "before",
           "description": "Returns the elements that come before the specified cursor.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "String",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "String", "ofType": null },
           "defaultValue": null
         },
         {
           "name": "reverse",
           "description": "Reverse the order of the underlying list.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         },
         {
           "name": "sortKey",
           "description": "Sort the underlying list by the given key.",
-          "type": {
-            "kind": "ENUM",
-            "name": "ProductVariantSortKeys",
-            "ofType": null
-          },
+          "type": { "kind": "ENUM", "name": "ProductVariantSortKeys", "ofType": null },
           "defaultValue": "POSITION"
         }
       ],
@@ -1742,41 +1522,13 @@
   ],
   "inputFields": null,
   "interfaces": [
-    {
-      "kind": "INTERFACE",
-      "name": "Node",
-      "ofType": null
-    },
-    {
-      "kind": "INTERFACE",
-      "name": "Navigable",
-      "ofType": null
-    },
-    {
-      "kind": "INTERFACE",
-      "name": "HasMetafields",
-      "ofType": null
-    },
-    {
-      "kind": "INTERFACE",
-      "name": "HasPublishedTranslations",
-      "ofType": null
-    },
-    {
-      "kind": "INTERFACE",
-      "name": "Publishable",
-      "ofType": null
-    },
-    {
-      "kind": "INTERFACE",
-      "name": "OnlineStorePreviewable",
-      "ofType": null
-    },
-    {
-      "kind": "INTERFACE",
-      "name": "LegacyInteroperability",
-      "ofType": null
-    }
+    { "kind": "INTERFACE", "name": "Node", "ofType": null },
+    { "kind": "INTERFACE", "name": "Navigable", "ofType": null },
+    { "kind": "INTERFACE", "name": "HasMetafields", "ofType": null },
+    { "kind": "INTERFACE", "name": "HasPublishedTranslations", "ofType": null },
+    { "kind": "INTERFACE", "name": "Publishable", "ofType": null },
+    { "kind": "INTERFACE", "name": "OnlineStorePreviewable", "ofType": null },
+    { "kind": "INTERFACE", "name": "LegacyInteroperability", "ofType": null }
   ],
   "enumValues": null,
   "possibleTypes": null,

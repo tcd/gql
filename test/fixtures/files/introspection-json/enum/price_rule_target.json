@@ -8,18 +8,8 @@
   "inputFields": null,
   "interfaces": null,
   "enumValues": [
-    {
-      "name": "LINE_ITEM",
-      "description": "The price rule applies to line items.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "SHIPPING_LINE",
-      "description": "The price rule applies to shipping lines.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    }
+    { "name": "LINE_ITEM", "description": "The price rule applies to line items.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "SHIPPING_LINE", "description": "The price rule applies to shipping lines.", "isDeprecated": false, "deprecationReason": null }
   ],
   "possibleTypes": null,
   "requiredAccess": null

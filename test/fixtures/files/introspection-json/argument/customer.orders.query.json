@@ -1,0 +1,10 @@
+{
+  "name": "query",
+  "description": "Supported filter parameters:\n - `cart_token`\n - `channel_id`\n - `chargeback_status`\n - `checkout_token`\n - `created_at`\n - `credit_card_last4`\n - `customer_id`\n - `discount_code`\n - `email`\n - `financial_status`\n - `fraud_protection_level`\n - `fulfillment_status`\n - `location_id`\n - `processed_at`\n - `reference_location_id`\n - `risk_level`\n - `sales_channel`\n - `source_name`\n - `status`\n - `tag`\n - `test`\n - `updated_at`\n\nSee the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).\n",
+  "type": {
+    "kind": "SCALAR",
+    "name": "String",
+    "ofType": null
+  },
+  "defaultValue": null
+}

@@ -438,16 +438,8 @@
   ],
   "inputFields": null,
   "interfaces": [
-    {
-      "kind": "INTERFACE",
-      "name": "LegacyInteroperability",
-      "ofType": null
-    },
-    {
-      "kind": "INTERFACE",
-      "name": "Node",
-      "ofType": null
-    }
+    { "kind": "INTERFACE", "name": "LegacyInteroperability", "ofType": null },
+    { "kind": "INTERFACE", "name": "Node", "ofType": null }
   ],
   "enumValues": null,
   "possibleTypes": null,

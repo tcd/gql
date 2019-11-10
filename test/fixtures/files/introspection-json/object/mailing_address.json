@@ -9,11 +9,7 @@
       "name": "address1",
       "description": "The first line of the address. Typically the street address or PO Box number.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -24,11 +20,7 @@
       "name": "address2",
       "description": "The second line of the address. Typically the number of the apartment, suite, or unit.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -39,11 +31,7 @@
       "name": "city",
       "description": "The name of the city, district, village, or town.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -54,11 +42,7 @@
       "name": "company",
       "description": "The name of the customer's company or organization.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -69,11 +53,7 @@
       "name": "country",
       "description": "The name of the country.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -84,11 +64,7 @@
       "name": "countryCode",
       "description": "The two-letter code for the country of the address.\n\nFor example, US.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": true,
       "deprecationReason": "Use `countryCodeV2` instead",
       "accessRestricted": false,
@@ -99,11 +75,7 @@
       "name": "countryCodeV2",
       "description": "The two-letter code for the country of the address.\n\nFor example, US.\n",
       "args": [],
-      "type": {
-        "kind": "ENUM",
-        "name": "CountryCode",
-        "ofType": null
-      },
+      "type": { "kind": "ENUM", "name": "CountryCode", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -114,11 +86,7 @@
       "name": "firstName",
       "description": "The first name of the customer.",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -132,21 +100,13 @@
         {
           "name": "withName",
           "description": "Whether to include the customer's name in the formatted address.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "false"
         },
         {
           "name": "withCompany",
           "description": "Whether to include the customer's company in the formatted address.",
-          "type": {
-            "kind": "SCALAR",
-            "name": "Boolean",
-            "ofType": null
-          },
+          "type": { "kind": "SCALAR", "name": "Boolean", "ofType": null },
           "defaultValue": "true"
         }
       ],
@@ -177,11 +137,7 @@
       "name": "formattedArea",
       "description": "A comma-separated list of the values for city, province, and country.",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -211,11 +167,7 @@
       "name": "lastName",
       "description": "The last name of the customer.",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -226,11 +178,7 @@
       "name": "latitude",
       "description": "The latitude coordinate of the customer address.",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "Float",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -241,11 +189,7 @@
       "name": "longitude",
       "description": "The longitude coordinate of the customer address.",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "Float",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "Float", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -256,11 +200,7 @@
       "name": "name",
       "description": "The full name of the customer, based on firstName and lastName.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -271,11 +211,7 @@
       "name": "phone",
       "description": "A unique phone number for the customer.\n\nFormatted using E.164 standard. For example, _+16135551111_.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -286,11 +222,7 @@
       "name": "province",
       "description": "The region of the address, such as the province, state, or district.",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -301,11 +233,7 @@
       "name": "provinceCode",
       "description": "The two-letter code for the region.\n\nFor example, ON.\n",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -316,11 +244,7 @@
       "name": "zip",
       "description": "The zip or postal code of the address.",
       "args": [],
-      "type": {
-        "kind": "SCALAR",
-        "name": "String",
-        "ofType": null
-      },
+      "type": { "kind": "SCALAR", "name": "String", "ofType": null },
       "isDeprecated": false,
       "deprecationReason": null,
       "accessRestricted": false,
@@ -330,11 +254,7 @@
   ],
   "inputFields": null,
   "interfaces": [
-    {
-      "kind": "INTERFACE",
-      "name": "Node",
-      "ofType": null
-    }
+    { "kind": "INTERFACE", "name": "Node", "ofType": null }
   ],
   "enumValues": null,
   "possibleTypes": null,

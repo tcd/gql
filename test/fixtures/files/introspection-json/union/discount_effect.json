@@ -9,11 +9,7 @@
   "interfaces": null,
   "enumValues": null,
   "possibleTypes": [
-    {
-      "kind": "OBJECT",
-      "name": "DiscountPercentage",
-      "ofType": null
-    }
+    { "kind": "OBJECT", "name": "DiscountPercentage", "ofType": null }
   ],
   "requiredAccess": null
 }

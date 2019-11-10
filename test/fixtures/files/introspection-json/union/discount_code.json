@@ -9,21 +9,9 @@
   "interfaces": null,
   "enumValues": null,
   "possibleTypes": [
-    {
-      "kind": "OBJECT",
-      "name": "DiscountCodeBasic",
-      "ofType": null
-    },
-    {
-      "kind": "OBJECT",
-      "name": "DiscountCodeBxgy",
-      "ofType": null
-    },
-    {
-      "kind": "OBJECT",
-      "name": "DiscountCodeFreeShipping",
-      "ofType": null
-    }
+    { "kind": "OBJECT", "name": "DiscountCodeBasic", "ofType": null },
+    { "kind": "OBJECT", "name": "DiscountCodeBxgy", "ofType": null },
+    { "kind": "OBJECT", "name": "DiscountCodeFreeShipping", "ofType": null }
   ],
   "requiredAccess": null
 }

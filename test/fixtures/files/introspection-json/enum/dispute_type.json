@@ -8,18 +8,8 @@
   "inputFields": null,
   "interfaces": null,
   "enumValues": [
-    {
-      "name": "CHARGEBACK",
-      "description": null,
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "INQUIRY",
-      "description": null,
-      "isDeprecated": false,
-      "deprecationReason": null
-    }
+    { "name": "CHARGEBACK", "description": null, "isDeprecated": false, "deprecationReason": null },
+    { "name": "INQUIRY", "description": null, "isDeprecated": false, "deprecationReason": null }
   ],
   "possibleTypes": null,
   "requiredAccess": null

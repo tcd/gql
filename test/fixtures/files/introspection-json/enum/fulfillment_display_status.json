@@ -8,96 +8,21 @@
   "inputFields": null,
   "interfaces": null,
   "enumValues": [
-    {
-      "name": "ATTEMPTED_DELIVERY",
-      "description": "Displayed as **Attempted delivery**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "CANCELED",
-      "description": "Displayed as **Canceled**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "CONFIRMED",
-      "description": "Displayed as **Confirmed**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "DELIVERED",
-      "description": "Displayed as **Delivered**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "FAILURE",
-      "description": "Displayed as **Failure**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "FULFILLED",
-      "description": "Displayed as **Fulfilled**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "IN_TRANSIT",
-      "description": "Displayed as **In transit**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "LABEL_PRINTED",
-      "description": "Displayed as **Label printed**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "LABEL_PURCHASED",
-      "description": "Displayed as **Label purchased**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "LABEL_VOIDED",
-      "description": "Displayed as **Label voided**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "MARKED_AS_FULFILLED",
-      "description": "Displayed as **Marked as fulfilled**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "NOT_DELIVERED",
-      "description": "Displayed as **Not delivered**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "OUT_FOR_DELIVERY",
-      "description": "Displayed as **Out for delivery**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "READY_FOR_PICKUP",
-      "description": "Displayed as **Ready for pickup**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "SUBMITTED",
-      "description": "Displayed as **Submitted**.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    }
+    { "name": "ATTEMPTED_DELIVERY", "description": "Displayed as **Attempted delivery**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "CANCELED", "description": "Displayed as **Canceled**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "CONFIRMED", "description": "Displayed as **Confirmed**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "DELIVERED", "description": "Displayed as **Delivered**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "FAILURE", "description": "Displayed as **Failure**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "FULFILLED", "description": "Displayed as **Fulfilled**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "IN_TRANSIT", "description": "Displayed as **In transit**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "LABEL_PRINTED", "description": "Displayed as **Label printed**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "LABEL_PURCHASED", "description": "Displayed as **Label purchased**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "LABEL_VOIDED", "description": "Displayed as **Label voided**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "MARKED_AS_FULFILLED", "description": "Displayed as **Marked as fulfilled**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "NOT_DELIVERED", "description": "Displayed as **Not delivered**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "OUT_FOR_DELIVERY", "description": "Displayed as **Out for delivery**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "READY_FOR_PICKUP", "description": "Displayed as **Ready for pickup**.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "SUBMITTED", "description": "Displayed as **Submitted**.", "isDeprecated": false, "deprecationReason": null }
   ],
   "possibleTypes": null,
   "requiredAccess": null

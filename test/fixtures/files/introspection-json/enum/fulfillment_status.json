@@ -8,42 +8,12 @@
   "inputFields": null,
   "interfaces": null,
   "enumValues": [
-    {
-      "name": "PENDING",
-      "description": "Shopify has created the fulfillment and is waiting for the third-party fulfillment service to transition it to `open` or `success`.\n",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "OPEN",
-      "description": "The third-party fulfillment service has acknowledged the fulfilment and is processing it.\n",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "SUCCESS",
-      "description": "The fulfillment was completed successfully.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "CANCELLED",
-      "description": "The fulfillment was canceled.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "ERROR",
-      "description": "There was an error with the fulfillment request.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    },
-    {
-      "name": "FAILURE",
-      "description": "The fulfillment request failed.",
-      "isDeprecated": false,
-      "deprecationReason": null
-    }
+    { "name": "PENDING", "description": "Shopify has created the fulfillment and is waiting for the third-party fulfillment service to transition it to `open` or `success`.\n", "isDeprecated": false, "deprecationReason": null },
+    { "name": "OPEN", "description": "The third-party fulfillment service has acknowledged the fulfilment and is processing it.\n", "isDeprecated": false, "deprecationReason": null },
+    { "name": "SUCCESS", "description": "The fulfillment was completed successfully.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "CANCELLED", "description": "The fulfillment was canceled.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "ERROR", "description": "There was an error with the fulfillment request.", "isDeprecated": false, "deprecationReason": null },
+    { "name": "FAILURE", "description": "The fulfillment request failed.", "isDeprecated": false, "deprecationReason": null }
   ],
   "possibleTypes": null,
   "requiredAccess": null

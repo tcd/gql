@@ -50,11 +50,7 @@
   ],
   "inputFields": null,
   "interfaces": [
-    {
-      "kind": "INTERFACE",
-      "name": "DisplayableError",
-      "ofType": null
-    }
+    { "kind": "INTERFACE", "name": "DisplayableError", "ofType": null }
   ],
   "enumValues": null,
   "possibleTypes": null,
