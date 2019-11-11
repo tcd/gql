@@ -1,0 +1,18 @@
+{
+  "name": "refundLineItems",
+  "description": "The line items from the order to include in the refund.",
+  "type": {
+    "kind": "LIST",
+    "name": null,
+    "ofType": {
+      "kind": "NON_NULL",
+      "name": null,
+      "ofType": {
+        "kind": "INPUT_OBJECT",
+        "name": "RefundLineItemInput",
+        "ofType": null
+      }
+    }
+  },
+  "defaultValue": null
+}

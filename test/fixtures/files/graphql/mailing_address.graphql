@@ -1,29 +1,27 @@
-"""Represents a customer mailing address.
+"""
+Represents a customer mailing address.
 
 For example, a customer's default address and an order's billing address are both mailling addresses.
 """
 type MailingAddress implements Node {
-  """The first line of the address. Typically the street address or PO Box number.
-  """
+  """The first line of the address. Typically the street address or PO Box number."""
   address1: String,
-  """The second line of the address. Typically the number of the apartment, suite, or unit.
-  """
+  """The second line of the address. Typically the number of the apartment, suite, or unit."""
   address2: String,
-  """The name of the city, district, village, or town.
-  """
+  """The name of the city, district, village, or town."""
   city: String,
-  """The name of the customer's company or organization.
-  """
+  """The name of the customer's company or organization."""
   company: String,
-  """The name of the country.
-  """
+  """The name of the country."""
   country: String,
-  """The two-letter code for the country of the address.
+  """
+  The two-letter code for the country of the address.
 
   For example, US.
   """
   countryCode: String,
-  """The two-letter code for the country of the address.
+  """
+  The two-letter code for the country of the address.
 
   For example, US.
   """
@@ -47,17 +45,18 @@ type MailingAddress implements Node {
   latitude: Float,
   """The longitude coordinate of the customer address."""
   longitude: Float,
-  """The full name of the customer, based on firstName and lastName.
-  """
+  """The full name of the customer, based on firstName and lastName."""
   name: String,
-  """A unique phone number for the customer.
+  """
+  A unique phone number for the customer.
 
   Formatted using E.164 standard. For example, _+16135551111_.
   """
   phone: String,
   """The region of the address, such as the province, state, or district."""
   province: String,
-  """The two-letter code for the region.
+  """
+  The two-letter code for the region.
 
   For example, ON.
   """

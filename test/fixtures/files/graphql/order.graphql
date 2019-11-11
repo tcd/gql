@@ -1,11 +1,12 @@
-
 """An order represents an agreement to do business between a customer and a merchant."""
 type Order implements Node | CommentEventSubject | HasMetafields | LegacyInteroperability | HasEvents {
-  """Generated messages that appear at the top of an order page in the Shopify admin.
+  """
+  Generated messages that appear at the top of an order page in the Shopify admin.
   For example, _this is a test order_.
   """
   alerts: [ResourceAlert!]!,
-  """Mailing address provided by the customer.
+  """
+  Mailing address provided by the customer.
   Not all orders have mailing addresses.
   """
   billingAddress: MailingAddress,
@@ -15,15 +16,18 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   canMarkAsPaid: Boolean!,
   """Whether notifications can be sent to the customer or not."""
   canNotifyCustomer: Boolean!,
-  """Reason the order was canceled.
+  """
+  Reason the order was canceled.
   Returns null if the order wasn't canceled.
   """
   cancelReason: OrderCancelReason,
-  """Date and time when the order was canceled.
+  """
+  Date and time when the order was canceled.
   Returns null if the order wasn't canceled.
   """
   cancelledAt: DateTime,
-  """Whether payment for the order can be captured.
+  """
+  Whether payment for the order can be captured.
   Returns true when the customer's credit card has been authorized for payment and the authorization period has not expired.
   """
   capturable: Boolean!,
@@ -37,7 +41,8 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   clientIp: String,
   """Whether the order is closed."""
   closed: Boolean!,
-  """Date and time when the order closed.
+  """
+  Date and time when the order closed.
   If the order is not closed, then this field is null.
   """
   closedAt: DateTime,
@@ -45,24 +50,27 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   confirmed: Boolean!,
   """Date and time when the order was created in Shopify."""
   createdAt: DateTime!,
-  """The currency of the store at the time of the order.
+  """
+  The currency of the store at the time of the order.
   If payment hasn't occurred, then this field is null.
   """
   currencyCode: CurrencyCode!,
-  """Custom information added to the order by your customer
+  """
+  Custom information added to the order by your customer
   (Also referred to as note attributes).
   """
   customAttributes: [Attribute!]!,
-  """Unique identifier of the customer who placed the order.
+  """
+  Unique identifier of the customer who placed the order.
   Not all orders have customers associated with them.
   """
   customer: Customer,
   """Whether the customer agreed to receive marketing materials."""
   customerAcceptsMarketing: Boolean!,
-  """Description of the customer's experience with the store leading up to the order.
-  """
+  """Description of the customer's experience with the store leading up to the order."""
   customerJourney: CustomerJourney,
-  """A two-letter or three-letter language code, optionally followed by a region modifier.
+  """
+  A two-letter or three-letter language code, optionally followed by a region modifier.
   Example values could be 'en', 'en-CA', 'en-PIRATE'.
   """
   customerLocale: String,
@@ -83,18 +91,19 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   discountCode: String,
   """Primary address of the customer, which is shown on the order."""
   displayAddress: MailingAddress,
-  """Financial status of the order that can be shown to the merchant.
+  """
+  Financial status of the order that can be shown to the merchant.
   This field does not capture all the possible details of an order's financial state and should only be used for display summary purposes.
   """
   displayFinancialStatus: OrderDisplayFinancialStatus,
-  """Fulfillment status for the order that can be shown to the merchant.
+  """
+  Fulfillment status for the order that can be shown to the merchant.
   This field does not capture all the possible details of an order's fulfillment state. It should only be used for display summary purposes.
   """
   displayFulfillmentStatus: OrderDisplayFulfillmentStatus!,
   """Summary of each dispute associated with the order. Sorted in ascending (ASC) order by ID."""
   disputes: [OrderDisputeSummary!]!,
-  """List of possible fulfilments that can be made for the order (includes line items that can be partially fulfilled).
-  """
+  """List of possible fulfilments that can be made for the order (includes line items that can be partially fulfilled)."""
   draftFulfillments: [DraftFulfillment!]!,
   """Email address provided by the customer."""
   email: String,
@@ -112,17 +121,19 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     reverse: Boolean = false,
     "Sort the underlying list by the given key."
     sortKey: EventSortKeys = ID,
-    "Supported filter parameters:
-   - `comments`
-   - `created_at`
-   - `subject_type`
-   - `verb`
+    "
+    Supported filter parameters:
+    - `comments`
+    - `created_at`
+    - `subject_type`
+    - `verb`
 
-  See the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).
-  "
+    See the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).
+    "
     query: String
   ): EventConnection!,
-  """Whether there are items that can be fulfilled.
+  """
+  Whether there are items that can be fulfilled.
   After an order is completely fulfilled (or completely refunded without any fulfillments) then this field returns false.
   """
   fulfillable: Boolean!,
@@ -156,8 +167,7 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     "Reverse the order of the underlying list."
     reverse: Boolean = false
   ): LineItemConnection!,
-  """If the order was processed using Shopify POS, then this is its location as provided by the merchant.
-  """
+  """If the order was processed using Shopify POS, then this is its location as provided by the merchant."""
   location: String,
   """Whether the order can be edited or not."""
   merchantEditable: Boolean!,
@@ -183,17 +193,18 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     "Reverse the order of the underlying list."
     reverse: Boolean = false
   ): MetafieldConnection!,
-  """Unique identifier for the order that appears on the order.
+  """
+  Unique identifier for the order that appears on the order.
   For example, _#1000_ or _Store1001.
   This value is not unique across multiple stores.
   """
   name: String!,
-  """Net payment for the order, based on the total amount received - total amount refunded.
-  """
+  """Net payment for the order, based on the total amount received - total amount refunded."""
   netPayment: Money!,
   """Net payment for the order, based on the total amount received - total amount refunded in shop and presentment currencies."""
   netPaymentSet: MoneyBag!,
-  """Line items that can't be fulfilled.
+  """
+  Line items that can't be fulfilled.
   For example, because some or all of the items have been refunded, or the item is not one which can be fulfilled, such as a tip.
   These line items would be 'lost' if you only considered the line items in draft fulfillments or fulfillments.
   """
@@ -209,17 +220,16 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     "Reverse the order of the underlying list."
     reverse: Boolean = false
   ): LineItemConnection!,
-  """Contents of the note associated with the order.
-  """
+  """Contents of the note associated with the order."""
   note: String,
-  """List of all payment gateways used for the order.
+  """
+  List of all payment gateways used for the order.
   For example, _authorize_net_ and _Cash on Delivery (COD)_.
   """
   paymentGatewayNames: [String!]!,
   """Phone number provided by the customer."""
   phone: String,
-  """If the order was processed using Shopify POS, then this is its location as provided by the merchant.
-  """
+  """If the order was processed using Shopify POS, then this is its location as provided by the merchant."""
   physicalLocation: Location,
   """The payment currency of the customer for this order."""
   presentmentCurrencyCode: CurrencyCode!,
@@ -245,37 +255,35 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     "Reverse the order of the underlying list."
     reverse: Boolean = false
   ): PrivateMetafieldConnection!,
-  """Date and time when the order was processed.
+  """
+  Date and time when the order was processed.
   When orders are imported from an app, this date and time may not match the date and time when the order was created.
   """
   processedAt: DateTime!,
   """Publication that created the order."""
   publication: Publication,
-  """Marketing referral code from the link that the customer clicked to visit your store.
+  """
+  Marketing referral code from the link that the customer clicked to visit your store.
   Supports the following URL attributes: _ref_, _source_, or _r_. For example, if the URL is myshopifystore.com/products/slide?ref=j2tj1tn2, then this value is j2tj1tn2.
   """
   referralCode: String,
-  """Website that sent the customer to your online store.
-  """
+  """Website that sent the customer to your online store."""
   referrerDisplayText: String,
-  """Webpage where the customer clicked a link that sent them to your online store.
+  """
+  Webpage where the customer clicked a link that sent them to your online store.
   For example, _Google_ or _randomblog.com/page1_.
   """
   referrerUrl: URL,
-  """Whether the order can be refunded.
-  """
+  """Whether the order can be refunded."""
   refundable: Boolean!,
-  """List of refunds that have been applied to the order.
-  """
+  """List of refunds that have been applied to the order."""
   refunds(
     "Truncate the array result to this size."
     first: Int
   ): [Refund!]!,
-  """Whether any line item in the order requires physical shipping.
-  """
+  """Whether any line item in the order requires physical shipping."""
   requiresShipping: Boolean!,
-  """Whether the order can be restocked.
-  """
+  """Whether the order can be restocked."""
   restockable: Boolean!,
   """Fraud risk level of the order."""
   riskLevel: OrderRiskLevel!,
@@ -290,8 +298,7 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   shippingLine: ShippingLine,
   """The sum of the quantities for the line items that contribute to the order's subtotal."""
   subtotalLineItemsQuantity: Int!,
-  """Subtotal of the line items and their discounts (does not contain shipping costs, shipping discounts, and order-level discounts).
-  """
+  """Subtotal of the line items and their discounts (does not contain shipping costs, shipping discounts, and order-level discounts)."""
   subtotalPrice: Money,
   """Subtotal of the line items and their discounts (does not contain shipping costs, shipping discounts, and order-level discounts) in shop and presentment currencies."""
   subtotalPriceSet: MoneyBag,
@@ -303,11 +310,11 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     refundShipping: Boolean,
     "The line items from the order to include in the refund."
     refundLineItems: ,
-    # FIXME: Multiline argument definition.
-    "Whether a refund for all of the refundable line items on an order should be suggested.
-  If `true`, the suggested refund will be formed from all refundable line items and will
-  ignore any passed in `refundLineItems`.
-  "
+    "
+    Whether a refund for all of the refundable line items on an order should be suggested.
+    If `true`, the suggested refund will be formed from all refundable line items and will
+    ignore any passed in `refundLineItems`.
+    "
     suggestFullRefund: Boolean = false
   ): SuggestedRefund,
   """List of tags."""
@@ -316,7 +323,8 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   taxLines: [TaxLine!]!,
   """Whether taxes are included in the subtotal price of the order."""
   taxesIncluded: Boolean!,
-  """Whether the order is a test.
+  """
+  Whether the order is a test.
   Test orders are made using the Shopify Bogus Gateway or the Shopify Payments test mode.
   """
   test: Boolean!,
@@ -356,34 +364,40 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   transactions(
     "Truncate the array result to this size."
     first: Int,
-    "Filter transactions by whether they are capturable.
-  If true, then returns only transactions that represent an authorized payment that can be captured.
-  If false, then returns all transactions.
-  "
+    "
+    Filter transactions by whether they are capturable.
+    If true, then returns only transactions that represent an authorized payment that can be captured.
+    If false, then returns all transactions.
+    "
     capturable: Boolean,
-    "Filter transactions by whether they are manual payments.
-  If true, then returns only transactions that are manual payments. If false, then returns all transactions.
-  "
+    "
+    Filter transactions by whether they are manual payments.
+    If true, then returns only transactions that are manual payments. If false, then returns all transactions.
+    "
     manuallyResolvable: Boolean
   ): [OrderTransaction!]!,
-  """Whether no payments have been made for the order.
+  """
+  Whether no payments have been made for the order.
   If no payments have been made for the order, then this returns true.
   """
   unpaid: Boolean!,
   """Date and time when the order was last modified."""
   updatedAt: DateTime!
 }
-"""Presents information or problems to merchants, with 1 or more actions that they can take.
+"""
+Presents information or problems to merchants, with 1 or more actions that they can take.
 They can optionally have a specific icon and be dismissed by merchants.
 """
 type ResourceAlert {
-  """Buttons in the alert that link to related information.
+  """
+  Buttons in the alert that link to related information.
   For example, _View risk assessment_.
   """
   actions: [ResourceAlertAction!]!,
   """Details about the alert."""
   content: HTML!,
-  """Unique identifier that appears when an alert is manually closed by the merchant.
+  """
+  Unique identifier that appears when an alert is manually closed by the merchant.
   Most alerts cannot be manually closed.
   """
   dismissibleHandle: String,

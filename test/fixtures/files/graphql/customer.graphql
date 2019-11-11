@@ -1,0 +1,207 @@
+"""
+Represents information about a customer of the shop, such as the customer's contact details, their order
+history, and whether they've agreed to receive email marketing.
+"""
+type Customer implements Node | CommentEventSubject | HasMetafields | LegacyInteroperability | HasEvents {
+  """Whether the customer has agreed to receive marketing materials."""
+  acceptsMarketing: Boolean!,
+  """The date and time when the customer consented or objected to receiving marketing material by email."""
+  acceptsMarketingUpdatedAt: DateTime!,
+  """A list of addresses associated with the customer."""
+  addresses(
+    "Truncate the array result to this size."
+    first: Int
+  ): [MailingAddress!]!,
+  """The average amount that the customer spent per order."""
+  averageOrderAmount: Money,
+  """The average amount that the customer spent per order."""
+  averageOrderAmountV2: MoneyV2,
+  """
+  Whether the merchant can delete the customer from their store.
+
+  A customer can be deleted from a store only if they have not yet made an order. After a customer makes an
+  order, they can't be deleted from a store.
+  """
+  canDelete: Boolean!,
+  """The date and time when the customer was added to the store."""
+  createdAt: DateTime!,
+  """The default address associated with the customer."""
+  defaultAddress: MailingAddress,
+  """The full name of the customer, based on the values for first_name and last_name."""
+  displayName: String!,
+  """The customer's email address."""
+  email: String,
+  """A list of events associated with the customer."""
+  events(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false,
+    "Sort the underlying list by the given key."
+    sortKey: EventSortKeys = ID,
+    "
+    Supported filter parameters:
+    - `comments`
+    - `created_at`
+    - `subject_type`
+    - `verb`
+
+    See the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).
+    "
+    query: String
+  ): EventConnection!,
+  """The customer's first name."""
+  firstName: String,
+  """Whether the customer has a note associated with them."""
+  hasNote: Boolean!,
+  """Whether the merchant has added timeline comments about the customer on the customer's page."""
+  hasTimelineComment: Boolean!,
+  """Globally unique identifier."""
+  id: ID!,
+  """The image associated with the customer."""
+  image(
+    "Image width and height (1 - 2048 pixels) This argument is deprecated: Use `maxWidth` or `maxHeight` on `Image.transformedSrc` instead."
+    size: Int
+  ): Image!,
+  """The customer's last name."""
+  lastName: String,
+  """The customer's last order."""
+  lastOrder: Order,
+  """The ID of the corresponding resource in the REST Admin API."""
+  legacyResourceId: UnsignedInt64!,
+  """
+  The amount of time since the customer was first added to the store.
+
+  Example: 'about 12 years'.
+  """
+  lifetimeDuration: String!,
+  """
+  The marketing subscription opt-in level (as described by the M3AAWG best practices guideline) that the
+  customer gave when they consented to receive marketing material by email.
+
+  If the customer does not accept email marketing, then this property will be null.
+  """
+  marketingOptInLevel: CustomerMarketingOptInLevel,
+  """The metafield associated with the resource."""
+  metafield(
+    "Container for a set of metafields (maximum of 20 characters)."
+    namespace: String!,
+    "Identifier for the metafield (maximum of 30 characters)."
+    key: String!
+  ): Metafield,
+  """A paginated list of metafields associated with the resource."""
+  metafields(
+    "Finds all metafields with a specific namespace under the resource."
+    namespace: String,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): MetafieldConnection!,
+  """A note about the customer."""
+  note: String,
+  """A list of the customer's orders."""
+  orders(
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false,
+    "Sort the underlying list by the given key."
+    sortKey: OrderSortKeys = ID,
+    "
+    Supported filter parameters:
+    - `cart_token`
+    - `channel_id`
+    - `chargeback_status`
+    - `checkout_token`
+    - `created_at`
+    - `credit_card_last4`
+    - `customer_id`
+    - `discount_code`
+    - `email`
+    - `financial_status`
+    - `fraud_protection_level`
+    - `fulfillment_status`
+    - `location_id`
+    - `processed_at`
+    - `reference_location_id`
+    - `risk_level`
+    - `sales_channel`
+    - `source_name`
+    - `status`
+    - `tag`
+    - `test`
+    - `updated_at`
+
+    See the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).
+    "
+    query: String
+  ): OrderConnection!,
+  """
+  The number of orders that the customer has made at the store in their lifetime.
+  """
+  ordersCount: UnsignedInt64!,
+  """The customer's phone number."""
+  phone: String,
+  """Returns a private metafield found by namespace and key."""
+  privateMetafield(
+    "The namespace for the private metafield."
+    namespace: String!,
+    "The key for the private metafield."
+    key: String!
+  ): PrivateMetafield,
+  """List of private metafields."""
+  privateMetafields(
+    "Filter the private metafields by namespace."
+    namespace: String,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): PrivateMetafieldConnection!,
+  """The state of the customer's account with the shop."""
+  state: CustomerState!,
+  """A list of tags assigned to the customer."""
+  tags: [String!]!,
+  """Whether the customer is exempt from being charged taxes on their orders."""
+  taxExempt: Boolean!,
+  """The list of tax exemptions applied to the customer."""
+  taxExemptions: [TaxExemption!]!,
+  """The total amount that the customer has spent on orders in their lifetime."""
+  totalSpent: Money!,
+  """The total amount that the customer has spent on orders in their lifetime."""
+  totalSpentV2: MoneyV2!,
+  """The date and time when the customer was last updated."""
+  updatedAt: DateTime!,
+  """
+  Whether the email address is formatted correctly. This does not
+  guarantee that the email address actually exists.
+  """
+  validEmailAddress: Boolean!,
+  """Whether the customer has verified their email address."""
+  verifiedEmail: Boolean!
+}

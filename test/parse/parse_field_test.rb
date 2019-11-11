@@ -63,9 +63,15 @@ class ParseFieldTest < Minitest::Test
   end
 
   def test_optional_list_of_optional_values
-    skip()
-    want = Gql::Models::Field.new()
-    have = Gql::Parse.field(json_file_fixture("introspection-json/field/?.json"))
+    want = Gql::Models::Field.new(
+      name: "optional_list_optional_values",
+      description: "Make sure to cover edge cases",
+      type: "String",
+      required: false,
+      list: true,
+      members_required: false,
+    )
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/not_real_either.json"))
     assert_equal(want, have)
   end
 

@@ -1,5 +1,4 @@
 require "test_helper"
-require "pry"
 
 class GenerateObjectTest < Minitest::Test
 
@@ -11,7 +10,7 @@ class GenerateObjectTest < Minitest::Test
     GQL
     object = Gql::Parse.object(json_file_fixture("introspection-json/object/person.json"))
     have = Gql::Generate.object(object)
-    assert_equal_and_print(want, have)
+    assert_equal(want, have)
   end
 
   def test_generate_object
@@ -41,6 +40,22 @@ class GenerateObjectTest < Minitest::Test
     GQL
     object = Gql::Parse.object(json_file_fixture("introspection-json/object/user_error.json"))
     have = Gql::Generate.object(object)
+    assert_equal(want, have)
+  end
+
+  def test_mailing_address
+    want = File.read(file_fixture("graphql/mailing_address.graphql")).strip
+    have = Gql::Generate.object(Gql::Parse.object(json_file_fixture("introspection-json/object/mailing_address.json")))
+    assert_equal(want, have)
+  end
+
+  def test_order
+    skip("Need to handle multiline argument descriptions for this test to pass")
+    want = File.read(file_fixture("graphql/order.graphql")).strip
+    have = Gql::Generate.object(Gql::Parse.object(json_file_fixture("introspection-json/object/order.json")))
+    # File.open(File.join(Gql.tmp_dir, "out/order.graphql"), "a") do |f|
+    #   f.write(have)
+    # end
     assert_equal(want, have)
   end
 

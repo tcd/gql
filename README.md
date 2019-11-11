@@ -15,6 +15,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 - [GraphQL Documentation Generators, Explorers, and Tools](https://nordicapis.com/graphql-documentation-generators-explorers-and-tools/)
 - Samples
   - https://alligator.io/graphql/graphql-sdl/
+- [Descriptions & Deprecations (Apollo Docs)](https://www.apollographql.com/docs/graphql-tools/generate-schema/#descriptions--deprecations)
 
 ## Enums
 

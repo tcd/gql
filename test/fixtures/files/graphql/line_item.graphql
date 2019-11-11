@@ -1,0 +1,99 @@
+"""Represents a single line in a shopping cart."""
+type LineItem implements Node {
+  """Whether the line item's variant has an ID and inventory is managed by Shopify."""
+  canRestock: Boolean!,
+  """List of additional information (metafields) about the line item."""
+  customAttributes: [Attribute!]!,
+  """The discounts that have been allocated onto the line item by discount applications."""
+  discountAllocations: [DiscountAllocation!]!,
+  """The total line price after discounts are applied."""
+  discountedTotal: Money!,
+  """The total line price after discounts are applied in shop and presentment currencies."""
+  discountedTotalSet: MoneyBag!,
+  """The price of a single variant unit after line item discounts are applied."""
+  discountedUnitPrice: Money!,
+  """The price of a single variant unit after line item discounts are applied in shop and presentment currencies."""
+  discountedUnitPriceSet: MoneyBag!,
+  """The total number of units to fulfill."""
+  fulfillableQuantity: Int!,
+  """
+  Name of the service provider who fulfilled the order.
+
+  Valid values are either **manual** or the name of the provider.
+  For example, **amazon**, **shipwire**.
+  """
+  fulfillmentService: FulfillmentService!,
+  """
+  The line item's fulfillment status. Returns 'fulfilled' if fulfillableQuantity >= quantity,
+  'partial' if  fulfillableQuantity > 0, and 'unfulfilled' otherwise.
+  """
+  fulfillmentStatus: String!,
+  """Globally unique identifier."""
+  id: ID!,
+  """The Image object associated to the line item's variant."""
+  image(
+    "Image width in pixels between 1 and 2048. This argument is deprecated: Use `maxWidth` on `Image.transformedSrc` instead."
+    maxWidth: Int,
+    "Image height in pixels between 1 and 2048. This argument is deprecated: Use `maxHeight` on `Image.transformedSrc` instead."
+    maxHeight: Int,
+    "Crops the image according to the specified region. This argument is deprecated: Use `crop` on `Image.transformedSrc` instead."
+    crop: CropRegion,
+    "Image size multiplier for high-resolution retina displays. Must be between 1 and 3. This argument is deprecated: Use `scale` on `Image.transformedSrc` instead."
+    scale: Int = 1
+  ): Image,
+  """Whether the line item can be edited or not."""
+  merchantEditable: Boolean!,
+  """Name of the product."""
+  name: String!,
+  """A count of the number of line items that cannot be fulfilled."""
+  nonFulfillableQuantity: Int!,
+  """Total price (without discounts) of the line item, based on the original unit price of the variant x quantity."""
+  originalTotal: Money!,
+  """Total price (without discounts) of the line item, based on the original unit price of the  variant x quantity in shop and presentment currencies."""
+  originalTotalSet: MoneyBag!,
+  """Variant price without any discounts applied."""
+  originalUnitPrice: Money!,
+  """Variant price without any discounts applied in shop and presentment currencies."""
+  originalUnitPriceSet: MoneyBag!,
+  """The Product object associated with this line item's variant."""
+  product: Product,
+  """Number of variant items ordered."""
+  quantity: Int!,
+  """The line item's quantity minus its refundedQuantity."""
+  refundableQuantity: Int!,
+  """Whether physical shipping is required for the variant."""
+  requiresShipping: Boolean!,
+  """Whether the line item's variant has an ID and inventory is managed by Shopify."""
+  restockable: Boolean!,
+  """Variant SKU number."""
+  sku: String,
+  """The TaxLine object connected to this line item."""
+  taxLines(
+    "Truncate the array result to this size."
+    first: Int
+  ): [TaxLine!]!,
+  """Whether the variant is taxable."""
+  taxable: Boolean!,
+  """Title of the product or variant (this field only applies to custom line items)."""
+  title: String!,
+  """The sum of all AppliedDiscounts on this line item."""
+  totalDiscount: Money!,
+  """The sum of all AppliedDiscounts on this line item in shop and presentment currencies."""
+  totalDiscountSet: MoneyBag!,
+  """The total discounted value of unfulfilled units."""
+  unfulfilledDiscountedTotal: Money!,
+  """The total discounted value of unfulfilled units in shop and presentment currencies."""
+  unfulfilledDiscountedTotalSet: MoneyBag!,
+  """The total value before discount of all unfulfilled units."""
+  unfulfilledOriginalTotal: Money!,
+  """The total value before discount of all unfulfilled units in shop and presentment currencies."""
+  unfulfilledOriginalTotalSet: MoneyBag!,
+  """The number of units not yet fulfilled."""
+  unfulfilledQuantity: Int!,
+  """The Variant object associated with this line item."""
+  variant: ProductVariant,
+  """Name of the variant."""
+  variantTitle: String,
+  """Name of the vendor who made the variant."""
+  vendor: String
+}

@@ -3,15 +3,11 @@ module Gql
     # @param iface [Gql::Models::Interface]
     # @return [String]
     def self.interface(iface)
-      description = iface.description ? %("""#{iface.description}"""\n) : ""
-      fields = iface.fields.map { |f| self.field(f) }.join("\n  ")
-      if x
-        singleton_method
-      end
+      description = self.description(iface.description)
+      fields = iface.fields.map { |f| self.field(f) }.join("\n").indent(2)
       result = <<~END
-        #{description}
         interface #{iface.name} {
-          #{fields}
+        #{fields}
         }
       END
       return description + result

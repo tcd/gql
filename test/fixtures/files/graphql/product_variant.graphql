@@ -1,0 +1,149 @@
+"""Represents a product variant."""
+type ProductVariant implements Node | HasMetafields | HasPublishedTranslations | Navigable | LegacyInteroperability {
+  """Whether the product variant is available for sale."""
+  availableForSale: Boolean!,
+  """The value of the barcode associated with the product."""
+  barcode: String,
+  """The compare-at price of the variant in the default shop currency."""
+  compareAtPrice: Money,
+  """The date and time when the variant was created."""
+  createdAt: DateTime!,
+  """A default cursor for use in pagination."""
+  defaultCursor: String!,
+  """The delivery profile for the variant."""
+  deliveryProfile: DeliveryProfile,
+  """Display name of the variant, based on product's title + variant's title."""
+  displayName: String!,
+  """The fulfillment service associated with the product."""
+  fulfillmentService: FulfillmentService,
+  """Whether changes to the fulfillment service for the product variant are allowed."""
+  fulfillmentServiceEditable: EditableProperty!,
+  """The Harmonized System Code (or HS Tariff Code) for the variant."""
+  harmonizedSystemCode: String,
+  """Globally unique identifier."""
+  id: ID!,
+  """The featured image for the variant."""
+  image(
+    "Image width in pixels between 1 and 2048. This argument is deprecated: Use `maxWidth` on `Image.transformedSrc` instead."
+    maxWidth: Int,
+    "Image height in pixels between 1 and 2048. This argument is deprecated: Use `maxHeight` on `Image.transformedSrc` instead."
+    maxHeight: Int,
+    "Crops the image according to the specified region. This argument is deprecated: Use `crop` on `Image.transformedSrc` instead."
+    crop: CropRegion,
+    "Image size multiplier for high-resolution retina displays. Must be between 1 and 3. This argument is deprecated: Use `scale` on `Image.transformedSrc` instead."
+    scale: Int = 1
+  ): Image,
+  """The featured image for the variant."""
+  images(
+    "Truncate the array result to this size."
+    first: Int,
+    "Image width in pixels between 1 and 2048. This argument is deprecated: Use `maxWidth` on `Image.transformedSrc` instead."
+    maxWidth: Int,
+    "Image height in pixels between 1 and 2048. This argument is deprecated: Use `maxHeight` on `Image.transformedSrc` instead."
+    maxHeight: Int,
+    "Crops the image according to the specified region. This argument is deprecated: Use `crop` on `Image.transformedSrc` instead."
+    crop: CropRegion,
+    "Image size multiplier for high-resolution retina displays. Must be between 1 and 3. This argument is deprecated: Use `scale` on `Image.transformedSrc` instead."
+    scale: Int = 1
+  ): [Image!]!,
+  """The ID for the inventory item, which is used to query for inventory information."""
+  inventoryItem: InventoryItem!,
+  """The fulfillment service that tracks the number of items in stock for the product variant."""
+  inventoryManagement: ProductVariantInventoryManagement!,
+  """Whether customers are allowed to place an order for the product variant when it's out of stock."""
+  inventoryPolicy: ProductVariantInventoryPolicy!,
+  """The total sellable quantity of the variant."""
+  inventoryQuantity: Int,
+  """The ID of the corresponding resource in the REST Admin API."""
+  legacyResourceId: UnsignedInt64!,
+  """The metafield associated with the resource."""
+  metafield(
+    "Container for a set of metafields (maximum of 20 characters)."
+    namespace: String!,
+    "Identifier for the metafield (maximum of 30 characters)."
+    key: String!
+  ): Metafield,
+  """A paginated list of metafields associated with the resource."""
+  metafields(
+    "Finds all metafields with a specific namespace under the resource."
+    namespace: String,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): MetafieldConnection!,
+  """The order of the product variant in the list of product variants. The first position in the list is 1."""
+  position: Int!,
+  """List of prices and compare-at prices in the presentment currencies for this shop."""
+  presentmentPrices(
+    "The presentment currencies prices should return in."
+    presentmentCurrencies: ,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): ProductVariantPricePairConnection!,
+  """The price of the product variant in the default shop currency."""
+  price: Money!,
+  """Returns a private metafield found by namespace and key."""
+  privateMetafield(
+    "The namespace for the private metafield."
+    namespace: String!,
+    "The key for the private metafield."
+    key: String!
+  ): PrivateMetafield,
+  """List of private metafields."""
+  privateMetafields(
+    "Filter the private metafields by namespace."
+    namespace: String,
+    "Returns up to the first `n` elements from the list."
+    first: Int,
+    "Returns the elements that come after the specified cursor."
+    after: String,
+    "Returns up to the last `n` elements from the list."
+    last: Int,
+    "Returns the elements that come before the specified cursor."
+    before: String,
+    "Reverse the order of the underlying list."
+    reverse: Boolean = false
+  ): PrivateMetafieldConnection!,
+  """The product that this variant belongs to."""
+  product: Product!,
+  """Whether a customer needs to provide a shipping address when placing an order for the product variant."""
+  requiresShipping: Boolean!,
+  """List of product options applied to the variant."""
+  selectedOptions: [SelectedOption!]!,
+  """An identifier for the product variant in the shop. Required in order to connect to a fulfillment service."""
+  sku: String,
+  """The storefront ID of the product variant."""
+  storefrontId: StorefrontID!,
+  """The tax code for the product variant."""
+  taxCode: String,
+  """Whether a tax is charged when the product variant is sold."""
+  taxable: Boolean!,
+  """The title of the product variant."""
+  title: String!,
+  """The translations associated with the resource."""
+  translations(
+    "Filters translations locale."
+    locale: String!
+  ): [PublishedTranslation!]!,
+  """The date and time (ISO 8601 format) when the product variant was last modified."""
+  updatedAt: DateTime!,
+  """The weight of the product variant in the unit system specified with weight_unit."""
+  weight: Float,
+  """The unit of measurement that applies to the product variant's weight. If you don't specify a value for weight_unit, then the shop's default unit of measurement is applied. Valid values: `g`, `kg`, `oz`, `lb`."""
+  weightUnit: WeightUnit!
+}
