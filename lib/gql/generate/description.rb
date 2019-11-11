@@ -25,6 +25,7 @@ module Gql
     def self.argument_description(description)
       return "" if description.nil?()
       description.strip!()
+      description.gsub!(/\n\s+-/, "\n-")
       if description.include?("\n")
         return <<~END
           """

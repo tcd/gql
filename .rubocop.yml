@@ -67,6 +67,10 @@ Style/RedundantReturn:
 Style/RedundantSelf:
   Enabled: false
 
+# Use of `&` with bracket access isn't what I'd call "readable".
+Style/SafeNavigation:
+  Enabled: false
+
 Style/WordArray:
   EnforcedStyle: brackets
 

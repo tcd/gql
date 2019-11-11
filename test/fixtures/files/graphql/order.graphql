@@ -121,7 +121,7 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     reverse: Boolean = false,
     "Sort the underlying list by the given key."
     sortKey: EventSortKeys = ID,
-    "
+    """
     Supported filter parameters:
     - `comments`
     - `created_at`
@@ -129,7 +129,7 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     - `verb`
 
     See the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).
-    "
+    """
     query: String
   ): EventConnection!,
   """
@@ -309,12 +309,12 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
     "Whether to refund the full shipping amount."
     refundShipping: Boolean,
     "The line items from the order to include in the refund."
-    refundLineItems: ,
-    "
+    refundLineItems: [RefundLineItemInput!],
+    """
     Whether a refund for all of the refundable line items on an order should be suggested.
     If `true`, the suggested refund will be formed from all refundable line items and will
     ignore any passed in `refundLineItems`.
-    "
+    """
     suggestFullRefund: Boolean = false
   ): SuggestedRefund,
   """List of tags."""
@@ -364,16 +364,16 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   transactions(
     "Truncate the array result to this size."
     first: Int,
-    "
+    """
     Filter transactions by whether they are capturable.
     If true, then returns only transactions that represent an authorized payment that can be captured.
     If false, then returns all transactions.
-    "
+    """
     capturable: Boolean,
-    "
+    """
     Filter transactions by whether they are manual payments.
     If true, then returns only transactions that are manual payments. If false, then returns all transactions.
-    "
+    """
     manuallyResolvable: Boolean
   ): [OrderTransaction!]!,
   """
@@ -383,28 +383,4 @@ type Order implements Node | CommentEventSubject | HasMetafields | LegacyInterop
   unpaid: Boolean!,
   """Date and time when the order was last modified."""
   updatedAt: DateTime!
-}
-"""
-Presents information or problems to merchants, with 1 or more actions that they can take.
-They can optionally have a specific icon and be dismissed by merchants.
-"""
-type ResourceAlert {
-  """
-  Buttons in the alert that link to related information.
-  For example, _View risk assessment_.
-  """
-  actions: [ResourceAlertAction!]!,
-  """Details about the alert."""
-  content: HTML!,
-  """
-  Unique identifier that appears when an alert is manually closed by the merchant.
-  Most alerts cannot be manually closed.
-  """
-  dismissibleHandle: String,
-  """Icon that displays with the alert."""
-  icon: ResourceAlertIcon,
-  """Indication of how important the alert is."""
-  severity: ResourceAlertSeverity!,
-  """The name of the alert."""
-  title: String!
 }

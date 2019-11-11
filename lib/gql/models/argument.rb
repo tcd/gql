@@ -22,6 +22,18 @@ module Gql
       #   @return [Boolean]
       attr_accessor :required
 
+      # @!attribute [rw] list
+      #   Whether the Argument's `type` is an array.
+      #   See the [List modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      #   @return [Boolean]
+      attr_accessor :list
+
+      # @!attribute [rw] members_required
+      #   True if the Argument's `type` is an array and the members of that array are `Non-Null`.
+      #   See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      #   @return [Boolean]
+      attr_accessor :members_required
+
       # @!attribute [rw] default
       #   @return [String, nil]
       attr_accessor :default
@@ -30,6 +42,8 @@ module Gql
       # @param description [String]
       # @param type [String]
       # @param required [Boolean]
+      # @param list [Boolean]
+      # @param members_required [Boolean]
       # @param default [String, nil]
       # @return [void]
       def initialize(
@@ -37,13 +51,17 @@ module Gql
         description: nil,
         type: nil,
         required: false,
+        list: false,
+        members_required: false,
         default: nil
       )
-        self.name        = name
-        self.description = description
-        self.type        = type
-        self.required    = required
-        self.default     = default
+        self.name             = name
+        self.description      = description
+        self.type             = type
+        self.required         = required
+        self.list             = list
+        self.members_required = members_required
+        self.default          = default
       end
 
       # @param array [Array<Hash>]

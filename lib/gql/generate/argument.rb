@@ -9,27 +9,35 @@ module Gql
       has_descriptions = false
       a = []
       args.each do |arg|
-        description = ""
-        if arg.description
-          has_descriptions = true
-          description = %("#{arg.description}"\n  )
-        end
-        bang = arg.required ? "!" : ""
-        default = ""
-        if arg.default
-          if arg.type == "String"
-            default = %( = "#{arg.default}")
-          else
-            default = " = #{arg.default}"
-          end
-        end
-        a.append("  #{description}#{arg.name}: #{arg.type}#{default}#{bang}")
+        has_descriptions = true if arg.description
+        a.append(self.argument(arg))
       end
       if has_descriptions || args.length > 1
-        return "(\n#{a.join(",\n")}\n)"
+        return "(\n#{a.join(",\n").indent(2)}\n)"
       else
         return "(#{a.join(",\n")})"
       end
+    end
+
+    # @param arg [Gql::Models::Argument]
+    # @return [String]
+    def self.argument(arg)
+      description = self.argument_description(arg.description)
+      bang        = arg.required ? "!" : ""
+      list_bang   = arg.members_required ? "!" : ""
+      type        = arg.list ? "[#{arg.type}#{list_bang}]#{bang}" : "#{arg.type}#{bang}"
+      default     = ""
+
+      if arg.default
+        if arg.type == "String"
+          default = %( = "#{arg.default}")
+        else
+          default = " = #{arg.default}"
+        end
+      end
+
+      result = [description, arg.name, ": ", type, default].compact.join("")
+      return result
     end
 
     # Not sure that this works, use {arguments}
@@ -44,7 +52,6 @@ module Gql
           default = " = #{arg.default}"
         end
       end
-      # default = arg.default ? " = #{arg.default}" : ""
       bang = arg.required ? "!" : ""
       if arg.description
         result = <<~END
@@ -58,18 +65,6 @@ module Gql
       end
       return result
     end
-
-#     # Not sure that this works, use {generate_args}
-#     # @return [String]
-#     def generate_multi_arg(args)
-#       a = []
-#       args.each do |arg|
-#         default = arg.default ? " = #{arg.default}" : ""
-#         bang = arg.required ? "!" : ""
-#         a << %("#{arg.description}"\n#{arg.name}: #{arg.type}#{default}#{bang})
-#       end
-#       return "(\n#{a.join("\n")}\n)"
-#     end
 
   end
 end

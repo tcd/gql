@@ -33,7 +33,7 @@ class GqlTest < Minitest::Test
   end
 
   def test_argument_to_json
-    want = { name: "Clay", description: "Wishes this was easier", type: "Programmer", required: true, default: nil }.to_json
+    want = { name: "Clay", description: "Wishes this was easier", type: "Programmer", required: true, list: false, members_required: false, default: nil }.to_json
     have = Gql::Models::Argument.new({ name: "Clay", description: "Wishes this was easier", type: "Programmer", required: true }).to_json
     assert_equal(want, have)
   end

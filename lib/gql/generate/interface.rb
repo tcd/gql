@@ -12,12 +12,5 @@ module Gql
       END
       return description + result
     end
-
-    # def self.save_interfaces(is)
-    #   File.open("interface.gql", "a") do |f|
-    #     is.each { |i| f.write(self.interface(i)) }
-    #   end
-    # end
-
   end
 end

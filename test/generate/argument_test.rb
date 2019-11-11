@@ -94,8 +94,7 @@ class GenerateArgumentTest < Minitest::Test
   end
 
   def test_list_argument
-    skip("Need to handle multiline argument descriptions for this test to pass")
-    want = <<~GQL.strip()
+    want = <<~GRAPHQL.strip()
       """The details of the suggested refund. This response can be used to submit a RefundCreate mutation."""
       suggestedRefund(
         "The amount to refund for shipping. Overrides `refundShipping`."
@@ -104,17 +103,17 @@ class GenerateArgumentTest < Minitest::Test
         refundShipping: Boolean,
         "The line items from the order to include in the refund."
         refundLineItems: [RefundLineItemInput!],
-        "
+        """
         Whether a refund for all of the refundable line items on an order should be suggested.
         If `true`, the suggested refund will be formed from all refundable line items and will
         ignore any passed in `refundLineItems`.
-        "
+        """
         suggestFullRefund: Boolean = false
-      ): SuggestedRefund,
-    GQL
+      ): SuggestedRefund
+    GRAPHQL
     field = Gql::Parse.field(json_file_fixture("introspection-json/field/order.suggested_refund.json"))
     have = Gql::Generate.field(field)
-    assert_equal_and_print(want, have)
+    assert_equal(want, have)
   end
 
 end

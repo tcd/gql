@@ -50,12 +50,11 @@ class GenerateObjectTest < Minitest::Test
   end
 
   def test_order
-    skip("Need to handle multiline argument descriptions for this test to pass")
     want = File.read(file_fixture("graphql/order.graphql")).strip
     have = Gql::Generate.object(Gql::Parse.object(json_file_fixture("introspection-json/object/order.json")))
-    # File.open(File.join(Gql.tmp_dir, "out/order.graphql"), "a") do |f|
-    #   f.write(have)
-    # end
+    File.open(File.join(Gql.tmp_dir, "out/order.graphql"), "a") do |f|
+      f.write(have)
+    end
     assert_equal(want, have)
   end
 

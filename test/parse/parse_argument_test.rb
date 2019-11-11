@@ -23,4 +23,17 @@ class ParseArgumentTest < Minitest::Test
     assert_equal(want, have)
   end
 
+  def test_list_argument
+    want = Gql::Models::Argument.new(
+      name: "refundLineItems",
+      description: "The line items from the order to include in the refund.",
+      type: "RefundLineItemInput",
+      required: false,
+      list: true,
+      members_required: true,
+    )
+    have = Gql::Parse.argument(json_file_fixture("introspection-json/argument/order.refund_line_items.json"))
+    assert_equal(want, have)
+  end
+
 end
