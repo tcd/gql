@@ -1,0 +1,62 @@
+{
+  "kind": "INPUT_OBJECT",
+  "name": "WebhookSubscriptionInput",
+  "description": "Specifies the input fields for a webhook subscription.\n",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": [
+    {
+      "name": "callbackUrl",
+      "description": "URL where the webhook subscription should send the POST request when the event occurs.",
+      "type": { "kind": "SCALAR", "name": "URL", "ofType": null },
+      "defaultValue": null
+    },
+    {
+      "name": "format",
+      "description": "The format in which the webhook subscription should send the data.",
+      "type": { "kind": "ENUM", "name": "WebhookSubscriptionFormat", "ofType": null },
+      "defaultValue": null
+    },
+    {
+      "name": "includeFields",
+      "description": "The list of fields to be included in the webhook subscription.",
+      "type": {
+        "kind": "LIST",
+        "name": null,
+        "ofType": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          }
+        }
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "metafieldNamespaces",
+      "description": "The list of namespaces for any metafields that should be included in the webhook subscription.",
+      "type": {
+        "kind": "LIST",
+        "name": null,
+        "ofType": {
+          "kind": "NON_NULL",
+          "name": null,
+          "ofType": {
+            "kind": "SCALAR",
+            "name": "String",
+            "ofType": null
+          }
+        }
+      },
+      "defaultValue": null
+    }
+  ],
+  "interfaces": null,
+  "enumValues": null,
+  "possibleTypes": null,
+  "requiredAccess": null
+}

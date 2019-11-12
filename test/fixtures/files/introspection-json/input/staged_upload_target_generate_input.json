@@ -1,0 +1,62 @@
+{
+  "kind": "INPUT_OBJECT",
+  "name": "StagedUploadTargetGenerateInput",
+  "description": null,
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": [
+    {
+      "name": "resource",
+      "description": null,
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "ENUM",
+          "name": "StagedUploadTargetGenerateUploadResource",
+          "ofType": null
+        }
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "filename",
+      "description": null,
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "mimeType",
+      "description": null,
+      "type": {
+        "kind": "NON_NULL",
+        "name": null,
+        "ofType": {
+          "kind": "SCALAR",
+          "name": "String",
+          "ofType": null
+        }
+      },
+      "defaultValue": null
+    },
+    {
+      "name": "httpMethod",
+      "description": "HTTP method to be used by the Staged Upload.",
+      "type": { "kind": "ENUM", "name": "StagedUploadHttpMethodType", "ofType": null },
+      "defaultValue": "PUT"
+    }
+  ],
+  "interfaces": null,
+  "enumValues": null,
+  "possibleTypes": null,
+  "requiredAccess": null
+}

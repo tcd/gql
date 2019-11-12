@@ -3,7 +3,6 @@ module Gql
     # @param data [Hash<Symbol>]
     # @return [Gql::Models::Field]
     def self.field(data)
-
       field = Gql::Models::Field.new()
       field.name        = data[:name]
       field.description = data[:description]
@@ -23,6 +22,25 @@ module Gql
       arg.default     = data[:defaultValue]
       self.parse_type!(data, arg)
       return arg
+    end
+
+    def self.input(data)
+      input = Gql::Models::Input.new()
+      input.name        = data[:name]
+      input.description = data[:description]
+      if data[:inputFields] && data[:inputFields].length > 0
+        input.fields = data[:inputFields].map { |field| Gql::Parse.input_field(field) }
+      end
+      return input
+    end
+
+    def self.input_field(data)
+      field = Gql::Models::InputField.new()
+      field.name        = data[:name]
+      field.description = data[:description]
+      field.default     = data[:defaultValue]
+      self.parse_type!(data, field)
+      return field
     end
 
     # Set `type`, `list`, `required`, and `members_required` fields for an object.
