@@ -3,20 +3,16 @@ module Gql
     # @param enum [Gql::Models::Enum]
     # @return [String]
     def self.enum(enum)
-      description = enum.description ? %("""#{enum.description}"""\n) : ""
-      result = <<~END
-        enum #{enum.name} {
-          #{enum.values.map { |v| self.enum_value(v) }.join("\n  ")}
-        }
-      END
-      return description + result
+      description = self.description(enum.description)
+      start = "enum #{enum.name} {\n"
+      values = enum.values.map { |v| self.enum_value(v) }.join("\n").indent(2)
+      return description + start + values + "\n}"
     end
 
     # @param value [Hash<:name, :description>]
     # @return [String]
     def self.enum_value(value)
-      description = value[:description] ? %("""#{value[:description]}"""\n  ) : ""
-      return description + value[:name]
+      return self.description(value[:description]) + value[:name]
     end
   end
 end

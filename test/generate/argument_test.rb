@@ -45,56 +45,8 @@ class GenerateArgumentTest < Minitest::Test
     assert_equal(want, have)
   end
 
-  # Possible edge case
-  def test_field_with_arguments_without_comments
-    json = <<~JSON
-      {
-        "name": "metafield",
-        "description": "The metafield associated with the resource.",
-        "args": [
-          {
-            "name": "namespace",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null
-          },
-          {
-            "name": "key",
-            "description": null,
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": { "kind": "SCALAR", "name": "String", "ofType": null }
-            },
-            "defaultValue": null
-          }
-        ],
-        "type": { "kind": "OBJECT", "name": "Metafield", "ofType": null },
-        "isDeprecated": false,
-        "deprecationReason": null,
-        "accessRestricted": false,
-        "accessRestrictedReason": null,
-        "requiredAccess": null
-      }
-    JSON
-    want = <<~GQL.strip()
-      """The metafield associated with the resource."""
-      metafield(
-        namespace: String!,
-        key: String!
-      ): Metafield
-    GQL
-    field = Gql::Parse.field(JSON.parse(json, symbolize_names: true))
-    have = Gql::Generate.field(field)
-    assert_equal(want, have)
-  end
-
   def test_list_argument
-    want = <<~GRAPHQL.strip()
+    want = <<~GQL.strip()
       """The details of the suggested refund. This response can be used to submit a RefundCreate mutation."""
       suggestedRefund(
         "The amount to refund for shipping. Overrides `refundShipping`."
@@ -110,7 +62,7 @@ class GenerateArgumentTest < Minitest::Test
         """
         suggestFullRefund: Boolean = false
       ): SuggestedRefund
-    GRAPHQL
+    GQL
     field = Gql::Parse.field(json_file_fixture("introspection-json/field/order.suggested_refund.json"))
     have = Gql::Generate.field(field)
     assert_equal(want, have)

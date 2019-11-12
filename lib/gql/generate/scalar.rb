@@ -3,7 +3,7 @@ module Gql
     # @param scalar [Gql::Models::Scalar]
     # @return [String]
     def self.scalar(scalar)
-      description = scalar.description ? %("""#{scalar.description}"""\n) : ""
+      description = self.description(scalar.description)
       return description + "scalar #{scalar.name}"
     end
   end

@@ -12,7 +12,6 @@ class GenerateInterfaceTest < Minitest::Test
     GQL
     data = Gql::Parse.interface(json_file_fixture("introspection-json/interface/legacy_interoperability.json"))
     have = Gql::Generate.interface(data)
-    # binding.pry
     assert_equal(want, have)
   end
 

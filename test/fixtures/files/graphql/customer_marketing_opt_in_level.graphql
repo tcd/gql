@@ -1,0 +1,21 @@
+"""
+The valid values for the marketing subscription opt-in active at the time the customer consented to email
+marketing.
+
+The levels are defined by [the M3AAWG best practices guideline
+  document](https://www.m3aawg.org/sites/maawg/files/news/M3AAWG_Senders_BCP_Ver3-2015-02.pdf).
+"""
+enum CustomerMarketingOptInLevel {
+  """
+  The customer started receiving marketing email(s) after providing their email address, without any
+  intermediate steps.
+  """
+  SINGLE_OPT_IN
+  """
+  After providing their email address, the customer received a confirmation email which required them to
+  perform a prescribed action before receiving marketing emails.
+  """
+  CONFIRMED_OPT_IN
+  """The customer receives marketing emails, but the original opt-in process is unknown."""
+  UNKNOWN
+}
