@@ -3,7 +3,7 @@ require "test_helper"
 class GenerateEnumTest < Minitest::Test
 
   def test_with_description
-    want = <<~GQL
+    want = <<~GQL.strip()
       """Options for T-Shirt size."""
       enum Size {
         Small
@@ -24,7 +24,7 @@ class GenerateEnumTest < Minitest::Test
   end
 
   def test_without_description
-    want = <<~GQL
+    want = <<~GQL.strip()
       enum Size {
         Small
         Medium
