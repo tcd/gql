@@ -8,6 +8,8 @@ module Gql
     attr_accessor :scalars
     # @return [Array<Object>]
     attr_accessor :objects
+    # @return [Array<Input>]
+    attr_accessor :inputs
     # @return [Array<Enum>]
     attr_accessor :enums
     # @return [Array<Union>]
@@ -30,12 +32,15 @@ module Gql
       @enums      ||= []
       @unions     ||= []
       @interfaces ||= []
+      @inputs     ||= []
       @data.each do |type|
         case type[:kind]
         when "SCALAR"
           @scalars.append(Gql::Parse.scalar(type))
         when "OBJECT"
           @objects.append(Gql::Parse.object(type))
+        when "INPUT_OBJECT"
+          @inputs.append(Gql::Parse.input(type))
         when "ENUM"
           @enums.append(Gql::Parse.enum(type))
         when "UNION"
@@ -50,31 +55,33 @@ module Gql
 
     def write_sdl
       self.parse()
-      divider = "\n# #{('=' * 78)} \n"
       filename = Gql.unique_filename(File.join(Gql.tmp_dir, "shopify.graphql"))
       File.open(filename, "a") do |f|
-        f.write(divider)
-        f.write("# Scalars")
-        f.write(divider)
-        self.scalars.each { |s| f.write(Gql::Generate.scalar(s) + "\n") }
-        f.write(divider)
-        f.write("# Enums")
-        f.write(divider)
+        f.write(self.section_divider("Scalars"))
+        self.scalars.each { |s| f.write(Gql::Generate.scalar(s) + "\n\n") }
+        f.write(self.section_divider("Interfaces"))
         self.interfaces.each { |interface| f.write(Gql::Generate.interface(interface) + "\n") }
-        f.write(divider)
-        f.write("# Enums")
-        f.write(divider)
-        self.enums.each { |enum| f.write(Gql::Generate.enum(enum) + "\n") }
-        f.write(divider)
-        f.write("# Unions")
-        f.write(divider)
+        f.write(self.section_divider("Enums"))
+        self.enums.each { |enum| f.write(Gql::Generate.enum(enum) + "\n\n") }
+        f.write(self.section_divider("Unions"))
         self.unions.each { |union| f.write(Gql::Generate.union(union) + "\n") }
-        f.write(divider)
-        f.write("# Types")
-        f.write(divider)
-        self.objects.each { |obj| f.write(Gql::Generate.object(obj) + "\n") }
+        f.write(self.section_divider("Types"))
+        self.objects.each { |obj| f.write(Gql::Generate.object(obj) + "\n\n") }
+        f.write(self.section_divider("Inputs"))
+        self.inputs.each { |input| f.write(Gql::Generate.input(input) + "\n\n") }
       end
       return filename
+    end
+
+    # @param name [String]
+    # @return [String]
+    def section_divider(name)
+      divider = ("=" * 78)
+      return <<~STRING
+        # #{divider}
+        # #{name}
+        # #{divider}
+      STRING
     end
 
     # @return [String]
