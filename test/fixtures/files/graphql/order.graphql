@@ -1,5 +1,5 @@
 """An order represents an agreement to do business between a customer and a merchant."""
-type Order implements Node | CommentEventSubject | HasMetafields | LegacyInteroperability | HasEvents {
+type Order implements Node & CommentEventSubject & HasMetafields & LegacyInteroperability & HasEvents {
   """
   Generated messages that appear at the top of an order page in the Shopify admin.
   For example, _this is a test order_.

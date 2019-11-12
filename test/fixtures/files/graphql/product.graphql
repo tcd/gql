@@ -1,5 +1,5 @@
 """Represents a product, including information about related collections and product variants."""
-type Product implements Node | Navigable | HasMetafields | HasPublishedTranslations | Publishable | OnlineStorePreviewable | LegacyInteroperability {
+type Product implements Node & Navigable & HasMetafields & HasPublishedTranslations & Publishable & OnlineStorePreviewable & LegacyInteroperability {
   """The number of publications a resource is published to without feedback errors."""
   availablePublicationCount: Int!,
   """The description of the product, complete with HTML formatting."""

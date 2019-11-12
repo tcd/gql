@@ -1,5 +1,5 @@
 """Represents a product variant."""
-type ProductVariant implements Node | HasMetafields | HasPublishedTranslations | Navigable | LegacyInteroperability {
+type ProductVariant implements Node & HasMetafields & HasPublishedTranslations & Navigable & LegacyInteroperability {
   """Whether the product variant is available for sale."""
   availableForSale: Boolean!,
   """The value of the barcode associated with the product."""
