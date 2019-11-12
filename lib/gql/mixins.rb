@@ -9,6 +9,7 @@ module Gql
       return other.class == self.class && other.state == self.state
     end
 
+    # @return [Boolean]
     alias eql? ==
 
     # An array with all of an instance variable's values; used for comparison by {==}.
@@ -33,6 +34,7 @@ module Gql
       return hash
     end
 
+    # @return [Hash]
     alias to_hash to_h
 
     # [Using custom to_json method in nested objects (StackOverflow)](https://stackoverflow.com/questions/6879589/using-custom-to-json-method-in-nested-objects/6880638#6880638)
