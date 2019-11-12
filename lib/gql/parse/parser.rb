@@ -5,38 +5,44 @@ module Gql
       # Shopify GraphQL [Types](https://graphql.org/learn/schema/#type-system).
       # @return [Hash<Symbol>]
       attr_accessor :data
+      # @return [Array<Scalar>]
+      attr_accessor :scalars
+      # @return [Array<Object>]
+      attr_accessor :objects
+      # @return [Array<Enum>]
+      attr_accessor :enums
+      # @return [Array<Union>]
+      attr_accessor :unions
+      # @return [Array<Interface>]
+      attr_accessor :interfaces
 
       # # @param path [String] Path to a JSON file with [GraphQL Introspection data](https://graphql.org/learn/introspection/).
       # @return [void]
       def initialize()
         # data_file = path
         data_file = File.join(Gql.data_dir, "shopify/admin_2019_10.json")
-        # Shopify GraphQL [Types](https://graphql.org/learn/schema/#type-system).
-        # @type [Hash<Symbol>]
-        @data = Gql.parse_json(data_file)[:data][:__schema][:types]
+        self.data = Gql.parse_json(data_file)[:data][:__schema][:types]
       end
 
       # @return [Array<Hash>]
       def parse()
-        res = {
-          objects: [],
-          scalars: [],
-          interfaces: [],
-          enums: [],
-          unions: [],
-        }
-        @data.each do |d|
+        @scalars    ||= []
+        @objects    ||= []
+        @enums      ||= []
+        @unions     ||= []
+        @interfaces ||= []
+        @data.each do |type|
           case type[:kind]
           when "SCALAR"
-            res[:scalars].append(Gql::Parse.scalar(type))
+            @scalars.append(Gql::Parse.scalar(type))
           when "OBJECT"
-            res[:objects].append(Gql::Parse.object(type))
+            @objects.append(Gql::Parse.object(type))
           when "ENUM"
-            res[:enums].append(Gql::Parse.enum(type))
+            @enums.append(Gql::Parse.enum(type))
           when "UNION"
-            res[:unions].append(Gql::Parse.union(type))
+            @unions.append(Gql::Parse.union(type))
           when "INTERFACE"
-            res[:interfaces].append(Gql::Parse.interface(type))
+            @interfaces.append(Gql::Parse.interface(type))
           else
             next
           end
@@ -44,52 +50,49 @@ module Gql
         return res
       end
 
-      # @return [Array<Scalar>]
-      def scalars()
-        return @data.map { |d| d[:kind] == "SCALAR" ? Gql::Parse.scalar(d) : nil }.compact
-      end
-
       # @return [String]
       def write_scalars()
         filename = Gql.unique_filename(File.join(Gql.tmp_dir, "scalars.graphql"))
         File.open(filename, "a") do |f|
-          self.scalars().each do |s|
-            f.write(Gql::Generate.scalars(s) + "\n\n")
-          end
+          self.scalars.each { |s| f.write(Gql::Generate.scalar(s) + "\n") }
         end
         return filename
-      end
-
-      # @return [Array<Object>]
-      def objects()
-        return @data.map { |d| d[:kind] == "OBJECT" ? Gql::Parse.object(d) : nil }.compact
       end
 
       # @return [String]
       def write_objects()
         filename = Gql.unique_filename(File.join(Gql.tmp_dir, "types.graphql"))
-        objects = self.objects()
         File.open(filename, "a") do |f|
-          objects.each do |obj|
-            f.write(Gql::Generate.object(obj) + "\n\n")
-          end
+          self.objects.each { |obj| f.write(Gql::Generate.object(obj) + "\n") }
         end
         return filename
       end
 
-      # @return [Array<Enum>]
-      def enums()
-        return @data.map { |d| d[:kind] == "ENUM" ? Gql::Parse.enum(d) : nil }.compact
+      # @return [String]
+      def write_enums()
+        filename = Gql.unique_filename(File.join(Gql.tmp_dir, "enums.graphql"))
+        File.open(filename, "a") do |f|
+          self.enums.each { |enum| f.write(Gql::Generate.enum(enum) + "\n") }
+        end
+        return filename
       end
 
-      # @return [Array<Union>]
-      def unions()
-        return @data.map { |d| d[:kind] == "UNION" ? Gql::Parse.union(d) : nil }.compact
+      # @return [String]
+      def write_unions()
+        filename = Gql.unique_filename(File.join(Gql.tmp_dir, "unions.graphql"))
+        File.open(filename, "a") do |f|
+          self.unions.each { |union| f.write(Gql::Generate.union(union) + "\n") }
+        end
+        return filename
       end
 
-      # @return [Array<Interface>]
-      def interfaces()
-        return @data.map { |d| d[:kind] == "INTERFACE" ? Gql::Parse.interface(d) : nil }.compact
+      # @return [String]
+      def write_interfaces()
+        filename = Gql.unique_filename(File.join(Gql.tmp_dir, "interfaces.graphql"))
+        File.open(filename, "a") do |f|
+          self.interfaces.each { |interface| f.write(Gql::Generate.interface(interface) + "\n") }
+        end
+        return filename
       end
 
     end
