@@ -33,6 +33,11 @@ module Gql
         self.fields      = fields
         self.interfaces  = interfaces
       end
+
+      # @return [Array<String>]
+      def required_fields()
+        return self.fields.select(&:required)
+      end
     end
   end
 end
