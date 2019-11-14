@@ -39,6 +39,13 @@ module Gql
       #   @return [Array<Gql::Models::Argument>]
       attr_accessor :args
 
+      # @!attribute [rw] deprecation
+      #   `nil` unless the Field is deprecated.
+      #   See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      #   @return [String,nil]
+      attr_accessor :deprecation
+
+
       # @param name [String]
       # @param description [String]
       # @param type [Array<String>]
@@ -54,7 +61,8 @@ module Gql
         required: false,
         list: false,
         members_required: false,
-        args: []
+        args: [],
+        deprecation: nil
       )
         self.name             = name
         self.description      = description
@@ -63,6 +71,7 @@ module Gql
         self.list             = list
         self.members_required = members_required
         self.args             = args
+        self.deprecation      = deprecation
       end
 
       # @param array [Array<Hash>>]
