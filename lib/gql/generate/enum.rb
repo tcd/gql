@@ -12,7 +12,8 @@ module Gql
     # @param value [Hash<:name, :description>]
     # @return [String]
     def self.enum_value(value)
-      return self.description(value[:description]) + value[:name]
+      deprecation = value[:deprecation].nil?() ? "" : %( @deprecated(reason: "#{value[:deprecation]}"))
+      return self.description(value[:description]) + value[:name] + deprecation
     end
   end
 end

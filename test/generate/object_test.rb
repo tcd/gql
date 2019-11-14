@@ -18,7 +18,7 @@ class GenerateObjectTest < Minitest::Test
       """SEO information."""
       type SEO {
         """SEO Description."""
-        description: String,
+        description: String
         """SEO Title."""
         title: String
       }
@@ -33,7 +33,7 @@ class GenerateObjectTest < Minitest::Test
       """Represents an error in the input of a mutation."""
       type UserError implements DisplayableError {
         """Path to the input field which caused the error."""
-        field: [String!],
+        field: [String!]
         """The error message."""
         message: String!
       }
@@ -44,14 +44,15 @@ class GenerateObjectTest < Minitest::Test
   end
 
   def test_mailing_address
-    want = File.read(file_fixture("graphql/mailing_address.graphql")).strip
+    want = File.read(file_fixture("graphql/type/mailing_address.graphql")).strip
     have = Gql::Generate.object(Gql::Parse.object(json_file_fixture("introspection-json/object/mailing_address.json")))
     assert_equal(want, have)
   end
 
   def test_order
-    want = File.read(file_fixture("graphql/order.graphql")).strip
+    want = File.read(file_fixture("graphql/type/order.graphql")).strip
     have = Gql::Generate.object(Gql::Parse.object(json_file_fixture("introspection-json/object/order.json")))
+    File.open("order.gql", "a") { |f| f.write(have) }
     assert_equal(want, have)
   end
 

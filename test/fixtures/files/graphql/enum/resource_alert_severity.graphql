@@ -1,0 +1,8 @@
+enum ResourceAlertSeverity {
+  DEFAULT
+  INFO
+  WARNING
+  SUCCESS
+  CRITICAL
+  ERROR @deprecated(reason: "`ERROR` severity is being deprecated in favour of `WARNING` or `CRITICAL` instead")
+}

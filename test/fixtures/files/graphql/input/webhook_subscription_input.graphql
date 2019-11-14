@@ -1,11 +1,11 @@
 """Specifies the input fields for a webhook subscription."""
 input WebhookSubscriptionInput {
   """URL where the webhook subscription should send the POST request when the event occurs."""
-  callbackUrl: URL,
+  callbackUrl: URL
   """The format in which the webhook subscription should send the data."""
-  format: WebhookSubscriptionFormat,
+  format: WebhookSubscriptionFormat
   """The list of fields to be included in the webhook subscription."""
-  includeFields: [String!],
+  includeFields: [String!]
   """The list of namespaces for any metafields that should be included in the webhook subscription."""
   metafieldNamespaces: [String!]
 }

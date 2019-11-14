@@ -4,76 +4,76 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
   Generated messages that appear at the top of an order page in the Shopify admin.
   For example, _this is a test order_.
   """
-  alerts: [ResourceAlert!]!,
+  alerts: [ResourceAlert!]!
   """
   Mailing address provided by the customer.
   Not all orders have mailing addresses.
   """
-  billingAddress: MailingAddress,
+  billingAddress: MailingAddress
   """Whether the billing address matches the shipping address."""
-  billingAddressMatchesShippingAddress: Boolean!,
+  billingAddressMatchesShippingAddress: Boolean!
   """Whether the order can be manually marked as paid."""
-  canMarkAsPaid: Boolean!,
+  canMarkAsPaid: Boolean!
   """Whether notifications can be sent to the customer or not."""
-  canNotifyCustomer: Boolean!,
+  canNotifyCustomer: Boolean!
   """
   Reason the order was canceled.
   Returns null if the order wasn't canceled.
   """
-  cancelReason: OrderCancelReason,
+  cancelReason: OrderCancelReason
   """
   Date and time when the order was canceled.
   Returns null if the order wasn't canceled.
   """
-  cancelledAt: DateTime,
+  cancelledAt: DateTime
   """
   Whether payment for the order can be captured.
   Returns true when the customer's credit card has been authorized for payment and the authorization period has not expired.
   """
-  capturable: Boolean!,
+  capturable: Boolean!
   """Amount of the order-level discount (does not contain any line item discounts)."""
-  cartDiscountAmount: Money,
+  cartDiscountAmount: Money @deprecated(reason: "Use `cartDiscountAmountSet` instead")
   """Amount of the order-level discount (does not contain any line item discounts) in shop and presentment currencies."""
-  cartDiscountAmountSet: MoneyBag,
+  cartDiscountAmountSet: MoneyBag
   """Channel that created the order."""
-  channel: Channel,
+  channel: Channel @deprecated(reason: "Use `publication` instead")
   """The ip address of the client that is associated with this order."""
-  clientIp: String,
+  clientIp: String
   """Whether the order is closed."""
-  closed: Boolean!,
+  closed: Boolean!
   """
   Date and time when the order closed.
   If the order is not closed, then this field is null.
   """
-  closedAt: DateTime,
+  closedAt: DateTime
   """Whether inventory has been reserved for the order."""
-  confirmed: Boolean!,
+  confirmed: Boolean!
   """Date and time when the order was created in Shopify."""
-  createdAt: DateTime!,
+  createdAt: DateTime!
   """
   The currency of the store at the time of the order.
   If payment hasn't occurred, then this field is null.
   """
-  currencyCode: CurrencyCode!,
+  currencyCode: CurrencyCode!
   """
   Custom information added to the order by your customer
   (Also referred to as note attributes).
   """
-  customAttributes: [Attribute!]!,
+  customAttributes: [Attribute!]!
   """
   Unique identifier of the customer who placed the order.
   Not all orders have customers associated with them.
   """
-  customer: Customer,
+  customer: Customer
   """Whether the customer agreed to receive marketing materials."""
-  customerAcceptsMarketing: Boolean!,
+  customerAcceptsMarketing: Boolean!
   """Description of the customer's experience with the store leading up to the order."""
-  customerJourney: CustomerJourney,
+  customerJourney: CustomerJourney
   """
   A two-letter or three-letter language code, optionally followed by a region modifier.
   Example values could be 'en', 'en-CA', 'en-PIRATE'.
   """
-  customerLocale: String,
+  customerLocale: String
   """Discounts that have been applied on the order."""
   discountApplications(
     "Returns up to the first `n` elements from the list."
@@ -86,27 +86,27 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     before: String,
     "Reverse the order of the underlying list."
     reverse: Boolean = false
-  ): DiscountApplicationConnection!,
+  ): DiscountApplicationConnection!
   """Discount code provided by the customer."""
-  discountCode: String,
+  discountCode: String
   """Primary address of the customer, which is shown on the order."""
-  displayAddress: MailingAddress,
+  displayAddress: MailingAddress
   """
   Financial status of the order that can be shown to the merchant.
   This field does not capture all the possible details of an order's financial state and should only be used for display summary purposes.
   """
-  displayFinancialStatus: OrderDisplayFinancialStatus,
+  displayFinancialStatus: OrderDisplayFinancialStatus
   """
   Fulfillment status for the order that can be shown to the merchant.
   This field does not capture all the possible details of an order's fulfillment state. It should only be used for display summary purposes.
   """
-  displayFulfillmentStatus: OrderDisplayFulfillmentStatus!,
+  displayFulfillmentStatus: OrderDisplayFulfillmentStatus!
   """Summary of each dispute associated with the order. Sorted in ascending (ASC) order by ID."""
-  disputes: [OrderDisputeSummary!]!,
+  disputes: [OrderDisputeSummary!]!
   """List of possible fulfilments that can be made for the order (includes line items that can be partially fulfilled)."""
-  draftFulfillments: [DraftFulfillment!]!,
+  draftFulfillments: [DraftFulfillment!]!
   """Email address provided by the customer."""
-  email: String,
+  email: String
   """List of internal events associated with the order."""
   events(
     "Returns up to the first `n` elements from the list."
@@ -131,29 +131,29 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     See the detailed [search syntax](https://help.shopify.com/api/getting-started/search-syntax).
     """
     query: String
-  ): EventConnection!,
+  ): EventConnection!
   """
   Whether there are items that can be fulfilled.
   After an order is completely fulfilled (or completely refunded without any fulfillments) then this field returns false.
   """
-  fulfillable: Boolean!,
+  fulfillable: Boolean!
   """List of shipments for the order."""
   fulfillments(
     "Truncate the array result to this size."
     first: Int
-  ): [Fulfillment!]!,
+  ): [Fulfillment!]!
   """Whether the order has been paid in full."""
-  fullyPaid: Boolean!,
+  fullyPaid: Boolean!
   """Whether the merchant added timeline comments to the order."""
-  hasTimelineComment: Boolean!,
+  hasTimelineComment: Boolean!
   """Globally unique identifier."""
-  id: ID!,
+  id: ID!
   """First page of the online store that the customer visited before they submitted the order, for displaying to humans."""
-  landingPageDisplayText: String,
+  landingPageDisplayText: String @deprecated(reason: "Use `customerJourney.lastVisit.landingPageHtml` instead")
   """First page of the online store that the customer visited before they submitted the order."""
-  landingPageUrl: URL,
+  landingPageUrl: URL @deprecated(reason: "Use `customerJourney.lastVisit.landingPage` instead")
   """The ID of the corresponding resource in the REST Admin API."""
-  legacyResourceId: UnsignedInt64!,
+  legacyResourceId: UnsignedInt64!
   """List of the order's line items."""
   lineItems(
     "Returns up to the first `n` elements from the list."
@@ -166,18 +166,18 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     before: String,
     "Reverse the order of the underlying list."
     reverse: Boolean = false
-  ): LineItemConnection!,
+  ): LineItemConnection!
   """If the order was processed using Shopify POS, then this is its location as provided by the merchant."""
-  location: String,
+  location: String @deprecated(reason: "Use `physicalLocation` instead")
   """Whether the order can be edited or not."""
-  merchantEditable: Boolean!,
+  merchantEditable: Boolean!
   """The metafield associated with the resource."""
   metafield(
     "Container for a set of metafields (maximum of 20 characters)."
     namespace: String!,
     "Identifier for the metafield (maximum of 30 characters)."
     key: String!
-  ): Metafield,
+  ): Metafield
   """A paginated list of metafields associated with the resource."""
   metafields(
     "Finds all metafields with a specific namespace under the resource."
@@ -192,17 +192,17 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     before: String,
     "Reverse the order of the underlying list."
     reverse: Boolean = false
-  ): MetafieldConnection!,
+  ): MetafieldConnection!
   """
   Unique identifier for the order that appears on the order.
   For example, _#1000_ or _Store1001.
   This value is not unique across multiple stores.
   """
-  name: String!,
+  name: String!
   """Net payment for the order, based on the total amount received - total amount refunded."""
-  netPayment: Money!,
+  netPayment: Money! @deprecated(reason: "Use `netPaymentSet` instead")
   """Net payment for the order, based on the total amount received - total amount refunded in shop and presentment currencies."""
-  netPaymentSet: MoneyBag!,
+  netPaymentSet: MoneyBag!
   """
   Line items that can't be fulfilled.
   For example, because some or all of the items have been refunded, or the item is not one which can be fulfilled, such as a tip.
@@ -219,27 +219,27 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     before: String,
     "Reverse the order of the underlying list."
     reverse: Boolean = false
-  ): LineItemConnection!,
+  ): LineItemConnection!
   """Contents of the note associated with the order."""
-  note: String,
+  note: String
   """
   List of all payment gateways used for the order.
   For example, _authorize_net_ and _Cash on Delivery (COD)_.
   """
-  paymentGatewayNames: [String!]!,
+  paymentGatewayNames: [String!]!
   """Phone number provided by the customer."""
-  phone: String,
+  phone: String
   """If the order was processed using Shopify POS, then this is its location as provided by the merchant."""
-  physicalLocation: Location,
+  physicalLocation: Location
   """The payment currency of the customer for this order."""
-  presentmentCurrencyCode: CurrencyCode!,
+  presentmentCurrencyCode: CurrencyCode!
   """Returns a private metafield found by namespace and key."""
   privateMetafield(
     "The namespace for the private metafield."
     namespace: String!,
     "The key for the private metafield."
     key: String!
-  ): PrivateMetafield,
+  ): PrivateMetafield
   """List of private metafields."""
   privateMetafields(
     "Filter the private metafields by namespace."
@@ -254,54 +254,54 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     before: String,
     "Reverse the order of the underlying list."
     reverse: Boolean = false
-  ): PrivateMetafieldConnection!,
+  ): PrivateMetafieldConnection!
   """
   Date and time when the order was processed.
   When orders are imported from an app, this date and time may not match the date and time when the order was created.
   """
-  processedAt: DateTime!,
+  processedAt: DateTime!
   """Publication that created the order."""
-  publication: Publication,
+  publication: Publication
   """
   Marketing referral code from the link that the customer clicked to visit your store.
   Supports the following URL attributes: _ref_, _source_, or _r_. For example, if the URL is myshopifystore.com/products/slide?ref=j2tj1tn2, then this value is j2tj1tn2.
   """
-  referralCode: String,
+  referralCode: String @deprecated(reason: "Use `customerJourney.lastVisit.referralCode` instead")
   """Website that sent the customer to your online store."""
-  referrerDisplayText: String,
+  referrerDisplayText: String @deprecated(reason: "Use `customerJourney.lastVisit.referralInfoHtml` instead")
   """
   Webpage where the customer clicked a link that sent them to your online store.
   For example, _Google_ or _randomblog.com/page1_.
   """
-  referrerUrl: URL,
+  referrerUrl: URL @deprecated(reason: "Use `customerJourney.lastVisit.referrerUrl` instead")
   """Whether the order can be refunded."""
-  refundable: Boolean!,
+  refundable: Boolean!
   """List of refunds that have been applied to the order."""
   refunds(
     "Truncate the array result to this size."
     first: Int
-  ): [Refund!]!,
+  ): [Refund!]!
   """Whether any line item in the order requires physical shipping."""
-  requiresShipping: Boolean!,
+  requiresShipping: Boolean!
   """Whether the order can be restocked."""
-  restockable: Boolean!,
+  restockable: Boolean!
   """Fraud risk level of the order."""
-  riskLevel: OrderRiskLevel!,
+  riskLevel: OrderRiskLevel!
   """The order risks associated with this order."""
   risks(
     "Truncate the array result to this size."
     first: Int
-  ): [OrderRisk!]!,
+  ): [OrderRisk!]!
   """Mailing address for shipping provided by the customer."""
-  shippingAddress: MailingAddress,
+  shippingAddress: MailingAddress
   """Line item that contains the shipping costs."""
-  shippingLine: ShippingLine,
+  shippingLine: ShippingLine
   """The sum of the quantities for the line items that contribute to the order's subtotal."""
-  subtotalLineItemsQuantity: Int!,
+  subtotalLineItemsQuantity: Int!
   """Subtotal of the line items and their discounts (does not contain shipping costs, shipping discounts, and order-level discounts)."""
-  subtotalPrice: Money,
+  subtotalPrice: Money @deprecated(reason: "Use `subtotalPriceSet` instead")
   """Subtotal of the line items and their discounts (does not contain shipping costs, shipping discounts, and order-level discounts) in shop and presentment currencies."""
-  subtotalPriceSet: MoneyBag,
+  subtotalPriceSet: MoneyBag
   """The details of the suggested refund. This response can be used to submit a RefundCreate mutation."""
   suggestedRefund(
     "The amount to refund for shipping. Overrides `refundShipping`."
@@ -316,50 +316,50 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     ignore any passed in `refundLineItems`.
     """
     suggestFullRefund: Boolean = false
-  ): SuggestedRefund,
+  ): SuggestedRefund
   """List of tags."""
-  tags: [String!]!,
+  tags: [String!]!
   """Taxes charged for the line item."""
-  taxLines: [TaxLine!]!,
+  taxLines: [TaxLine!]!
   """Whether taxes are included in the subtotal price of the order."""
-  taxesIncluded: Boolean!,
+  taxesIncluded: Boolean!
   """
   Whether the order is a test.
   Test orders are made using the Shopify Bogus Gateway or the Shopify Payments test mode.
   """
-  test: Boolean!,
+  test: Boolean!
   """Amount authorized for the order, that is uncaptured or undercaptured."""
-  totalCapturable: Money!,
+  totalCapturable: Money! @deprecated(reason: "Use `totalCapturableSet` instead")
   """Amount authorized for the order, that is uncaptured or undercaptured in shop and presentment currencies."""
-  totalCapturableSet: MoneyBag!,
+  totalCapturableSet: MoneyBag!
   """Total amount discounted from the order (includes order-level and line item discounts)."""
-  totalDiscounts: Money,
+  totalDiscounts: Money @deprecated(reason: "Use `totalDiscountsSet` instead")
   """Total amount discounted from the order (includes order-level and line item discounts) in shop and presentment currencies."""
-  totalDiscountsSet: MoneyBag,
+  totalDiscountsSet: MoneyBag
   """Total amount of the order (includes taxes and discounts)."""
-  totalPrice: Money!,
+  totalPrice: Money! @deprecated(reason: "Use `totalPriceSet` instead")
   """Total amount of the order (includes taxes and discounts) in shop and presentment currencies."""
-  totalPriceSet: MoneyBag!,
+  totalPriceSet: MoneyBag!
   """Total amount received by the customer for the order."""
-  totalReceived: Money!,
+  totalReceived: Money! @deprecated(reason: "Use `totalReceivedSet` instead")
   """Total amount received by the customer for the order in shop and presentment currencies."""
-  totalReceivedSet: MoneyBag!,
+  totalReceivedSet: MoneyBag!
   """Total amount refunded for the order."""
-  totalRefunded: Money!,
+  totalRefunded: Money! @deprecated(reason: "Use `totalRefundedSet` instead")
   """Total amount refunded for the order in shop and presentment currencies."""
-  totalRefundedSet: MoneyBag!,
+  totalRefundedSet: MoneyBag!
   """Total amount refunded for shipping in shop and presentment currencies."""
-  totalRefundedShippingSet: MoneyBag!,
+  totalRefundedShippingSet: MoneyBag!
   """Total amount charged for shipping the order."""
-  totalShippingPrice: Money!,
+  totalShippingPrice: Money! @deprecated(reason: "Use `totalShippingPriceSet` instead")
   """Total amount charged for shipping the order in shop and presentment currencies."""
-  totalShippingPriceSet: MoneyBag!,
+  totalShippingPriceSet: MoneyBag!
   """Total of all taxes applied to the order."""
-  totalTax: Money,
+  totalTax: Money @deprecated(reason: "Use `totalTaxSet` instead")
   """Total of all taxes applied to the order in shop and presentment currencies."""
-  totalTaxSet: MoneyBag,
+  totalTaxSet: MoneyBag
   """Total weight (grams) of the order."""
-  totalWeight: UnsignedInt64,
+  totalWeight: UnsignedInt64
   """List of all transactions associated with the order."""
   transactions(
     "Truncate the array result to this size."
@@ -375,12 +375,12 @@ type Order implements Node & CommentEventSubject & HasMetafields & LegacyInterop
     If true, then returns only transactions that are manual payments. If false, then returns all transactions.
     """
     manuallyResolvable: Boolean
-  ): [OrderTransaction!]!,
+  ): [OrderTransaction!]!
   """
   Whether no payments have been made for the order.
   If no payments have been made for the order, then this returns true.
   """
-  unpaid: Boolean!,
+  unpaid: Boolean!
   """Date and time when the order was last modified."""
   updatedAt: DateTime!
 }

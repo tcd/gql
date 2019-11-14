@@ -4,7 +4,7 @@ module Gql
     # @return [String]
     def self.input(input)
       start  = self.description(input.description) + "input " + input.name + " {\n"
-      middle = input.fields.map { |f| self.input_field(f) }.join(",\n")
+      middle = input.fields.map { |f| self.input_field(f) }.join("\n")
       ending = "\n}"
       return start + middle.indent(2) + ending
     end

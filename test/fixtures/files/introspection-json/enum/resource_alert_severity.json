@@ -1,0 +1,50 @@
+{
+  "kind": "ENUM",
+  "name": "ResourceAlertSeverity",
+  "description": null,
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "fields": null,
+  "inputFields": null,
+  "interfaces": null,
+  "enumValues": [
+    {
+      "name": "DEFAULT",
+      "description": null,
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "INFO",
+      "description": null,
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "WARNING",
+      "description": null,
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "SUCCESS",
+      "description": null,
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "CRITICAL",
+      "description": null,
+      "isDeprecated": false,
+      "deprecationReason": null
+    },
+    {
+      "name": "ERROR",
+      "description": null,
+      "isDeprecated": true,
+      "deprecationReason": "`ERROR` severity is being deprecated in favour of `WARNING` or `CRITICAL` instead"
+    }
+  ],
+  "possibleTypes": null,
+  "requiredAccess": null
+}

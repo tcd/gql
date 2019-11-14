@@ -74,4 +74,14 @@ class GenerateFieldTest < Minitest::Test
     assert_equal(want, have)
   end
 
+  def test_deprecation
+    want = <<~GQL.strip()
+      """The Harmonized System Code (or HS Tariff Code) for the variant."""
+      harmonizedSystemCode: String @deprecated(reason: "Use `InventoryItem.harmonized_system_code` instead.")
+    GQL
+    field = Gql::Parse.field(json_file_fixture("introspection-json/field/product_variant.harmonized_system_code.json"))
+    have = Gql::Generate.field(field)
+    assert_equal(want, have)
+  end
+
 end

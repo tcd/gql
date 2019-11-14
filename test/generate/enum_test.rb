@@ -43,8 +43,14 @@ class GenerateEnumTest < Minitest::Test
   end
 
   def test_generating_customer_marketing_opt_in_level
-    want = File.read(file_fixture("graphql/customer_marketing_opt_in_level.graphql")).strip
+    want = File.read(file_fixture("graphql/enum/customer_marketing_opt_in_level.graphql")).strip
     have = Gql::Generate.enum(Gql::Parse.enum(json_file_fixture("introspection-json/enum/customer_marketing_opt_in_level.json")))
+    assert_equal(want, have)
+  end
+
+  def test_deprecation
+    want = File.read(file_fixture("graphql/enum/resource_alert_severity.graphql")).strip
+    have = Gql::Generate.enum(Gql::Parse.enum(json_file_fixture("introspection-json/enum/resource_alert_severity.json")))
     assert_equal(want, have)
   end
 

@@ -1,7 +1,7 @@
 input StagedUploadTargetGenerateInput {
-  resource: StagedUploadTargetGenerateUploadResource!,
-  filename: String!,
-  mimeType: String!,
+  resource: StagedUploadTargetGenerateUploadResource!
+  filename: String!
+  mimeType: String!
   """HTTP method to be used by the Staged Upload."""
   httpMethod: StagedUploadHttpMethodType = PUT
 }

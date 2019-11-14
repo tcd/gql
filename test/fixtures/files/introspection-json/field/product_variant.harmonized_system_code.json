@@ -1,0 +1,15 @@
+{
+  "name": "harmonizedSystemCode",
+  "description": "The Harmonized System Code (or HS Tariff Code) for the variant.",
+  "args": [],
+  "type": {
+    "kind": "SCALAR",
+    "name": "String",
+    "ofType": null
+  },
+  "isDeprecated": true,
+  "deprecationReason": "Use `InventoryItem.harmonized_system_code` instead.",
+  "accessRestricted": false,
+  "accessRestrictedReason": null,
+  "requiredAccess": null
+}

@@ -10,6 +10,7 @@ module Gql
         enum.values.append({
           name:        v[:name],
           description: v[:description],
+          deprecation: v[:deprecationReason],
         })
       end
       return enum

@@ -99,4 +99,15 @@ class ParseFieldTest < Minitest::Test
     assert_equal(want, have)
   end
 
+  def test_deprecation
+    want = Gql::Models::Field.new(
+      name: "harmonizedSystemCode",
+      description: "The Harmonized System Code (or HS Tariff Code) for the variant.",
+      type: "String",
+      deprecation: "Use `InventoryItem.harmonized_system_code` instead.",
+    )
+    have = Gql::Parse.field(json_file_fixture("introspection-json/field/product_variant.harmonized_system_code.json"))
+    assert_equal(want, have)
+  end
+
 end

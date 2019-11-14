@@ -6,6 +6,7 @@ module Gql
       field = Gql::Models::Field.new()
       field.name        = data[:name]
       field.description = data[:description]
+      field.deprecation = data[:deprecationReason]
       if data[:args] && data[:args].length > 0
         field.args = data[:args].map { |arg| Gql::Parse.argument(arg) }
       end
