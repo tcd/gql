@@ -1,6 +1,18 @@
 require "simplecov"
 require "simplecov-console"
 # https://rubydoc.info/gems/simplecov/SimpleCov/Configuration
+
+formatters = []
+formatters << SimpleCov::Formatter::HTMLFormatter
+formatters << SimpleCov::Formatter::Console
+if ENV["CI"] == "true"
+  require "coveralls"
+  formatters << Coveralls::SimpleCov::Formatter
+  #   require "codecov"
+  #   SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(formatters)
+
 SimpleCov.start do
   add_filter "/bin/"
   add_filter "/test/"
@@ -10,10 +22,6 @@ SimpleCov.start do
   add_group "Parse", "lib/gql/parse"
 
   track_files "lib/**/*.rb"
-  # SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
-  #   SimpleCov::Formatter::HTMLFormatter,
-  #   # SimpleCov::Formatter::Console,
-  # ])
 end
 # if ENV["CI"] == "true"
 #   require "codecov"

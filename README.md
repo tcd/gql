@@ -1,5 +1,8 @@
 # Gql
 
+[![Build Status](https://travis-ci.org/tcd/gql.svg?branch=master)](https://travis-ci.org/tcd/gql)
+[![Coverage Status](https://coveralls.io/repos/github/tcd/gql/badge.svg?branch=master)](https://coveralls.io/github/tcd/gql?branch=master
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/tcd/gql.
