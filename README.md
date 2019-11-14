@@ -1,7 +1,7 @@
 # Gql
 
 [![Build Status](https://travis-ci.org/tcd/gql.svg?branch=master)](https://travis-ci.org/tcd/gql)
-[![Coverage Status](https://coveralls.io/repos/github/tcd/gql/badge.svg?branch=master)](https://coveralls.io/github/tcd/gql?branch=master
+[![Coverage Status](https://coveralls.io/repos/github/tcd/gql/badge.svg?branch=master)](https://coveralls.io/github/tcd/gql?branch=master)
 
 ## Contributing
 
