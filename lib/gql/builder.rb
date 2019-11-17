@@ -1,6 +1,5 @@
 module Gql
   class Builder
-
     # Shopify GraphQL [Types](https://graphql.org/learn/schema/#type-system).
     # @return [Hash<Symbol>]
     attr_accessor :data
@@ -53,6 +52,9 @@ module Gql
       end
     end
 
+
+    # Write the parsed GraphQL data out to a file in Schema Definition Language.
+    # @return [String]
     def write_sdl
       self.parse()
       filename = Gql.unique_filename(File.join(Gql.tmp_dir, "shopify.graphql"))

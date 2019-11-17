@@ -6,16 +6,11 @@ module Gql
       include Gql::Comparison
       include Gql::Serialization
 
-      # @!attribute [rw] name
-      #   @return [String]
+      # @return [String]
       attr_accessor :name
-
-      # @!attribute [rw] description
-      #   @return [String, nil]
+      # @return [String, nil]
       attr_accessor :description
-
-      # @!attribute [rw] fields
-      #   @return [Array<Gql::Models::Field>]
+      # @return [Array<Gql::Models::Field>]
       attr_accessor :fields
 
       # @param name [String]
@@ -34,37 +29,24 @@ module Gql
       include Gql::Comparison
       include Gql::Serialization
 
-      # @!attribute [rw] name
-      #   @return [String]
+      # @return [String]
       attr_accessor :name
-
-      # @!attribute [rw] description
-      #   @return [String, nil]
+      # @return [String, nil]
       attr_accessor :description
-
-      # @!attribute [rw] type
-      #   @return [String]
+      # @return [String]
       attr_accessor :type
-
-      # @!attribute [rw] required
-      #   [See the GraphQL Spec](https://graphql.org/learn/schema/#lists-and-non-null).
-      #   @return [Boolean]
+      # [See the GraphQL Spec](https://graphql.org/learn/schema/#lists-and-non-null).
+      # @return [Boolean]
       attr_accessor :required
-
-      # @!attribute [rw] list
-      #   Whether the InputField's `type` is an array.
-      #   See the [List modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
-      #   @return [Boolean]
+      # Whether the InputField's `type` is an array.
+      # See the [List modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      # @return [Boolean]
       attr_accessor :list
-
-      # @!attribute [rw] members_required
-      #   True if the InputField's `type` is an array and the members of that array are `Non-Null`.
-      #   See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
-      #   @return [Boolean]
+      # True if the InputField's `type` is an array and the members of that array are `Non-Null`.
+      # See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      # @return [Boolean]
       attr_accessor :members_required
-
-      # @!attribute [rw] default
-      #   @return [String, nil]
+      # @return [String, nil]
       attr_accessor :default
 
       # @param name [String]

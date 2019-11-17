@@ -25,6 +25,8 @@ module Gql
       return arg
     end
 
+    # @param data [Hash<Symbol>]
+    # @return [Gql::Models::Input]
     def self.input(data)
       input = Gql::Models::Input.new()
       input.name        = data[:name]
@@ -35,6 +37,8 @@ module Gql
       return input
     end
 
+    # @param data [Hash<Symbol>]
+    # @return [Gql::Models::InputField]
     def self.input_field(data)
       field = Gql::Models::InputField.new()
       field.name        = data[:name]

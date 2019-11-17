@@ -1,5 +1,6 @@
 module Gql
   module Generate
+
     # @param input [Gql::Models::Input]
     # @return [String]
     def self.input(input)

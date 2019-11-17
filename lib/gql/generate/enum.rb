@@ -1,5 +1,6 @@
 module Gql
   module Generate
+
     # @param enum [Gql::Models::Enum]
     # @return [String]
     def self.enum(enum)
@@ -15,5 +16,6 @@ module Gql
       deprecation = value[:deprecation].nil?() ? "" : %( @deprecated(reason: "#{value[:deprecation]}"))
       return self.description(value[:description]) + value[:name] + deprecation
     end
+
   end
 end

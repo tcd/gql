@@ -5,46 +5,30 @@ module Gql
       include Gql::Comparison
       include Gql::Serialization
 
-      # @!attribute [rw] name
-      #   @return [String]
+      # @return [String]
       attr_accessor :name
-
-      # @!attribute [rw] description
-      #   @return [String, nil]
+      # @return [String, nil]
       attr_accessor :description
-
-      # @!attribute [rw] type
-      #   @return [String]
+      # @return [String]
       attr_accessor :type
-
-      # @!attribute [rw] required
-      #   True if the Field's `type` or type list is required
-      #   See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
-      #   @return [Boolean]
+      # True if the Field's `type` or type list is required.
+      # See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      # @return [Boolean]
       attr_accessor :required
-
-      # @!attribute [rw] list
-      #   Whether the Field's `type` is an array.
-      #   See the [List modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
-      #   @return [Boolean]
+      # Whether the Field's `type` is an array.
+      # See the [List modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      # @return [Boolean]
       attr_accessor :list
-
-      # @!attribute [rw] members_required
-      #   True if the Field's `type` is an array and the members of that array are `Non-Null`.
-      #   See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
-      #   @return [Boolean]
+      # True if the Field's `type` is an array and the members of that array are `Non-Null`.
+      # See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      # @return [Boolean]
       attr_accessor :members_required
-
-      # @!attribute [rw] args
-      #   @return [Array<Gql::Models::Argument>]
+      # @return [Array<Gql::Models::Argument>]
       attr_accessor :args
-
-      # @!attribute [rw] deprecation
-      #   `nil` unless the Field is deprecated.
-      #   See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
-      #   @return [String,nil]
+      # `nil` unless the Field is deprecated.
+      # See the [Non-Null modifier](https://graphql.org/learn/schema/#lists-and-non-null) in the GraphQL Spec.
+      # @return [String,nil]
       attr_accessor :deprecation
-
 
       # @param name [String]
       # @param description [String]
@@ -53,6 +37,7 @@ module Gql
       # @param list [Boolean]
       # @param members_required [Boolean]
       # @param args [Array<Gql::Models::Argument>]
+      # @param deprecation [String]
       # @return [void]
       def initialize(
         name: nil,

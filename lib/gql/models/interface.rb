@@ -5,16 +5,13 @@ module Gql
       include Gql::Comparison
       include Gql::Serialization
 
-      # @!attribute [rw] name
-      #   @return [String]
+      # @return [String]
       attr_accessor :name
 
-      # @!attribute [rw] description
-      #   @return [String, nil]
+      # @return [String, nil]
       attr_accessor :description
 
-      # @!attribute [rw] fields
-      #   @return [Array<Gql::Models::Field>]
+      # @return [Array<Gql::Models::Field>]
       attr_accessor :fields
 
       # @param name [String]
