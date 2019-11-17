@@ -52,7 +52,6 @@ class GenerateObjectTest < Minitest::Test
   def test_order
     want = File.read(file_fixture("graphql/type/order.graphql")).strip
     have = Gql::Generate.object(Gql::Parse.object(json_file_fixture("introspection-json/object/order.json")))
-    File.open("order.gql", "a") { |f| f.write(have) }
     assert_equal(want, have)
   end
 
